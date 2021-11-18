@@ -1,8 +1,8 @@
 {
-  "name": "Filmoteka-team-project",
+  "name": "filmoteka-team-project",
   "version": "1.1.0",
   "description": "",
-  "main": "index.js", 
+  "main": "index.js",
   "homepage": "https://LiViS-code.github.io/Filmoteka-team-project",
   "scripts": {
     "dev": "parcel src/*.html",
@@ -24,5 +24,9 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "spin.js": "^4.1.1"
   }
 }

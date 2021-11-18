@@ -5,3 +5,9 @@ import './sass/main.scss';
 
 // скрипт взаимодействия с API
 import './js/apiSrevice';
+
+// файл шаблонизатор страницы
+import listCards from './templates/listCards.hbs';
+
+// спиннер
+import { Spinner } from 'spin.js';
