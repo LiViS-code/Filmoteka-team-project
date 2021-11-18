@@ -1,0 +1,12 @@
+.link {
+  color: inherit;
+
+  &__navigation {
+    text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+      color: $accent-color;
+    }
+  }
+}
