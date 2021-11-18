@@ -3,6 +3,7 @@
 
   &__navigation {
     text-transform: uppercase;
+    transition: color $timing $timing-func;
 
       &:hover,
       &:focus {
