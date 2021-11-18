@@ -1,4 +1,7 @@
 body {
+  background-color: $reverse-color;
+  color: $color;
   font-family: $font-family-site;
-  line-height: 1.5
+  font-size: 12px;
+  line-height: 1.333;
 }
