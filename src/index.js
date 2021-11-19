@@ -4,8 +4,9 @@
 import './sass/main.scss';
 
 // скрипт взаимодействия с API
-import './js/apiSrevice';
-
+import './js/apiService';
+import './js/cardFetch';
+import './js/searchFilms';
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
 

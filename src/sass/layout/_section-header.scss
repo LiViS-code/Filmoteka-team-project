@@ -63,6 +63,7 @@
   margin-right: auto;
 }
 .search-box {
+  position: relative;
   width: 280px;
   display: flex;
   justify-content: space-between;
@@ -103,6 +104,12 @@
   background-size: contain;
 }
 .warning-message {
+  position: absolute;
+  top: 90px;
+  right: 50%;
+
+  font-size: 16px;
+  line-height: 1.14;
   color: $error-text-color;
 }
 .button-box {
