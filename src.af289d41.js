@@ -23,4 +23,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"./data-api":"aIVb"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/apiService"),require("./js/cardFetch"),require("./js/searchFilms");var e=i(require("./templates/listCards.hbs")),s=require("spin.js"),r=require("./js/all-films");function i(e){return e&&e.__esModule?e:{default:e}}console.log((0,r.allFilms)(1));
 },{"./sass/main.scss":"clu1","./js/apiService":"eQwa","./js/cardFetch":"ec5l","./js/searchFilms":"WbZe","./templates/listCards.hbs":"UMfk","spin.js":"plPA","./js/all-films":"WDlQ"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka-team-project/src.697c6db9.js.map
+//# sourceMappingURL=/Filmoteka-team-project/src.af289d41.js.map
