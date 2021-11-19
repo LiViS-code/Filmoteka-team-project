@@ -1,13 +1,8 @@
 .main {
   padding: 20px 20px 40px;
-
-  @media screen and (min-width: $tablet-size) {
-    padding: 60px 76px;
-  }
-  @media screen and (min-width: $desktop-size) {
-    padding-right: 100px;
-    padding-left: 100px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .film-cards-list {
