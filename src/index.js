@@ -15,3 +15,4 @@ import { Spinner } from 'spin.js';
 import { allFilms } from './js/all-films';
 
 console.log(allFilms(1));
+
