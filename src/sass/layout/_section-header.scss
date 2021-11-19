@@ -1,16 +1,33 @@
 .header {
   color: $reverse-color;
   padding: 48px 20px 43px;
-  background-image: url('../images/home-header_mobile.jpg');
   background-color: $color;
   background-size: contain;
   @media screen and (min-width: $tablet-size) {
     padding: 40px 75px 60px;
-    background-image: url('../images/home-header_tablet.jpg');
   }
   @media screen and (min-width: $desktop-size) {
     padding: 46px 71px 60px;
+  }
+}
+.home-header {
+  background-image: url('../images/home-header_mobile.jpg');
+  @media screen and (min-width: $tablet-size) {
+    background-image: url('../images/home-header_tablet.jpg');
+  }
+  @media screen and (min-width: $desktop-size) {
     background-image: url('../images/home-header_desktop.jpg');
+  }
+}
+.library-header {
+  background-image: url('../images/watched-header_mobile.jpg');
+  @media screen and (min-width: $tablet-size) {
+    padding: 40px 75px 60px;
+    background-image: url('../images/watched-header_tablet.jpg');
+  }
+  @media screen and (min-width: $desktop-size) {
+    padding: 46px 71px 60px;
+    background-image: url('../images/watched-header_desktop.jpg');
   }
 }
 .main-nav {
