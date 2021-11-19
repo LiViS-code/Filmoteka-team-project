@@ -12,3 +12,4 @@ import listCards from './templates/listCards.hbs';
 
 // спиннер
 import { Spinner } from 'spin.js';
+
