@@ -2,21 +2,22 @@
   color: $reverse-color;
   padding: 48px 20px 43px;
   background-image: url('../images/home-header_mobile.jpg');
-  /*  @media screen and (min-width: $tablet-size) {
+  background-color: $color;
+  background-size: contain;
+  @media screen and (min-width: $tablet-size) {
     padding: 40px 75px 60px;
     background-image: url('../images/home-header_tablet.jpg');
   }
   @media screen and (min-width: $desktop-size) {
     padding: 46px 71px 60px;
     background-image: url('../images/home-header_desktop.jpg');
-  }*/
-  background-color: $color;
-  background-size: contain;
+  }
 }
 .main-nav {
   display: flex;
   justify-content: space-between;
   margin-bottom: 38px;
+  align-items: baseline;
 }
 .nav-button-list {
   display: flex;
@@ -30,9 +31,13 @@
   margin-right: 10px;
 }
 .logo-text {
-  font-size: 30px;
-  line-height: 1.167;
-  font-weight: 500;
+  display: none;
+  @media screen and (min-width: $tablet-size) {
+    display: inline;
+    font-size: 30px;
+    line-height: 1.167;
+    font-weight: 500;
+  }
 }
 .nav-button-list__item {
   padding: 0;
