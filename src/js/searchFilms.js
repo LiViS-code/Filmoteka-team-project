@@ -18,7 +18,7 @@ function FilmSearchbyWord(e) {
   e.preventDefault();
   filmApiService.query = e.currentTarget.elements.query.value;
   if (filmApiService.query === '') {
-   refs.warningField.textContent = `Please write something!`;
+   refs.warningField.textContent = `Please write something!!!`;
     return;
   }
   render(filmApiService.query);
