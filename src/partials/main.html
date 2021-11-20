@@ -1,12 +1,14 @@
 <main class="main">
 
-  <ul class="film-cards-list">
-    <li class="film-cards-list__item">
-      <a class="film-cards-list__link" href="#">
-        <h3 class="film-cards-list__title"></h3>
-      </a>
-    </li>
-  </ul>
+  <div class="main-container">
+    <ul class="film-cards-list film-cards-list-js"></ul>
+  </div>
+  <div class="library-main visually-hidden">
+    <div class="library-container">
+      <ul class="film-cards-list"></ul>
+
+    </div>
+  </div>
 
   <div class="modal-container">
     <div class="modal-window">
@@ -47,13 +49,5 @@
       <button id="watched">ADD TO WATCHED</button>
       <button id="queued">ADD TO QUEUED</button>
 
-  <div class="main-container">
-    <ul class="film-cards-list film-cards-list-js"></ul>
-  </div>
-  <div class="library-main visually-hidden">
-    <div class="library-container">
-      <ul class="film-cards-list"></ul>
-
-    </div>
-  </div>
+  
 </main>
