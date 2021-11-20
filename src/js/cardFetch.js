@@ -1,17 +1,14 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import NewApiService from './apiService';
-import refs from "./Refs";
+import refs from './Refs';
 
 
 const newApiService = new NewApiService();
 
 render();
 
-refs.logoEl.addEventListener('click', onLogoClick);
-refs.btnHome.addEventListener('click', onLogoClick);
-
 // рендер популярних фильмов по клику на лого
-function onLogoClick(e) {
+ export function onLogoClick(e) {
   e.preventDefault();
   render();
 }
