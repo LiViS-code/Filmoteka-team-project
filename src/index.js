@@ -9,6 +9,9 @@ import { onLogoClick } from './js/cardFetch';
 import { FilmSearchByWord } from './js/searchFilms';
 import refs from './js/Refs';
 
+// пагинация
+import pagination from './js/pagination';
+
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
 
@@ -30,20 +33,19 @@ refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
-
 function onMyLibraryClick() {
-    bgImageChange('home-header', 'library-header');
+  bgImageChange('home-header', 'library-header');
 }
 
 function bgImageChange(oldBg, newBg) {
-    if (headerEl.classList.contains(oldBg)) {
-        console.log('contains!')
-        headerEl.classList.remove(oldBg);
-    }
-    headerEl.classList.add(newBg);
-    myLibraryBtn.classList.add('active');
-    myHomeBtn.classList.remove('active');
-    searchBox.classList.add('visually-hidden');
-    mainSection.classList.add('visually-hidden');
-    libraryMainSection.classList.remove('visually-hidden');
+  if (headerEl.classList.contains(oldBg)) {
+    console.log('contains!');
+    headerEl.classList.remove(oldBg);
+  }
+  headerEl.classList.add(newBg);
+  myLibraryBtn.classList.add('active');
+  myHomeBtn.classList.remove('active');
+  searchBox.classList.add('visually-hidden');
+  mainSection.classList.add('visually-hidden');
+  libraryMainSection.classList.remove('visually-hidden');
 }
