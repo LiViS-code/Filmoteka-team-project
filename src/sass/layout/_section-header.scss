@@ -148,6 +148,11 @@
   border-radius: 5px;
   border: 1px solid $reverse-color;
   background-color: transparent;
+  height: 44px;
+  min-width: 130px;
+  @media screen and (min-width: $tablet-size) {
+    min-width: 136px;
+  }
 }
 .btn--first {
   margin-right: 20px;
