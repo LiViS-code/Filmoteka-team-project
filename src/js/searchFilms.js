@@ -6,12 +6,9 @@ import refs from "./Refs";
 
 const filmApiService = new ApiService();
 
-
-refs.searchForm.addEventListener('submit', FilmSearchByWord);
-
 //Поиска и рендер фильмов по названию(слову)
 
-function FilmSearchByWord(e) {
+export function FilmSearchByWord(e) {
    filmApiService.pageNum = 1;
   e.preventDefault();
   filmApiService.query = e.currentTarget.elements.query.value;

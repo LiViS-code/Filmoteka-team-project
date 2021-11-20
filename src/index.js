@@ -2,11 +2,12 @@
 
 // файл стилей
 import './sass/main.scss';
-import "./js/Refs";
+
 // скрипт взаимодействия с API
 import './js/apiService';
-import './js/cardFetch';
-import './js/searchFilms';
+import { onLogoClick } from './js/cardFetch';
+import { FilmSearchByWord } from './js/searchFilms';
+import refs from './js/Refs';
 
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
@@ -24,6 +25,11 @@ const mainSection = document.querySelector('.main-container');
 const libraryMainSection = document.querySelector('.library-main');
 
 myLibraryBtn.addEventListener('click', onMyLibraryClick);
+
+refs.logoEl.addEventListener('click', onLogoClick);
+refs.btnHome.addEventListener('click', onLogoClick);
+refs.searchForm.addEventListener('submit', FilmSearchByWord);
+
 
 function onMyLibraryClick() {
     bgImageChange('home-header', 'library-header');
