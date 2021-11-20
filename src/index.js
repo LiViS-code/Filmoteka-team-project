@@ -19,6 +19,8 @@ const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"
 const myHomeBtn = document.querySelector('[data-action="home-page-rendering"]');
 const headerEl = document.querySelector('header');
 const searchBox = document.getElementById('search-box');
+const mainSection = document.querySelector('.main-container');
+const libraryMainSection = document.querySelector('.library-main');
 
 myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
@@ -35,4 +37,6 @@ function bgImageChange(oldBg, newBg) {
     myLibraryBtn.classList.add('active');
     myHomeBtn.classList.remove('active');
     searchBox.classList.add('visually-hidden');
+    mainSection.classList.add('visually-hidden');
+    libraryMainSection.classList.remove('visually-hidden');
 }
