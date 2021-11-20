@@ -8,7 +8,7 @@
 
 .film-cards-list {
   list-style: none;
-  
+
   @media screen and (min-width: $tablet-size) {
     margin-bottom: 50px;
     display: flex;
@@ -43,7 +43,7 @@
 
   @media screen and (min-width: $tablet-size) {
     width: 294px;
-    &:not(:nth-last-of-type(-n+2)) {
+    &:not(:nth-last-of-type(-n + 2)) {
       margin-bottom: 30px;
     }
   }
@@ -113,4 +113,13 @@
   color: $reverse-color;
   background-color: $accent-color;
   border-radius: 5px;
+}
+.library-container {
+  padding: 20px;
+  @media screen and (min-width: $tablet-size) {
+    padding: 60px 75px;
+  }
+  @media screen and (min-width: $desktop-size) {
+    padding: 60px 71px;
+  }
 }

@@ -1,19 +1,17 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './apiService';
 import * as cardFetch from './cardFetch';
+import refs from "./Refs";
 
-const refs = {
-  searchForm: document.querySelector('#search-form'),
-   warningField: document.querySelector('.warning-message'),
-};
+
 const filmApiService = new ApiService();
-const listElement = document.querySelector('.film-cards-list');
 
-refs.searchForm.addEventListener('submit', FilmSearchbyWord);
+
+refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
 //Поиска и рендер фильмов по названию(слову)
 
-function FilmSearchbyWord(e) {
+function FilmSearchByWord(e) {
    filmApiService.pageNum = 1;
   e.preventDefault();
   filmApiService.query = e.currentTarget.elements.query.value;
@@ -22,6 +20,7 @@ function FilmSearchbyWord(e) {
     return;
   }
   render(filmApiService.query);
+    e.currentTarget.elements.query.value = '';
    refs.warningField.textContent = '';
 }
 
@@ -38,6 +37,6 @@ function render(searchQuery) {
 
 
 function renderFilmsCard(articles) {
-  listElement.innerHTML = filmsCardTpl(articles);
+  refs.listElement.innerHTML = filmsCardTpl(articles);
 };
 
