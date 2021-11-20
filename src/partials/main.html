@@ -1,10 +1,59 @@
 <main class="main">
+
+  <ul class="film-cards-list">
+    <li class="film-cards-list__item">
+      <a class="film-cards-list__link" href="#">
+        <h3 class="film-cards-list__title"></h3>
+      </a>
+    </li>
+  </ul>
+
+  <div class="modal-container">
+    <div class="modal-window">
+      <div class="modal-button-close">
+        <button
+        type="button"
+        class="lightbox__button"
+        data-action="close-lightbox"
+      ></button>
+      </div>
+      <div class="modal-window-content">
+        <div class="modal-film-prewiew" id="filmRewiew"></div>
+        <div class="modal-film-info">
+          <div class="name-container">
+            <h3 class="film-name" id="filmName"></h3>
+          </div>
+         <div class="film-mainInfo-container">
+           <div class="film-keys" id="filmKeys">
+             <ul>
+               <li>Vote/Votes</li>
+               <li>Popularity</li>
+               <li>Original Title</li>
+               <li>Genre</li>
+             </ul>
+           </div>
+           <div class="film-values" id="filmValues">
+             <ul>
+               <li id="filmVotes"></li>
+               <li id="filmPopularity"></li>
+               <li id="filmOrigin"></li>
+               <li id="filmGenre"></li>
+             </ul>
+           </div>
+         </div>
+         <div class="film-plot"></div>
+        </div>
+      </div>
+      <button id="watched">ADD TO WATCHED</button>
+      <button id="queued">ADD TO QUEUED</button>
+
   <div class="main-container">
     <ul class="film-cards-list film-cards-list-js"></ul>
   </div>
   <div class="library-main visually-hidden">
     <div class="library-container">
       <ul class="film-cards-list"></ul>
+
     </div>
   </div>
 </main>
