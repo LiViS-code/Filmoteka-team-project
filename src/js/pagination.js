@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
-
-const refPaginationContainer = document.getElementById('tui-pagination-container');
+import refs from './Refs';
+import NewApiService from './apiService';
 
 const optionPagination = {
   totalItems: 500,
@@ -26,6 +26,13 @@ const optionPagination = {
   },
 };
 
-const pagination = new Pagination(refPaginationContainer, optionPagination);
+const pagination = new Pagination(refs.paginationContainer, optionPagination);
 
-// pagination.getCurrentPage();
+refs.paginationContainer.addEventListener('click', () => {
+  const selectPage = pagination.getCurrentPage();
+
+  console.log('Выбрана страница:', selectPage); // удалить после отладки
+
+  // послать запрос в бекенд с номером страницы
+  // NewApiService.pageNum(selectPage);
+});
