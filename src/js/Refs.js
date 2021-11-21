@@ -15,7 +15,6 @@ const watchedBtn = document.getElementById('js-watched-btn');
 const buttonBox = document.querySelector('.button-box');
 const paginationContainer = document.getElementById('tui-pagination-container');
 
-
 export default {
   listElement,
   logoEl,

@@ -3,9 +3,6 @@ import './js/onBtnClick';
 // файл стилей
 import './sass/main.scss';
 
-// рендеринг старницы
-import './js/onHomeBtnClick';
-
 // скрипт взаимодействия с API
 import './js/apiService';
 import { onLogoClick } from './js/cardFetch';
