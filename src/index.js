@@ -1,5 +1,5 @@
 // основной скрипт
-
+import './js/onBtnClick';
 // файл стилей
 import './sass/main.scss';
 
@@ -20,14 +20,7 @@ import { Spinner } from 'spin.js';
 
 //изменение фона по клику
 
-const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"]');
-const myHomeBtn = document.querySelector('[data-action="home-page-rendering"]');
-const headerEl = document.querySelector('header');
-const searchBox = document.getElementById('search-box');
-const mainSection = document.querySelector('.main-container');
-const libraryMainSection = document.querySelector('.library-main');
-
-myLibraryBtn.addEventListener('click', onMyLibraryClick);
+refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
 refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
@@ -38,14 +31,16 @@ function onMyLibraryClick() {
 }
 
 function bgImageChange(oldBg, newBg) {
-  if (headerEl.classList.contains(oldBg)) {
-    console.log('contains!');
-    headerEl.classList.remove(oldBg);
-  }
-  headerEl.classList.add(newBg);
-  myLibraryBtn.classList.add('active');
-  myHomeBtn.classList.remove('active');
-  searchBox.classList.add('visually-hidden');
-  mainSection.classList.add('visually-hidden');
-  libraryMainSection.classList.remove('visually-hidden');
+
+    if (refs.headerEl.classList.contains(oldBg)) {
+        console.log('contains!')
+        refs.headerEl.classList.remove(oldBg);
+    }
+    refs.headerEl.classList.add(newBg);
+    refs.myLibraryBtn.classList.add('active');
+    refs.myHomeBtn.classList.remove('active');
+    refs.searchBox.classList.add('visually-hidden');
+    refs.mainSection.classList.add('visually-hidden');
+    refs.libraryMainSection.classList.remove('visually-hidden');
+    refs.warningField.classList.add('visually-hidden');
 }
