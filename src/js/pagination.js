@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import refs from './Refs';
 import { render } from './cardFetch';
+import { FilmSearchByWordPagination } from './searchFilms';
 
 const optionPagination = {
   totalItems: 500,
@@ -30,6 +31,11 @@ const pagination = new Pagination(refs.paginationContainer, optionPagination);
 
 refs.paginationContainer.addEventListener('click', () => {
   const selectPage = pagination.getCurrentPage();
-
-  render(selectPage);
+  const searchedFilm = localStorage.getItem('searched');
+  if (searchedFilm === '') {
+    return render(selectPage);
+  }
+  FilmSearchByWordPagination(searchedFilm, selectPage);
+  console.log(selectPage);
+  console.log(searchedFilm);
 });
