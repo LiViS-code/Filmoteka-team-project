@@ -14,9 +14,9 @@ export function FilmSearchByWordPagination(searchedFilm, selectPage) {
   filmApiService.query = searchedFilm;
   render(filmApiService.query);
 }
-function backToFirstPage() {
-  refs.paginationContainer = pagination.firstPage();
-}
+// function backToFirstPage() {
+//   refs.paginationContainer = pagination.firstPage();
+// }
 
 export function FilmSearchByWord(e) {
   filmApiService.pageNum = 1;
