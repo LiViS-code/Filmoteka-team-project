@@ -18,7 +18,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(({ results, total_pages }) => {
-        console.log(total_pages);
+        // console.log(total_pages);
         return results;
       });
   }
@@ -29,7 +29,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(({ results, total_pages}) => {
-         console.log(total_pages);
+        //  console.log(total_pages);
         return results;
       });
   }

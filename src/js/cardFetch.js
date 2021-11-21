@@ -16,7 +16,8 @@ export function onLogoClick(e) {
 
 export function render() {
   newApiService.pageNum = 1;
-  console.log(newApiService.pageNum);
+
+  // console.log(newApiService.pageNum);
 
   newApiService
     .addGenresToMovieObj()
@@ -30,11 +31,10 @@ function renderFilmsCard(articles) {
   refs.listElement.innerHTML = filmsCardTpl(articles);
 }
 
-// function fetchPopularFilmsByPage(page) {
-//   newApiService.pageNum = page;
-//   return newApiService.addGenresToMovieObj();
-// }
-// fetchPopularFilmsByPage(5)
+export function fetchPopularFilmsByPage(page) {
+  newApiService.pageNum = page;
+  return newApiService.addGenresToMovieObj();
+}
 
 function bgImageChangeMain(oldBg, newBg) {
   if (refs.headerEl.classList.contains(newBg)) {
