@@ -8,26 +8,28 @@ const KEY = `b7df999202e1c3618d01db23ce0076f0`;
 export default class NewApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page;
+    this.total_pages;
   }
- //запрос за популярными
+ //запрос за популярными Вывод количества найденных страниц!!!
 
   fetchPopularFilms() {
     const url = `${BASE_URL}/movie/popular?api_key=${KEY}&language=en-US&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
-      .then(({ results }) => {
+      .then(({ results, total_pages }) => {
+        console.log(total_pages);
         return results;
       });
   }
-
    //запрос по поиску
   
   fetchSearchFilms() {
     const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())
-      .then(({ results }) => {
+      .then(({ results, total_pages}) => {
+         console.log(total_pages);
         return results;
       });
   }
@@ -88,4 +90,8 @@ export default class NewApiService {
   set pageNum(newPage) {
     this.page = newPage;
   }
+  get totalPages() {
+    return this.total_pages;
+  }
 }
+
