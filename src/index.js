@@ -44,3 +44,4 @@ function bgImageChange(oldBg, newBg) {
     refs.libraryMainSection.classList.remove('visually-hidden');
     refs.warningField.classList.add('visually-hidden');
 }
+
