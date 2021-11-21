@@ -1,6 +1,3 @@
-
-
-
 const listElement = document.querySelector('.film-cards-list-js');
 const logoEl = document.querySelector('.logo-js');
 const btnHome = document.querySelector('.nav__btn-js');
@@ -15,13 +12,13 @@ const mainSection = document.querySelector('.main-container');
 const libraryMainSection = document.querySelector('.library-main');
 const queueBtn = document.getElementById('js-queue-btn');
 const watchedBtn = document.getElementById('js-watched-btn');
-
+const buttonBox = document.querySelector('.button-box');
 
 export default {
-   listElement,
-   logoEl,
-   btnHome,
-   searchForm,
+  listElement,
+  logoEl,
+  btnHome,
+  searchForm,
   warningField,
   myLibraryBtn,
   myHomeBtn,
@@ -30,5 +27,6 @@ export default {
   mainSection,
   libraryMainSection,
   queueBtn,
-  watchedBtn
+  watchedBtn,
+  buttonBox,
 };
