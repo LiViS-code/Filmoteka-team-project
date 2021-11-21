@@ -19,6 +19,7 @@ import listCards from './templates/listCards.hbs';
 import { Spinner } from 'spin.js';
 
 //изменение фона по клику
+localStorage.setItem('searched', '');
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
