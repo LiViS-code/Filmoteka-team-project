@@ -1,0 +1,128 @@
+.film-poster-wrapper {
+  width: 100%;
+  height: auto;
+  @media screen and (min-width: 1024px) {
+    width: 396px;
+    height: 478px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 264px;
+    height: 374px;
+  }
+}
+
+.film-poster {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-info {
+  @media screen and (min-width: 1024px) {
+    margin-left: 30px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 32px;
+  }
+}
+
+.film-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: FF6B01;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1024px) {
+    font-size: 30px;
+    line-height: 1.17;
+    margin-top: 0;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 0;
+  }
+}
+
+.film-descr-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.film-descr-itm {
+  font-size: 12px;
+  line-height: 1.33;
+  color: FF6B01;
+  margin-bottom: 10px;
+}
+
+.film-description-txt {
+  margin-left: 39px;
+  @media screen and (min-width: 1024px) {
+    margin-left: 80px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 39px;
+  }
+}
+
+.film-descr-itm-txt {
+  font-size: 12px;
+  line-height: 1.33;
+  margin-bottom: 10px;
+  & .vote-ave {
+    width: 40px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 1.15;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: FF6B01;
+    border-radius: 5px;
+  }
+}
+
+.about-title {
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: inherit;
+  text-transform: uppercase;
+  color: FF6B01;
+  margin-top: 20px;
+  @media screen and (min-width: 1024px) {
+  }
+}
+
+.about-description {
+  display: inline-flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  min-width: 240px;
+  max-height: 150px;
+  margin-top: 10px;
+  overflow-y: scroll;
+  justify-content: inherit;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 600px;
+    max-height: 160px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 264px;
+  }
+}
+
+.button-add-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
