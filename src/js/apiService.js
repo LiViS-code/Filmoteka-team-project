@@ -10,9 +10,8 @@ export default class NewApiService {
     this.searchQuery = '';
     this.page;
     this.total_pages;
-   
   }
- //запрос за популярными
+ //запрос за популярными Вывод количества найденных страниц!!!
 
   fetchPopularFilms() {
     const url = `${BASE_URL}/movie/popular?api_key=${KEY}&language=en-US&page=${this.page}`;
