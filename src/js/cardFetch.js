@@ -18,9 +18,9 @@ render();
 
 
 export function render() {
-  newApiService.pageNum = 1;
+  // newApiService.pageNum = 1;
   // console.log(newApiService.pageNum);
- 
+   
   newApiService
     .addGenresToMovieObj()
     .then(renderFilmsCard)
@@ -29,7 +29,7 @@ export function render() {
     });
 }
 
-
+ 
 function renderFilmsCard(articles) {
   refs.listElement.innerHTML = filmsCardTpl(articles);
 

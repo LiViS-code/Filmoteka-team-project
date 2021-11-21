@@ -30,7 +30,7 @@ export default class NewApiService {
       .then(response => response.json())
       .then(({ results, total_pages}) => {
         //  console.log(total_pages);
-        return results;
+         return results;
       });
   }
   //запрос за жанрами 

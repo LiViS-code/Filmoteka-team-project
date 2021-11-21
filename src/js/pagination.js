@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import refs from './Refs';
 import NewApiService from './apiService';
-import { fetchPopularFilmsByPage } from './cardFetch';
+import { fetchPopularFilmsByPage, render } from './cardFetch';
 
 const optionPagination = {
   totalItems: 500,
@@ -33,9 +33,12 @@ refs.paginationContainer.addEventListener('click', () => {
   const selectPage = pagination.getCurrentPage();
 
   console.log('Выбрана страница:', selectPage); // удалить после отладки
-
+  console.log('Выбрана страница:',fetchPopularFilmsByPage(selectPage));
   // послать запрос в бекенд с номером страницы
-console.log('Выбрана страница:',fetchPopularFilmsByPage(3));
-  // NewApiService.pageNum(3);
+  
+  fetchPopularFilmsByPage(selectPage);
+  render();
+  
 });
-// console.log('Выбрана страница:',fetchPopularFilmsByPage(3));
+
+  
