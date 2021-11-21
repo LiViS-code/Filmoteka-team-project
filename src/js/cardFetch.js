@@ -30,6 +30,7 @@ export function render(numPage) {
 }
 
 function renderFilmsCard(articles) {
+  scrollWin();
   refs.listElement.innerHTML = filmsCardTpl(articles);
 }
 
@@ -51,4 +52,11 @@ function bgImageChangeMain(oldBg, newBg) {
   refs.libraryMainSection.classList.add('visually-hidden');
   refs.warningField.classList.remove('visually-hidden');
   refs.buttonBox.classList.add('visually-hidden');
+}
+function scrollWin() {
+  window.scrollTo({
+    top: 0,
+    belavior: "smooth"
+  })
+    ;
 }
