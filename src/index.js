@@ -9,6 +9,9 @@ import { onLogoClick } from './js/cardFetch';
 import { FilmSearchByWord } from './js/searchFilms';
 import refs from './js/Refs';
 
+// пагинация
+import pagination from './js/pagination';
+
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
 
@@ -23,12 +26,12 @@ refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
-
 function onMyLibraryClick() {
-    bgImageChange('home-header', 'library-header');
+  bgImageChange('home-header', 'library-header');
 }
 
 function bgImageChange(oldBg, newBg) {
+
     if (refs.headerEl.classList.contains(oldBg)) {
         console.log('contains!')
         refs.headerEl.classList.remove(oldBg);
