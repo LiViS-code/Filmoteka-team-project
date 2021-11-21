@@ -5,7 +5,9 @@ import '../sass/main.scss';
 
 const newApiService = new NewApiService();
 
-render();
+const numFirstPage = 1;
+
+render(numFirstPage);
 
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
@@ -14,8 +16,8 @@ export function onLogoClick(e) {
   render();
 }
 
-export function render() {
-  newApiService.pageNum = 1;
+export function render(numPage) {
+  newApiService.pageNum = numPage;
 
   // console.log(newApiService.pageNum);
 
