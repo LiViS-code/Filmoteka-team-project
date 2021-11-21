@@ -8,21 +8,24 @@ const newApiService = new NewApiService();
 
 render();
 
+
 // рендер популярних фильмов по клику на лого
  export function onLogoClick(e) {
    e.preventDefault();
-   bgImageChangeMain ('home-header', 'library-header')
-  render();
+   bgImageChangeMain('home-header', 'library-header')
+   render();
 }
 
 
 export function render() {
-  newApiService.page = 1;
+  newApiService.pageNum = 1;
+  console.log(newApiService.pageNum);
+ 
   newApiService
     .addGenresToMovieObj()
     .then(renderFilmsCard)
     .catch(err => {
-      console.log('error in function render');
+      console.log('error in function render',err);
     });
 }
 
@@ -31,6 +34,14 @@ function renderFilmsCard(articles) {
   refs.listElement.innerHTML = filmsCardTpl(articles);
 
 };
+
+// function fetchPopularFilmsByPage(page) {
+//   newApiService.pageNum = page;
+//   return newApiService.addGenresToMovieObj();
+// }
+// fetchPopularFilmsByPage(5)
+
+
 function bgImageChangeMain (oldBg, newBg) {
 
     if (refs.headerEl.classList.contains(newBg)) {
@@ -45,3 +56,5 @@ function bgImageChangeMain (oldBg, newBg) {
     refs.libraryMainSection.classList.add('visually-hidden');
     refs.warningField.classList.remove('visually-hidden');
 }
+
+

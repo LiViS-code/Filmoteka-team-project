@@ -45,3 +45,4 @@ function bgImageChange(oldBg, newBg) {
     refs.warningField.classList.add('visually-hidden');
 }
 
+  
