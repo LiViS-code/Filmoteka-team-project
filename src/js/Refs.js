@@ -12,6 +12,7 @@ const mainSection = document.querySelector('.main-container');
 const libraryMainSection = document.querySelector('.library-main');
 const queueBtn = document.getElementById('js-queue-btn');
 const watchedBtn = document.getElementById('js-watched-btn');
+const buttonBox = document.querySelector('.button-box');
 
 export default {
   listElement,
@@ -27,4 +28,5 @@ export default {
   libraryMainSection,
   queueBtn,
   watchedBtn,
+  buttonBox,
 };
