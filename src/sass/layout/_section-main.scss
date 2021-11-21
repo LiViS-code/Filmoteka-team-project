@@ -123,3 +123,11 @@
     padding: 60px 71px;
   }
 }
+
+.main-container {
+  margin-bottom: 40px;
+
+  @media screen and (min-width: $tablet-size) {
+    margin-bottom: 50px;
+  }
+}

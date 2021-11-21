@@ -13,6 +13,8 @@ const libraryMainSection = document.querySelector('.library-main');
 const queueBtn = document.getElementById('js-queue-btn');
 const watchedBtn = document.getElementById('js-watched-btn');
 const buttonBox = document.querySelector('.button-box');
+const paginationContainer = document.getElementById('tui-pagination-container');
+
 
 export default {
   listElement,
@@ -29,4 +31,5 @@ export default {
   queueBtn,
   watchedBtn,
   buttonBox,
+  paginationContainer,
 };
