@@ -32,6 +32,8 @@ function onMyLibraryClick() {
 }
 
 function bgImageChange(oldBg, newBg) {
+  localStorage.setItem('searched', '');
+  refs.searchForm.query.value = '';
   if (refs.headerEl.classList.contains(oldBg)) {
     console.log('contains!');
     refs.headerEl.classList.remove(oldBg);
