@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
     "spin.js": "^4.1.1",
     "tui-pagination": "^3.4.1"
   }
