@@ -8,10 +8,12 @@ const newApiService = new NewApiService();
 const numFirstPage = 1;
 
 render(numFirstPage);
+ 
 
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
   e.preventDefault();
+  refs.searchField.value = "Popular";
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   render();
@@ -19,9 +21,7 @@ export function onLogoClick(e) {
 
 export function render(numPage) {
   newApiService.pageNum = numPage;
-
-  // console.log(newApiService.pageNum);
-
+ 
   newApiService
     .addGenresToMovieObj()
     .then(renderFilmsCard)
