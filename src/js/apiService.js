@@ -19,12 +19,9 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data.total_results);
-           return data
-        
+           return data 
       });
   };
-  // { results, total_pages ,total_results}
   //запрос по поиску
   
   fetchSearchFilms() {
@@ -32,7 +29,6 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data.total_results);
         return data;
       });
   };
@@ -41,50 +37,49 @@ export default class NewApiService {
     const url = `${BASE_URL}/genre/movie/list?api_key=${KEY}`;
     return fetch(url)
       .then(response => response.json())
-      .then(data => {
-        //  console.log(data.genres);
+      .then(data => { 
         return data.genres;
       });
   }
     //добавляем жанры на статику
   
-  addGenresToMovieObj() {
-    return this.fetchPopularFilms()
-      .then(data => data.results)
-      .then(data => {
-        return this.fetchGenres().then(genresList => {
-          return data.map(movie => ({
-            ...movie,
-            release_date: movie.release_date.split('-')[0],
-            genres: movie.genre_ids
-              .map(id => genresList.filter(el => el.id === id))
-              .flat(),
-          }));
-        });
-      });
-  }
+  // addGenresToMovieObj() {
+  //   return this.fetchPopularFilms()
+  //     .then(data => data.results)
+  //     .then(data => {
+  //       return this.fetchGenres().then(genresList => {
+  //         return data.map(movie => ({
+  //           ...movie,
+  //           release_date: movie.release_date.split('-')[0],
+  //           genres: movie.genre_ids
+  //             .map(id => genresList.filter(el => el.id === id))
+  //             .flat(),
+  //         }));
+  //       });
+  //     });
+  // }
 
   //добавляем жанры на поиск
 
-  addGenresToSearchObj() {
-    return this.fetchSearchFilms()
-      .then(data => data.results)
-      .then(data => {
-      return this.fetchGenres().then(genresList => {
-        return data.map(movie => ({
-          ...movie,
-          release_date: movie.release_date
-            ? movie.release_date.split('-')[0]
-            : 'n/a',
-          genres: movie.genre_ids
-            ? movie.genre_ids
-                .map(id => genresList.filter(el => el.id === id))
-                .flat()
-            : 'n/a',
-        }));
-      });
-    });
-  }
+  // addGenresToSearchObj() {
+  //   return this.fetchSearchFilms()
+  //     .then(data => data.results)
+  //     .then(data => {
+  //     return this.fetchGenres().then(genresList => {
+  //       return data.map(movie => ({
+  //         ...movie,
+  //         release_date: movie.release_date
+  //           ? movie.release_date.split('-')[0]
+  //           : 'n/a',
+  //         genres: movie.genre_ids
+  //           ? movie.genre_ids
+  //               .map(id => genresList.filter(el => el.id === id))
+  //               .flat()
+  //           : 'n/a',
+  //       }));
+  //     });
+  //   });
+  // }
   get query() {
     return this.searchQuery;
   }
