@@ -3,7 +3,7 @@ const logoEl = document.querySelector('.logo-js');
 const btnHome = document.querySelector('.nav__btn-js');
 const searchForm = document.querySelector('#search-form');
 const warningField = document.querySelector('.warning-message');
-
+const searchField = document.querySelector('.search-field')
 const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"]');
 const myHomeBtn = document.querySelector('[data-action="home-page-rendering"]');
 const headerEl = document.querySelector('header');
@@ -31,4 +31,5 @@ export default {
   watchedBtn,
   buttonBox,
   paginationContainer,
+  searchField,
 };

@@ -31,7 +31,6 @@ export function FilmSearchByWord(e) {
   }
 
   render(filmApiService.query);
-  e.currentTarget.elements.query.value = '';
   refs.warningField.textContent = '';
 }
 
