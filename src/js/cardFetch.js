@@ -12,6 +12,7 @@ render(numFirstPage);
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
   e.preventDefault();
+  localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   render();
 }

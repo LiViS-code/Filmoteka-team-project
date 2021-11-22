@@ -19,6 +19,7 @@ import listCards from './templates/listCards.hbs';
 import { Spinner } from 'spin.js';
 
 //изменение фона по клику
+localStorage.setItem('searched', '');
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
@@ -31,6 +32,8 @@ function onMyLibraryClick() {
 }
 
 function bgImageChange(oldBg, newBg) {
+  localStorage.setItem('searched', '');
+  refs.searchForm.query.value = '';
   if (refs.headerEl.classList.contains(oldBg)) {
     console.log('contains!');
     refs.headerEl.classList.remove(oldBg);
