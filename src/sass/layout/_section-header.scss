@@ -2,7 +2,10 @@
   color: $reverse-color;
   padding: 48px 20px 43px;
   background-color: $color;
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 230px;
   @media screen and (min-width: $tablet-size) {
     padding: 40px 75px 60px;
   }
@@ -11,12 +14,15 @@
   }
 }
 .home-header {
-  background-image: url('../images/home-header_mobile.jpg');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/home-header_mobile.jpg');
   @media screen and (min-width: $tablet-size) {
-    background-image: url('../images/home-header_tablet.jpg');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/home-header_tablet.jpg');
   }
   @media screen and (min-width: $desktop-size) {
-    background-image: url('../images/home-header_desktop.jpg');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/home-header_desktop.jpg');
   }
 }
 .library-header {
