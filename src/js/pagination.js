@@ -3,39 +3,44 @@ import refs from './Refs';
 import { render } from './cardFetch';
 import { FilmSearchByWordPagination } from './searchFilms';
 
-const optionPagination = {
-  totalItems: 500,
-  itemsPerPage: 15,
-  visiblePages: 5,
-  centerAlign: true,
-  usageStatistics: false,
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
-};
+export function addPagination(totalItems, itemsPerPage) {
+  const optionPagination = {
+    totalItems,
+    itemsPerPage,
+    visiblePages: 5,
+    centerAlign: true,
+    usageStatistics: false,
+    template: {
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
 
-const pagination = new Pagination(refs.paginationContainer, optionPagination);
+  const pagination = new Pagination(refs.paginationContainer, optionPagination);
 
-refs.paginationContainer.addEventListener('click', () => {
-  const selectPage = pagination.getCurrentPage();
-  const searchedFilm = localStorage.getItem('searched');
-  if (searchedFilm === '') {
-    return render(selectPage);
-  }
-  FilmSearchByWordPagination(searchedFilm, selectPage);
-  console.log(selectPage);
-  console.log(searchedFilm);
-});
+  pagination.movePageTo(1);
+
+  refs.paginationContainer.addEventListener('click', () => {
+    const selectPage = pagination.getCurrentPage();
+    const searchedFilm = localStorage.getItem('searched');
+    if (searchedFilm === '') {
+      return render(selectPage);
+    }
+    FilmSearchByWordPagination(searchedFilm, selectPage);
+
+    console.log(selectPage);
+    console.log(searchedFilm);
+  });
+}
