@@ -10,7 +10,8 @@ import { FilmSearchByWord } from './js/searchFilms';
 import refs from './js/Refs';
 
 // пагинация
-import pagination from './js/pagination';
+import { addPagination } from './js/pagination';
+addPagination(1000, 20); // пример вызова - поместить в функции отрисовки (1000 количество найденных фильмов, 20 - количество на странице для библиотеки это 8)
 
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
