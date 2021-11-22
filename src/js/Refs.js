@@ -14,6 +14,8 @@ const queueBtn = document.getElementById('js-queue-btn');
 const watchedBtn = document.getElementById('js-watched-btn');
 const buttonBox = document.querySelector('.button-box');
 const paginationContainer = document.getElementById('tui-pagination-container');
+const addToWatchedBtn = document.getElementById('watched');
+const addToQueuedBtn = document.getElementById('queued');
 
 export default {
   listElement,
@@ -32,4 +34,6 @@ export default {
   buttonBox,
   paginationContainer,
   searchField,
+  addToWatchedBtn,
+  addToQueuedBtn,
 };
