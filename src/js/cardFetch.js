@@ -42,6 +42,7 @@ export function onLogoClick(e) {
   bgImageChangeMain('home-header', 'library-header');
   render();
   search.spinner.close();
+  refs.paginationContainer.classList.remove('visually-hidden');
 }
 
 export function render(numPage) {
