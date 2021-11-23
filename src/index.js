@@ -2,6 +2,7 @@
 import './js/onBtnClick';
 // файл стилей
 import './sass/main.scss';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 // скрипт взаимодействия с API
 import './js/apiService';
@@ -16,8 +17,8 @@ addPagination(1000, 20); // пример вызова - поместить в ф
 // файл шаблонизатор страницы
 import listCards from './templates/listCards.hbs';
 
-// спиннер
-import { Spinner } from 'spin.js';
+
+
 
 // библиотека
 import './js/modal/addToLibrary'
