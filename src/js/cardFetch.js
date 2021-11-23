@@ -13,19 +13,8 @@ const newApiService = new NewApiService();
 const numFirstPage = 1;
 
 render(numFirstPage);
- 
-
- 
-// Пример как вернуть total_results
-// newApiService.fetchPopularFilms()
-//    .then(data => {
-//      console.log(data.total_results)
-//      console.log(data.results)
-//      data.results})
-  // Пример как вернуть total_results
-  
     
-     //добавляем жанры на статику
+//добавляем жанры на статику
 function addGenresToMovieObj() {
   return newApiService.fetchPopularFilms()
     .then(data => {
@@ -47,7 +36,8 @@ function addGenresToMovieObj() {
           }));
         });
       });
-  }
+    });
+}
 
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
@@ -64,7 +54,7 @@ export function onLogoClick(e) {
 export function render(numPage) {
   
   newApiService.pageNum = numPage;
-    addGenresToMovieObj()
+  addGenresToMovieObj()
     .then(renderFilmsCard)
     .catch(err => {
       console.log('error in function render', err);
