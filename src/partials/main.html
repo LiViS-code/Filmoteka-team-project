@@ -1,11 +1,17 @@
 <main class="main">
-  <ul class="film-cards-list">
-    <li class="film-cards-list__item">
-      <a class="film-cards-list__link" href="#">
-        <h3 class="film-cards-list__title"></h3>
-      </a>
-    </li>
-  </ul>
+
+ 
+  <div class="main-container">
+    <ul class="film-cards-list film-cards-list-js"></ul>
+  </div>
+  <div class="library-main visually-hidden">
+    <div class="library-container">
+      <ul class="film-cards-list-watched"></ul>
+      <ul class="film-cards-list-queue visually-hidden"></ul>
+    </div>
+  </div>
+
+  <div id="tui-pagination-container" class="tui-pagination"></div>
 
   <div  class="modal-container" id="modalContainer">
     <div class="modal-window">
