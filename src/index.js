@@ -22,6 +22,7 @@ import listCards from './templates/listCards.hbs';
 
 // библиотека
 import './js/modal/addToLibrary'
+import './js/library'
 
 // изменение фона по клику
 localStorage.setItem('searched', '');
