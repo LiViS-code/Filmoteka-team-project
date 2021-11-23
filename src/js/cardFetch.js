@@ -9,31 +9,32 @@ const numFirstPage = 1;
 
 render(numFirstPage);
 
- 
+
 // Пример как вернуть total_results
 newApiService.fetchPopularFilms()
-   .then(data => {
-       console.log(data.total_results)
-     data.total_results})
-  // Пример как вернуть total_results
-  
-    
-     //добавляем жанры на статику
+  .then(data => {
+    console.log(data.total_results)
+    data.total_results
+  })
+// Пример как вернуть total_results
+
+
+//добавляем жанры на статику
 function addGenresToMovieObj() {
-   return newApiService.fetchPopularFilms()
-     .then(data => data.results)
-      .then(data => {
-        return newApiService.fetchGenres().then(genresList => {
-          return data.map(movie => ({
-            ...movie,
-            release_date: movie.release_date.split('-')[0],
-            genres: movie.genre_ids
-              .map(id => genresList.filter(el => el.id === id))
-              .flat(),
-          }));
-        });
+  return newApiService.fetchPopularFilms()
+    .then(data => data.results)
+    .then(data => {
+      return newApiService.fetchGenres().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
+          release_date: movie.release_date.split('-')[0],
+          genres: movie.genre_ids
+            .map(id => genresList.filter(el => el.id === id))
+            .flat(),
+        }));
       });
-  }
+    });
+}
 
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
@@ -46,7 +47,7 @@ export function onLogoClick(e) {
 
 export function render(numPage) {
   newApiService.pageNum = numPage;
-    addGenresToMovieObj()
+  addGenresToMovieObj()
     .then(renderFilmsCard)
     .catch(err => {
       console.log('error in function render', err);
