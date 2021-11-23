@@ -41,45 +41,7 @@ export default class NewApiService {
         return data.genres;
       });
   }
-    //добавляем жанры на статику
-  
-  // addGenresToMovieObj() {
-  //   return this.fetchPopularFilms()
-  //     .then(data => data.results)
-  //     .then(data => {
-  //       return this.fetchGenres().then(genresList => {
-  //         return data.map(movie => ({
-  //           ...movie,
-  //           release_date: movie.release_date.split('-')[0],
-  //           genres: movie.genre_ids
-  //             .map(id => genresList.filter(el => el.id === id))
-  //             .flat(),
-  //         }));
-  //       });
-  //     });
-  // }
-
-  //добавляем жанры на поиск
-
-  // addGenresToSearchObj() {
-  //   return this.fetchSearchFilms()
-  //     .then(data => data.results)
-  //     .then(data => {
-  //     return this.fetchGenres().then(genresList => {
-  //       return data.map(movie => ({
-  //         ...movie,
-  //         release_date: movie.release_date
-  //           ? movie.release_date.split('-')[0]
-  //           : 'n/a',
-  //         genres: movie.genre_ids
-  //           ? movie.genre_ids
-  //               .map(id => genresList.filter(el => el.id === id))
-  //               .flat()
-  //           : 'n/a',
-  //       }));
-  //     });
-  //   });
-  // }
+ 
   get query() {
     return this.searchQuery;
   }
