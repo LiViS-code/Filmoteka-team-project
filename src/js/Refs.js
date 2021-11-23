@@ -16,6 +16,9 @@ const buttonBox = document.querySelector('.button-box');
 const paginationContainer = document.getElementById('tui-pagination-container');
 const addToWatchedBtn = document.getElementById('watched');
 const addToQueuedBtn = document.getElementById('queued');
+const listWatchedFilms = document.querySelector('.film-cards-list-watched');
+const listQueuedFilms = document.querySelector('.film-cards-list-queue');
+const cardFilm = document.querySelector('.card__film[data-action]')
 
 export default {
   listElement,
@@ -36,4 +39,7 @@ export default {
   searchField,
   addToWatchedBtn,
   addToQueuedBtn,
+  listWatchedFilms,
+  listQueuedFilms,
+  cardFilm,
 };

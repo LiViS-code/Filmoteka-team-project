@@ -11,12 +11,17 @@ refs.queueBtn.addEventListener('click', onAddToQueuedBtnClick)
 let filmsId = [];
 
 function addFilmId(id) {
+  if (filmsId.includes(id)) {
+    return
+  }
   filmsId.push(id)
 }
 
 function addFilmsIdToLocalStorage(keyName) {
   filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : []
-  addFilmId(2/* id фильма */)
+  addFilmId(512195/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  
   localStorage.setItem(keyName, JSON.stringify(filmsId))
 }
 

@@ -21,6 +21,7 @@ import { Spinner } from 'spin.js';
 
 // библиотека
 import './js/modal/addToLibrary'
+import './js/library'
 
 // изменение фона по клику
 localStorage.setItem('searched', '');
