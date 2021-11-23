@@ -1,26 +1,21 @@
 <main class="main">
-
- 
-  <div class="main-container">
-    <ul class="film-cards-list film-cards-list-js"></ul>
-  </div>
-  <div class="library-main visually-hidden">
-    <div class="library-container">
-      <ul class="film-cards-list-watched"></ul>
-      <ul class="film-cards-list-queue visually-hidden"></ul>
+  <div class="container">
+    <div class="main-container">
+      <ul class="film-cards-list film-cards-list-js"></ul>
+    </div>
+    <div class="library-main visually-hidden">
+      <div class="library-container">
+        <ul class="film-cards-list-watched"></ul>
+        <ul class="film-cards-list-queue visually-hidden"></ul>
+      </div>
     </div>
   </div>
-
   <div id="tui-pagination-container" class="tui-pagination"></div>
 
-  <div  class="modal-container" id="modalContainer">
+  <div class="modal-container" id="modalContainer">
     <div class="modal-window">
       <div class="modal-button-close">
-        <button
-        type="button"
-        class="lightbox__button"
-        data-action="close-lightbox"
-      ></button>
+        <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
       </div>
       <div class="modal-window-content">
         <div class="modal-film-prewiew" id="filmRewiew"></div>
@@ -28,25 +23,25 @@
           <div class="name-container">
             <h3 class="film-name" id="filmName"></h3>
           </div>
-         <div class="film-mainInfo-container">
-           <div class="film-keys" id="filmKeys">
-             <ul>
-               <li>Vote/Votes</li>
-               <li>Popularity</li>
-               <li>Original Title</li>
-               <li>Genre</li>
-             </ul>
-           </div>
-           <div class="film-values" id="filmValues">
-             <ul>
-               <li id="filmVotes"></li>
-               <li id="filmPopularity"></li>
-               <li id="filmOrigin"></li>
-               <li id="filmGenre"></li>
-             </ul>
-           </div>
-         </div>
-         <div class="film-plot"></div>
+          <div class="film-mainInfo-container">
+            <div class="film-keys" id="filmKeys">
+              <ul>
+                <li>Vote/Votes</li>
+                <li>Popularity</li>
+                <li>Original Title</li>
+                <li>Genre</li>
+              </ul>
+            </div>
+            <div class="film-values" id="filmValues">
+              <ul>
+                <li id="filmVotes"></li>
+                <li id="filmPopularity"></li>
+                <li id="filmOrigin"></li>
+                <li id="filmGenre"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="film-plot"></div>
         </div>
       </div>
       <button class="watched" id="watched">ADD TO WATCHED</button>

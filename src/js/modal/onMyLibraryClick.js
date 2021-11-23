@@ -1,6 +1,7 @@
 import refs from '../Refs';
 export function onMyLibraryClick() {
     bgImageChange('home-header', 'library-header');
+    contentChange();
 };
 
 function bgImageChange(oldBg, newBg) {
@@ -11,6 +12,10 @@ function bgImageChange(oldBg, newBg) {
         refs.headerEl.classList.remove(oldBg);
     }
     refs.headerEl.classList.add(newBg);
+    contentChange()
+}
+
+function contentChange() {
     refs.myLibraryBtn.classList.add('active');
     refs.myHomeBtn.classList.remove('active');
     refs.searchBox.classList.add('visually-hidden');
@@ -18,4 +23,4 @@ function bgImageChange(oldBg, newBg) {
     refs.libraryMainSection.classList.remove('visually-hidden');
     refs.warningField.classList.add('visually-hidden');
     refs.buttonBox.classList.remove('visually-hidden');
-}
+ }
