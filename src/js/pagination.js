@@ -3,7 +3,7 @@ import refs from './Refs';
 import { render } from './cardFetch';
 import { FilmSearchByWordPagination } from './searchFilms';
 
-export function addPagination(totalItems, itemsPerPage) {
+export function addPagination(totalItems, itemsPerPage, page) {
   const optionPagination = {
     totalItems,
     itemsPerPage,
@@ -30,17 +30,17 @@ export function addPagination(totalItems, itemsPerPage) {
 
   const pagination = new Pagination(refs.paginationContainer, optionPagination);
 
-  pagination.movePageTo(1);
+  pagination.movePageTo(page);
 
   refs.paginationContainer.addEventListener('click', () => {
     const selectPage = pagination.getCurrentPage();
     const searchedFilm = localStorage.getItem('searched');
-    if (searchedFilm === '') {
-      return render(selectPage);
+   if (searchedFilm === '') {
+     return render(selectPage);
     }
-    FilmSearchByWordPagination(searchedFilm, selectPage);
+    // fetchPopularFilmsByPage(selectPage);
+    FilmSearchByWordPagination(searchedFilm, selectPage)
 
-    console.log(selectPage);
-    console.log(searchedFilm);
+   
   });
 }

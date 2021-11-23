@@ -19,6 +19,7 @@ const addToQueuedBtn = document.getElementById('queued');
 const listWatchedFilms = document.querySelector('.film-cards-list-watched');
 const listQueuedFilms = document.querySelector('.film-cards-list-queue');
 const cardFilm = document.querySelector('.card__film[data-action]')
+const spinner = document.querySelector('.square');
 
 export default {
   listElement,
@@ -42,4 +43,5 @@ export default {
   listWatchedFilms,
   listQueuedFilms,
   cardFilm,
+  spinner,
 };
