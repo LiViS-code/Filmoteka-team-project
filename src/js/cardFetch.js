@@ -3,38 +3,32 @@ import NewApiService from './apiService';
 import refs from './Refs';
 import '../sass/main.scss';
 import search from './spinner';
-import { addPagination } from "./pagination";
-
+import { addPagination } from './pagination';
 
 const newApiService = new NewApiService();
-
-
 
 const numFirstPage = 1;
 
 render(numFirstPage);
-    
+
 //добавляем жанры на статику
 function addGenresToMovieObj() {
-  return newApiService.fetchPopularFilms()
+  return newApiService
+    .fetchPopularFilms()
     .then(data => {
       addPagination(data.total_results, 20, newApiService.page);
-       return data
+      return data;
     })
-    .then(data =>
-      data.results)
-     .then(data => {
-         console.log(data)
-        return newApiService.fetchGenres().then(genresList => {
-          console.log(genresList)
-          return data.map(movie => ({
-            ...movie,
-            release_date: movie.release_date.split('-')[0],
-            genres: movie.genre_ids
-              .map(id => genresList.filter(el => el.id === id))
-              .flat(),
-          }));
-        });
+    .then(data => data.results)
+    .then(data => {
+      console.log(data);
+      return newApiService.fetchGenres().then(genresList => {
+        console.log(genresList);
+        return data.map(movie => ({
+          ...movie,
+          release_date: movie.release_date.split('-')[0],
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+        }));
       });
     });
 }
@@ -42,30 +36,27 @@ function addGenresToMovieObj() {
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
   e.preventDefault();
-   search.spinner.show();
-  refs.searchField.value = "Popular";
+  search.spinner.show();
+  refs.searchField.value = 'Popular';
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   render();
-   search.spinner.close();
- 
+  search.spinner.close();
 }
 
 export function render(numPage) {
-  
   newApiService.pageNum = numPage;
   addGenresToMovieObj()
     .then(renderFilmsCard)
     .catch(err => {
       console.log('error in function render', err);
     });
-   
 }
 
 function renderFilmsCard(articles) {
   search.spinner.show();
   scrollWin();
-    search.spinner.close();
+  search.spinner.close();
   refs.listElement.innerHTML = filmsCardTpl(articles);
 }
 
@@ -91,9 +82,6 @@ function bgImageChangeMain(oldBg, newBg) {
 export function scrollWin() {
   window.scrollTo({
     top: 0,
-    belavior: "smooth"
-  })
-    ;
+    belavior: 'smooth',
+  });
 }
-
-
