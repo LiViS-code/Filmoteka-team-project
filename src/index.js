@@ -12,6 +12,7 @@ import listCards from './templates/listCards.hbs';
 
 // спиннер
 import { Spinner } from 'spin.js';
+import { log } from 'handlebars';
 
 //изменение фона по клику
 
@@ -31,3 +32,13 @@ function bgImageChange(oldBg, newBg) {
     }
     headerEl.classList.add(newBg);
 }
+
+// // открытие модального окна
+ 
+// const modalContainer = document.querySelector("#modalContainer");
+// const cardFilmModal = document.querySelector("#card-film-js");
+// console.log(cardFilmModal);
+
+// // cardFilmModal.addEventListener('onclick' , event =>  {
+// //     modalContainer.style = 'display: block';
+// // })
