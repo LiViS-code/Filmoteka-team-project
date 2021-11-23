@@ -22,7 +22,7 @@ render(numFirstPage);
 //      console.log(data.total_results)
 //      console.log(data.results)
 //      data.results})
-  // Пример как вернуть total_results
+
   
     
      //добавляем жанры на статику
