@@ -18,6 +18,11 @@ addPagination(1000, 20); // пример вызова - поместить в ф
 import listCards from './templates/listCards.hbs';
 
 
+// спиннер
+import { Spinner } from 'spin.js';
+import { log } from 'handlebars';
+
+
 
 
 // библиотека
@@ -39,4 +44,23 @@ refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
 
 
+
+
+function bgImageChange(oldBg, newBg) {
+    if (headerEl.classList.contains(oldBg)) {
+        console.log('contains!')
+        headerEl.classList.remove(oldBg);
+    }
+    headerEl.classList.add(newBg);
+}
+
+// // открытие модального окна
+ 
+// const modalContainer = document.querySelector("#modalContainer");
+// const cardFilmModal = document.querySelector("#card-film-js");
+// console.log(cardFilmModal);
+
+// // cardFilmModal.addEventListener('onclick' , event =>  {
+// //     modalContainer.style = 'display: block';
+// // })
 

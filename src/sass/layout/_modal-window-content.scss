@@ -1,9 +1,50 @@
 .modal-container{
-    display: none;
+display: none;
+position: absolute;
+width: 768px;
+height: 1024px;
+left: 0px;
+top: 0px;
+background: #000000;
+opacity: 0.25;
 }
-.modal-window-constent{
+.modal-window{
+position: absolute;
+width: 618px;
+height: 562px;
+left: 75px;
+top: 231px;
+background: #FFFFFF;
+}
+.modal-window-content{
     display: flex;
+}
+.modal-film-prewiew{
+position: absolute;
+width: 618px;
+height: 562px;
+left: 75px;
+top: 231px;
+background: #FFFFFF;
 }
 .film-mainInfo-container{
     display: flex;
+}
+.watched{
+position: absolute;
+width: 125.03px;
+height: 44px;
+left: 399px;
+top: 709px;
+background: #FF6B01;
+border-radius: 5px;
+}
+
+.queued{
+position: absolute;
+width: 618px;
+height: 562px;
+left: 75px;
+top: 231px;
+background: #FFFFFF;
 }
