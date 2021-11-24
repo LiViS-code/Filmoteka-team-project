@@ -2,7 +2,6 @@
 // example API request: https://api.themoviedb.org/3/movie/550?api_key=b7df999202e1c3618d01db23ce0076f0
 //
 
-// console.log('подключен файл для взаимодействия с API');
 const BASE_URL = `https://api.themoviedb.org/3`;
 const KEY = `b7df999202e1c3618d01db23ce0076f0`;
 export default class NewApiService {
@@ -19,11 +18,11 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-           return data 
+        return data;
       });
-  };
+  }
   //запрос по поиску
-  
+
   fetchSearchFilms() {
     const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
@@ -31,27 +30,27 @@ export default class NewApiService {
       .then(data => {
         return data;
       });
-  };
+  }
 
   fetchGenres() {
     const url = `${BASE_URL}/genre/movie/list?api_key=${KEY}`;
     return fetch(url)
       .then(response => response.json())
-      .then(data => { 
+      .then(data => {
         return data.genres;
       });
   }
 
   fetchId(id) {
-  const url = `${BASE_URL}/movie/${id}?api_key=${KEY}&language=en-US`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      return data
-    })
+    const url = `${BASE_URL}/movie/${id}?api_key=${KEY}&language=en-US`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        return data;
+      });
   }
-  
+
   get query() {
     return this.searchQuery;
   }
@@ -62,10 +61,9 @@ export default class NewApiService {
     return this.pageNum;
   }
   set page(newPage) {
-   return this.pageNum = newPage;
+    return (this.pageNum = newPage);
   }
   get totalPages() {
     return this.total_pages;
   }
 }
-

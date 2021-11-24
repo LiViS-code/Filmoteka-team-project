@@ -15,15 +15,13 @@ render(numFirstPage);
 function addGenresToMovieObj() {
   return newApiService
     .fetchPopularFilms()
-       .then(data => {
+    .then(data => {
       addPagination(data.total_results, 20, newApiService.page);
       return data;
-    })  
+    })
     .then(data => data.results)
     .then(data => {
-        console.log(data);
       return newApiService.fetchGenres().then(genresList => {
-        console.log(genresList);
         return data.map(movie => ({
           ...movie,
           release_date: movie.release_date.split('-')[0],
@@ -40,7 +38,7 @@ export function onLogoClick(e) {
   refs.searchField.value = 'Popular';
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
-   refs.warningField.textContent = '';
+  refs.warningField.textContent = '';
   render();
   search.spinner.close();
   refs.paginationContainer.classList.remove('visually-hidden');

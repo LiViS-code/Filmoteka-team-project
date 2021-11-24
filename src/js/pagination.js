@@ -32,24 +32,9 @@ export function addPagination(totalItems, itemsPerPage, page) {
 
   pagination.movePageTo(page);
 
-  refs.paginationContainer.addEventListener('click', listenerPagination);
-  console.log('вызвали пагинацию');
-
-  function listenerPagination() {
-    console.log('сработал слушатель');
-    const selectPage = pagination.getCurrentPage();
+  pagination.on('beforeMove', event => {
     const searchedFilm = localStorage.getItem('searched');
-    console.log('запрос:', searchedFilm);
-
-    if (searchedFilm === '') {
-      refs.paginationContainer.removeEventListener('click', listenerPagination);
-      console.log('снял слушателя внутри if');
-      return render(selectPage);
-    }
-
-    refs.paginationContainer.removeEventListener('click', listenerPagination);
-    console.log('снял слушателя');
-
-    FilmSearchByWordPagination(searchedFilm, selectPage);
-  }
+    if (searchedFilm === '') return render(event.page);
+    FilmSearchByWordPagination(searchedFilm, event.page);
+  });
 }
