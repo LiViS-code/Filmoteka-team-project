@@ -46,11 +46,11 @@ function bgImageChange(oldBg, newBg) {
 // открытие модального окна
  
 const modalContainer = document.querySelector("#modalContainer");
-const filmCards = document.querySelectorAll(".card__film");
-console.log(filmCards);
+const filmCards = document.querySelectorAll(".film-cards-list-js");
+
 filmCards.forEach(element => {
     element.addEventListener('click' , event =>  {
-        modalContainer.style = 'display: block';
         
+        modalContainer.style = 'display: block';
     })
 });
