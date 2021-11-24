@@ -2,13 +2,11 @@ import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './apiService';
 import * as cardFetch from './cardFetch';
 import refs from './Refs';
-import Pagination from 'tui-pagination';
 import { addPagination } from './pagination';
 import search from './spinner';
 import { scrollWin } from './cardFetch';
 
 const filmApiService = new ApiService();
-// const pagination = new Pagination(refs.paginationContainer);
 
 //добавляем жанры на поиск
 function addGenresToSearchObj() {
@@ -32,32 +30,15 @@ function addGenresToSearchObj() {
     });
 }
 
-// const onLoad = async () => {
-//   return filmApiService.fetchSearchFilms().then(data => {
-//     console.log(data.total_results);
-//     data.total_results;
-//   });
-// };
-
-// function refreshPaginationPages() {
-//   return onLoad()
-//     .then(data => addPagination(1000, 20))
-//     .catch(err => {
-//       console.log('error in function refreshPaginationPages');
-//     });
-// }
-
 //Поиска и рендер фильмов по названию(слову)
-
 export function FilmSearchByWordPagination(searchedFilm, selectPage) {
   filmApiService.pageNum = selectPage;
-  console.log('номер страницы', filmApiService.pageNum);
   filmApiService.query = searchedFilm;
   render(filmApiService.query);
 }
 
 export function FilmSearchByWord(e) {
-  // filmApiService.pageNum = 1;
+  filmApiService.pageNum = 1;
   search.spinner.show();
   e.preventDefault();
 
@@ -66,8 +47,7 @@ export function FilmSearchByWord(e) {
   localStorage.setItem('searched', currentFilmSearchByWord);
 
   if (filmApiService.query === '') {
-
-  search.spinner.close();
+    search.spinner.close();
 
     refs.warningField.textContent = `Please write something!!!`;
     return;
@@ -77,7 +57,6 @@ export function FilmSearchByWord(e) {
   render(filmApiService.query);
 
   search.spinner.close();
-
 
   refs.searchField.value = '';
   refs.warningField.textContent = '';
@@ -99,7 +78,7 @@ function renderFilmsCard(articles) {
   scrollWin();
   search.spinner.close();
 }
-export function resetSearchField() {
-    refs.searchField.value = '';
-};
 
+export function resetSearchField() {
+  refs.searchField.value = '';
+}
