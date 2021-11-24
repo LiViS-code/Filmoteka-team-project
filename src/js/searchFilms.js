@@ -8,15 +8,15 @@ import search from './spinner';
 import { scrollWin } from './cardFetch';
 
 const filmApiService = new ApiService();
-const pagination = new Pagination(refs.paginationContainer);
+// const pagination = new Pagination(refs.paginationContainer);
 
 //добавляем жанры на поиск
 function addGenresToSearchObj() {
   return filmApiService
     .fetchSearchFilms()
-     .then(data => {
+    .then(data => {
       addPagination(data.total_results, 20, filmApiService.page);
-       return data
+      return data;
     })
     .then(data => data.results)
     .then(data => {
@@ -32,32 +32,33 @@ function addGenresToSearchObj() {
     });
 }
 
-const onLoad = async () => {
-  return filmApiService.fetchSearchFilms().then(data => {
-    console.log(data.total_results);
-    data.total_results;
-  });
-};
+// const onLoad = async () => {
+//   return filmApiService.fetchSearchFilms().then(data => {
+//     console.log(data.total_results);
+//     data.total_results;
+//   });
+// };
 
-function refreshPaginationPages() {
-  return onLoad()
-    .then(data => addPagination(1000, 20))
-    .catch(err => {
-      console.log('error in function refreshPaginationPages');
-    });
-}
+// function refreshPaginationPages() {
+//   return onLoad()
+//     .then(data => addPagination(1000, 20))
+//     .catch(err => {
+//       console.log('error in function refreshPaginationPages');
+//     });
+// }
 
 //Поиска и рендер фильмов по названию(слову)
 
 export function FilmSearchByWordPagination(searchedFilm, selectPage) {
   filmApiService.pageNum = selectPage;
+  console.log('номер страницы', filmApiService.pageNum);
   filmApiService.query = searchedFilm;
   render(filmApiService.query);
 }
 
 export function FilmSearchByWord(e) {
-  filmApiService.pageNum = 1;
-   search.spinner.show();
+  // filmApiService.pageNum = 1;
+  search.spinner.show();
   e.preventDefault();
 
   filmApiService.query = e.currentTarget.elements.query.value;
@@ -65,34 +66,31 @@ export function FilmSearchByWord(e) {
   localStorage.setItem('searched', currentFilmSearchByWord);
 
   if (filmApiService.query === '') {
-  
     refs.warningField.textContent = `Please write something!!!`;
     return;
   }
-  refreshPaginationPages(filmApiService.query);
+  // refreshPaginationPages(filmApiService.query);
 
   render(filmApiService.query);
-    search.spinner.close();
+  search.spinner.close();
 
   refs.searchField.value = '';
   refs.warningField.textContent = '';
 }
 
 function render(searchQuery) {
- 
   filmApiService.query = searchQuery;
 
   addGenresToSearchObj()
     .then(renderFilmsCard)
     .catch(err => {
-      console.log('error in function render',err);
+      console.log('error in function render', err);
     });
-  
 }
 
 function renderFilmsCard(articles) {
-   search.spinner.show();
+  search.spinner.show();
   refs.listElement.innerHTML = filmsCardTpl(articles);
   scrollWin();
-    search.spinner.close();
+  search.spinner.close();
 }

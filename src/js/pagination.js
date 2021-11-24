@@ -32,15 +32,24 @@ export function addPagination(totalItems, itemsPerPage, page) {
 
   pagination.movePageTo(page);
 
-  refs.paginationContainer.addEventListener('click', () => {
+  refs.paginationContainer.addEventListener('click', listenerPagination);
+  console.log('вызвали пагинацию');
+
+  function listenerPagination() {
+    console.log('сработал слушатель');
     const selectPage = pagination.getCurrentPage();
     const searchedFilm = localStorage.getItem('searched');
-   if (searchedFilm === '') {
-     return render(selectPage);
-    }
-    // fetchPopularFilmsByPage(selectPage);
-    FilmSearchByWordPagination(searchedFilm, selectPage)
+    console.log('запрос:', searchedFilm);
 
-   
-  });
+    if (searchedFilm === '') {
+      refs.paginationContainer.removeEventListener('click', listenerPagination);
+      console.log('снял слушателя внутри if');
+      return render(selectPage);
+    }
+
+    refs.paginationContainer.removeEventListener('click', listenerPagination);
+    console.log('снял слушателя');
+
+    FilmSearchByWordPagination(searchedFilm, selectPage);
+  }
 }
