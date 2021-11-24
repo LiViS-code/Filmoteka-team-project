@@ -21,7 +21,21 @@ function addFilmsIdToLocalStorage(keyName) {
   filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : []
   addFilmId(512195/* id фильма */)
   addFilmId(634649/* id фильма */)
-  
+  addFilmId(634648/* id фильма */)
+  addFilmId(634646/* id фильма */)
+  addFilmId(634643/* id фильма */)
+  addFilmId(634642/* id фильма */)
+  addFilmId(634641/* id фильма */)
+  addFilmId(634640/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
+  addFilmId(634649/* id фильма */)
   localStorage.setItem(keyName, JSON.stringify(filmsId))
 }
 

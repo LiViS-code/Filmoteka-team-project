@@ -1,8 +1,10 @@
+
 import refs from './Refs';
 import ApiService from './apiService';
 import filmsCardTpl from '../templates/filmCard.hbs';
 import { addPagination } from './pagination';
 import Refs from './Refs';
+import '../sass/main.scss';
 
 function getIdFromLocalStorage(keyName) {
   const filmsId = JSON.parse(localStorage.getItem(keyName) ) 
@@ -12,6 +14,10 @@ const arrOfWatchedId = getIdFromLocalStorage('watchedFilms')
 const arrOfQueuedId = getIdFromLocalStorage('queuedFilms')
 console.log(arrOfWatchedId)
 const filmApiService = new ApiService();
+
+function appendFilmsMarkup(film) {
+refs.listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film))
+}
 
 function fetchFilmsById(arrId) {
   if(arrId === null) {
@@ -23,12 +29,17 @@ function fetchFilmsById(arrId) {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-           return data 
+        const arrData = [];
+        arrData.push(data)
+        appendFilmsMarkup(arrData)
+        return data;
       });
   })
   }
 };
  
+
+
 fetchFilmsById(arrOfWatchedId)
 // https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 /* console.log(refs.cardFilm.dataset.action) */
