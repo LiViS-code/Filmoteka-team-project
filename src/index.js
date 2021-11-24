@@ -10,24 +10,16 @@ import { onLogoClick } from './js/cardFetch';
 import { FilmSearchByWord } from './js/searchFilms';
 import refs from './js/Refs';
 
-// пагинация
-import { addPagination } from './js/pagination';
-addPagination(1000, 20); // пример вызова - поместить в функции отрисовки (1000 количество найденных фильмов, 20 - количество на странице для библиотеки это 8)
-
 // файл шаблонизатор страницы
-import listCards from './templates/listCards.hbs';
-
+// import listCards from './templates/listCards.hbs';
 
 // спиннер
-import { Spinner } from 'spin.js';
-import { log } from 'handlebars';
-
-
-
+// import { Spinner } from 'spin.js';
+// import { log } from 'handlebars';
 
 // библиотека
-import './js/modal/addToLibrary'
-import './js/library'
+import './js/modal/addToLibrary';
+import './js/library';
 
 // изменение фона по клику
 localStorage.setItem('searched', '');
@@ -35,27 +27,22 @@ localStorage.setItem('searched', '');
 // изменение фона хедера
 import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
 
-
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
 refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
-
-
-
-
 function bgImageChange(oldBg, newBg) {
-    if (headerEl.classList.contains(oldBg)) {
-        console.log('contains!')
-        headerEl.classList.remove(oldBg);
-    }
-    headerEl.classList.add(newBg);
+  if (headerEl.classList.contains(oldBg)) {
+    console.log('contains!');
+    headerEl.classList.remove(oldBg);
+  }
+  headerEl.classList.add(newBg);
 }
 
 // // открытие модального окна
- 
+
 // const modalContainer = document.querySelector("#modalContainer");
 // const cardFilmModal = document.querySelector("#card-film-js");
 // console.log(cardFilmModal);
@@ -63,4 +50,3 @@ function bgImageChange(oldBg, newBg) {
 // // cardFilmModal.addEventListener('onclick' , event =>  {
 // //     modalContainer.style = 'display: block';
 // // })
-
