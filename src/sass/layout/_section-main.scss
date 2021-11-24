@@ -1,6 +1,6 @@
 .main {
-  padding: 20px 20px 40px;
-
+  padding-top: 20px;
+  padding-bottom: 40px;
   @media screen and (min-width: $tablet-size) {
     padding-top: 60px;
   }
@@ -10,13 +10,11 @@
   list-style: none;
 
   @media screen and (min-width: $tablet-size) {
+    justify-content: space-between;
     width: 618px;
     margin-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
 
     &::after {
       content: '';
@@ -34,8 +32,7 @@
   cursor: pointer;
   transform: scale(1);
   box-shadow: none;
-  transition: transform $timing $timing-func,
-    box-shadow $timing $timing-func;
+  transition: transform $timing $timing-func, box-shadow $timing $timing-func;
 
   @media screen and (max-width: 767px) {
     margin: 0 auto;

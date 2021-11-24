@@ -43,6 +43,7 @@ export function onLogoClick(e) {
    refs.warningField.textContent = '';
   render();
   search.spinner.close();
+  refs.paginationContainer.classList.remove('visually-hidden');
 }
 
 export function render(numPage) {
