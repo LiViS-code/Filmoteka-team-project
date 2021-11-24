@@ -8,6 +8,7 @@ import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import './js/apiService';
 import { onLogoClick } from './js/cardFetch';
 import { FilmSearchByWord } from './js/searchFilms';
+import { resetSearchField } from './js/searchFilms';
 import refs from './js/Refs';
 
 // пагинация
@@ -41,6 +42,7 @@ refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
+refs.searchField.addEventListener('click', resetSearchField);
 
 
 

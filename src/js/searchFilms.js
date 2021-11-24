@@ -65,21 +65,19 @@ export function FilmSearchByWord(e) {
   localStorage.setItem('searched', currentFilmSearchByWord);
 
   if (filmApiService.query === '') {
-  
+  search.spinner.close();
     refs.warningField.textContent = `Please write something!!!`;
     return;
   }
   refreshPaginationPages(filmApiService.query);
 
   render(filmApiService.query);
-    search.spinner.close();
 
   refs.searchField.value = '';
   refs.warningField.textContent = '';
 }
 
 function render(searchQuery) {
- 
   filmApiService.query = searchQuery;
 
   addGenresToSearchObj()
@@ -94,5 +92,9 @@ function renderFilmsCard(articles) {
    search.spinner.show();
   refs.listElement.innerHTML = filmsCardTpl(articles);
   scrollWin();
-    search.spinner.close();
+  search.spinner.close();
 }
+export function resetSearchField() {
+    refs.searchField.value = '';
+};
+

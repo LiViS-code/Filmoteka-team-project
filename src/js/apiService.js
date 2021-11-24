@@ -41,7 +41,17 @@ export default class NewApiService {
         return data.genres;
       });
   }
- 
+
+  fetchId(id) {
+  const url = `${BASE_URL}/movie/${id}?api_key=${KEY}&language=en-US`;
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      return data
+    })
+  }
+  
   get query() {
     return this.searchQuery;
   }
