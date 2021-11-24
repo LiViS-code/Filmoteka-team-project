@@ -1,36 +1,46 @@
 // основной скрипт
-
+import './js/onBtnClick';
 // файл стилей
 import './sass/main.scss';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 // скрипт взаимодействия с API
 import './js/apiService';
-import './js/cardFetch';
-import './js/searchFilms';
+import { onLogoClick } from './js/cardFetch';
+import { FilmSearchByWord } from './js/searchFilms';
+import { resetSearchField } from './js/searchFilms';
+import refs from './js/Refs';
+
 // файл шаблонизатор страницы
-import listCards from './templates/listCards.hbs';
+// import listCards from './templates/listCards.hbs';
 
 // спиннер
-import { Spinner } from 'spin.js';
-import { log } from 'handlebars';
+// import { Spinner } from 'spin.js';
+// import { log } from 'handlebars';
 
-//изменение фона по клику
+// библиотека
+import './js/modal/addToLibrary';
+import './js/library';
 
-const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"]');
-const headerEl = document.querySelector('header');
+// изменение фона по клику
+localStorage.setItem('searched', '');
 
-myLibraryBtn.addEventListener('click', onMyLibraryClick);
+// изменение фона хедера
+import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
 
-function onMyLibraryClick() {
-    bgImageChange('home-header', 'library-header');
-}
+refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
+
+refs.logoEl.addEventListener('click', onLogoClick);
+refs.btnHome.addEventListener('click', onLogoClick);
+refs.searchForm.addEventListener('submit', FilmSearchByWord);
+refs.searchField.addEventListener('click', resetSearchField);
 
 function bgImageChange(oldBg, newBg) {
-    if (headerEl.classList.contains(oldBg)) {
-        console.log('contains!')
-        headerEl.classList.remove(oldBg);
-    }
-    headerEl.classList.add(newBg);
+  if (headerEl.classList.contains(oldBg)) {
+    console.log('contains!');
+    headerEl.classList.remove(oldBg);
+  }
+  headerEl.classList.add(newBg);
 }
 
 // открытие модального окна
