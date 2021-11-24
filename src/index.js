@@ -33,12 +33,14 @@ function bgImageChange(oldBg, newBg) {
     headerEl.classList.add(newBg);
 }
 
-// // открытие модального окна
+// открытие модального окна
  
-// const modalContainer = document.querySelector("#modalContainer");
-// const cardFilmModal = document.querySelector("#card-film-js");
-// console.log(cardFilmModal);
-
-// // cardFilmModal.addEventListener('onclick' , event =>  {
-// //     modalContainer.style = 'display: block';
-// // })
+const modalContainer = document.querySelector("#modalContainer");
+const filmCards = document.querySelectorAll(".card__film");
+console.log(filmCards);
+filmCards.forEach(element => {
+    element.addEventListener('click' , event =>  {
+        modalContainer.style = 'display: block';
+        
+    })
+});
