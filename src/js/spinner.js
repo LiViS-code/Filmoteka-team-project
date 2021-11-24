@@ -1,17 +1,3 @@
-
-   
-// export default class Spinner {
-//   constructor() {
-//     this.square = document.querySelector('.square');
-//   }
-//   hideSpinner() {
-//     this.square.classList.add('is-hidden');
-//   }
-//   showSpinner() {
-//     this.square.classList.remove('is-hidden');
-//   }
-// }
-
    
 import * as basicLightbox from 'basiclightbox';
 

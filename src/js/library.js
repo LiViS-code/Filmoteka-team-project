@@ -24,21 +24,19 @@ function fetchFilmsById(arrId) {
     return;
   } else {
     arrId.forEach(id => {
-      
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=b7df999202e1c3618d01db23ce0076f0&language=en-US`;
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const arrData = [];
-        arrData.push(data)
-        appendFilmsMarkup(arrData)
-        return data;
-      });
+      filmApiService.fetchId(2)
+  // const url = `https://api.themoviedb.org/3/movie/${id}?api_key=b7df999202e1c3618d01db23ce0076f0&language=en-US`;
+  //   return fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //          return data 
+  //     });
   })
   }
 };
+// console.log(filmApiService.fetchId(2))
  
-fetchFilmsById(arrOfWatchedId)
+// fetchFilmsById(arrOfWatchedId)
 // https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 /* console.log(refs.cardFilm.dataset.action) */
 
