@@ -1,36 +1,40 @@
 <header class="header home-header">
-  <nav class="main-nav">
-    <h1>
-      <a class="logo logo-js" href="#"
-        ><img class="logo-ico" src="./images/logo.svg" alt="logo" /><span class="logo-text"
-          >Filmoteka</span
-        ></a
-      >
-    </h1>
-    <ul class="nav-button-list">
-      <li class="nav-button-list__item nav-button__home-js">
-        <button class="nav__btn nav__btn-js active" data-action="home-page-rendering">Home</button>
-      </li>
-      <li class="nav-button-list__item">
-        <button class="nav__btn" data-action="my-library-rendering">My library</button>
-      </li>
-    </ul>
-  </nav>
-  <form class="search-form" id="search-form">
-    <div class="search-box" id="search-box">
-      <input
-        class="search-field"
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Поиск фильмов"
-      />
-      <button type="submit" class="search-btn"></button>
-    </div>
-    <p class="warning-message"></p>
-    <div class="button-box visually-hidden">
-      <button class="btn btn--first btn-current" id="js-watched-btn">Watched</button>
-      <button class="btn" id="js-queue-btn">queue</button>
-    </div>
-  </form>
+  <div class="container">
+    <nav class="main-nav">
+      <h1>
+        <a class="logo logo-js" href="#"
+          ><img class="logo-ico" src="./images/logo.svg" alt="logo" /><span class="logo-text"
+            >Filmoteka</span
+          ></a
+        >
+      </h1>
+      <ul class="nav-button-list">
+        <li class="nav-button-list__item nav-button__home-js">
+          <button class="nav__btn nav__btn-js active" data-action="home-page-rendering">
+            Home
+          </button>
+        </li>
+        <li class="nav-button-list__item">
+          <button class="nav__btn" data-action="my-library-rendering">My library</button>
+        </li>
+      </ul>
+    </nav>
+    <form class="search-form" id="search-form">
+      <div class="search-box" id="search-box">
+        <input
+          class="search-field"
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Поиск фильмов"
+        />
+        <button type="submit" class="search-btn"></button>
+      </div>
+      <p class="warning-message"></p>
+      <div class="button-box visually-hidden">
+        <button class="btn btn--first btn-current" id="js-watched-btn">Watched</button>
+        <button class="btn" id="js-queue-btn">queue</button>
+      </div>
+    </form>
+  </div>
 </header>
