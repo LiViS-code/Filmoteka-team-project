@@ -20,7 +20,6 @@ const listWatchedFilms = document.querySelector('.film-cards-list-watched-js');
 const listQueuedFilms = document.querySelector('.film-cards-list-queue-js');
 const cardFilm = document.querySelector('.card__film[data-action]')
 const spinner = document.querySelector('.square');
-
 export default {
   listElement,
   logoEl,
