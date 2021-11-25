@@ -28,7 +28,8 @@ localStorage.setItem('searched', '');
 
 // изменение фона хедера
 import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
-import { toggleModal } from './js/modal/toggleModal';
+
+import { onCardClick } from './js/modal/onCardClick';
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
@@ -36,19 +37,13 @@ refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 refs.searchField.addEventListener('click', resetSearchField);
-// для модального окна
-refs.filmCards.forEach(element => {
-  element.addEventListener('click', toggleModal)
-});
-refs.modalButtonClose.addEventListener('click', toggleModal);
 
-fetch('https://jsonplaceholder.typicode.com/users')
-  .then(response => {
-    //response handling
-  })
-  .then(data => {
-    // data handling
-  })
-  .catch(error => {
-    // error handling
-  });
+// для модального окна
+refs.listElement.addEventListener('click', onCardClick);
+
+//refs.modalButtonClose.addEventListener('click', toggleModal);
+
+
+
+
+
