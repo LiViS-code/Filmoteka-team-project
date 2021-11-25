@@ -24,6 +24,8 @@ const modalContainer = document.querySelector('#modalContainer');
 const modalButtonClose = document.querySelector('.modal-button-close-js');
 const modalWindowContent = document.querySelector('.modal-window-content');
 const modalContainerEl = document.querySelector('#modalContainer');
+const modalFooterEl = document.querySelector('.js-team');
+const teamBtn = document.querySelector('.button-team');
 
 export default {
   listElement,
@@ -51,5 +53,7 @@ export default {
   modalContainer,
   modalButtonClose,
   modalWindowContent,
-  modalContainerEl
+  modalContainerEl,
+  modalFooterEl,
+  teamBtn,
 };
