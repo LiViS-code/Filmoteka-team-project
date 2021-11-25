@@ -8,7 +8,6 @@ import { addPagination } from './pagination';
 const newApiService = new NewApiService();
 
 const numFirstPage = 1;
- 
 
 render(numFirstPage);
 
@@ -49,23 +48,23 @@ export function onLogoClick(e) {
 export function render(numPage) {
   newApiService.pageNum = numPage;
   search.spinner.show();
-   scrollWin();
+  scrollWin();
   addGenresToMovieObj()
     .then(renderFilmsCard)
     .then(data => {
-     removeVoteByCard()
+      removeVoteByCard();
     })
     .catch(err => {
       console.log('error in function render', err);
     });
-   search.spinner.close();
+  search.spinner.close();
 }
 
 function renderFilmsCard(articles) {
   refs.listElement.innerHTML = filmsCardTpl(articles);
 }
 
-export function fetchPopularFilmsByPage(page) { 
+export function fetchPopularFilmsByPage(page) {
   newApiService.pageNum = page;
   return addGenresToMovieObj();
 }
@@ -90,13 +89,13 @@ export function scrollWin() {
     belavior: 'smooth',
   });
 }
-function newPlaceholder() {
-  let el= document.getElementById("search-field");
-  el.placeholder= "Popular";
-};
+// function newPlaceholder() {
+//   let el= document.getElementById("search-field");
+//   el.placeholder= "Popular";
+// };
 export function resetSearchField() {
   refs.searchField.value = '';
-};
+}
 export function removeVoteByCard() {
   const voteEl = document.getElementById('card__vote_average');
   voteEl.classList.add('visually-hidden');

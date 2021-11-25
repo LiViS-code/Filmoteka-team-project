@@ -11,7 +11,6 @@ import { FilmSearchByWord } from './js/searchFilms';
 import { resetSearchField } from './js/searchFilms';
 import refs from './js/Refs';
 
-
 // файл шаблонизатор страницы
 // import listCards from './templates/listCards.hbs';
 
@@ -31,26 +30,11 @@ import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
 import { toggleModal } from './js/modal/toggleModal';
 import { onCardClick } from './js/modal/onCardClick';
 
-
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
 refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
-
 // для модального окна
 refs.listElement.addEventListener('click', onCardClick);
-refs.modalContainerEl.addEventListener('click', onOverlayClick);
-//refs.modalButtonClose.addEventListener('click', toggleModal);
-
-function onOverlayClick(event) {
-  if (event.target === event.currentTarget) {
-    toggleModal();
-  }
-}
-
-
-
-
-
