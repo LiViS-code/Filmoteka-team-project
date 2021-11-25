@@ -20,6 +20,10 @@ const listWatchedFilms = document.querySelector('.film-cards-list-watched-js');
 const listQueuedFilms = document.querySelector('.film-cards-list-queue-js');
 const cardFilm = document.querySelector('.card__film[data-action]')
 const spinner = document.querySelector('.square');
+const modalContainer = document.querySelector("#modalContainer");
+const filmCards = document.querySelectorAll(".film-cards-list-js");
+const modalButtonClose = document.querySelector("modal-button-close");
+const modalWindowContent = document.querySelector("modal-window-content");
 
 export default {
   listElement,
@@ -44,4 +48,8 @@ export default {
   listQueuedFilms,
   cardFilm,
   spinner,
+  modalContainer,
+  filmCards,
+  modalButtonClose,
+  modalWindowContent
 };
