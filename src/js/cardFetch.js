@@ -35,7 +35,7 @@ function addGenresToMovieObj() {
 export function onLogoClick(e) {
   e.preventDefault();
   search.spinner.show();
-  refs.searchField.value = 'Popular';
+  newPlaceholder();
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   refs.warningField.textContent = '';
@@ -85,3 +85,7 @@ export function scrollWin() {
     belavior: 'smooth',
   });
 }
+function newPlaceholder() {
+  let el= document.getElementById("search-field");
+  el.placeholder= "Popular";
+};
