@@ -1,5 +1,7 @@
 // основной скрипт
 import './js/onBtnClick';
+import './js/team-modal';
+import './team.json';
 // файл стилей
 import './sass/main.scss';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
