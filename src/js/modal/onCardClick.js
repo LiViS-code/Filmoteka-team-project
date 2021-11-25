@@ -4,9 +4,12 @@ import { toggleModal } from './toggleModal';
 
 export function onCardClick(event) {
     toggleModal();
-    event.preventDefault();
-    console.log(`это идентиф фильма ${getFilmId(event)}`);
-    console.log(fetchFilmInfo(getFilmId(event)));
+    // event.preventDefault();
+    //   console.log(`это идентиф фильма ${getFilmId(event)}`);
+    fetchFilmInfo(getFilmId(event));
+
+    refs.modalContainerEl.addEventListener('click', onOverlayClick);
+    document.addEventListener('keydown', onOverlayClick);
 }
 
 //Функция получения идентификатора фильма, на карточку которого кликнули
@@ -14,16 +17,11 @@ function getFilmId(event) {
     let filmId = 0;
     if (event.target.classList.contains('card__film')) {
         filmId = event.target.dataset.action;
-
-    } else
-        if (event.target.parentNode.classList.contains('card__film')) {
-            filmId = event.target.parentNode.dataset.action;
-
-        } else
-            if (event.target.parentNode.parentNode.classList.contains('card__film')) {
-                filmId = event.target.parentNode.parentNode.dataset.action;
-
-            }
+    } else if (event.target.parentNode.classList.contains('card__film')) {
+        filmId = event.target.parentNode.dataset.action;
+    } else if (event.target.parentNode.parentNode.classList.contains('card__film')) {
+        filmId = event.target.parentNode.parentNode.dataset.action;
+    }
     return filmId;
 }
 
@@ -37,4 +35,16 @@ function fetchFilmInfo(filmId) {
             console.log(data);
             refs.modalWindowContent.innerHTML = filmInfoTpl(data);
         });
+}
+
+function onOverlayClick(event) {
+    if (
+        event.target === refs.modalButtonClose ||
+        event.target === refs.modalContainerEl ||
+        event.code === 'Escape'
+    ) {
+        toggleModal();
+        refs.modalContainerEl.removeEventListener('click', onOverlayClick);
+        document.removeEventListener('keydown', onOverlayClick);
+    }
 }
