@@ -11,6 +11,7 @@ import { FilmSearchByWord } from './js/searchFilms';
 import { resetSearchField } from './js/searchFilms';
 import refs from './js/Refs';
 
+
 // файл шаблонизатор страницы
 // import listCards from './templates/listCards.hbs';
 
@@ -27,6 +28,9 @@ localStorage.setItem('searched', '');
 
 // изменение фона хедера
 import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
+import { toggleModal } from './js/modal/toggleModal';
+import { onCardClick } from './js/modal/onCardClick';
+
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
@@ -35,22 +39,18 @@ refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
 
 
-function bgImageChange(oldBg, newBg) {
-  if (headerEl.classList.contains(oldBg)) {
-    console.log('contains!');
-    headerEl.classList.remove(oldBg);
+// для модального окна
+refs.listElement.addEventListener('click', onCardClick);
+refs.modalContainerEl.addEventListener('click', onOverlayClick);
+//refs.modalButtonClose.addEventListener('click', toggleModal);
+
+function onOverlayClick(event) {
+  if (event.target === event.currentTarget) {
+    toggleModal();
   }
-  headerEl.classList.add(newBg);
 }
 
-// открытие модального окна
-const modalContainer = document.querySelector("#modalContainer");
-const filmCards = document.querySelectorAll(".film-cards-list-js");
 
-filmCards.forEach(element => {
-    element.addEventListener('click' , event =>  {
-        
-        modalContainer.style = 'display: block';
 
-    })
-});
+
+

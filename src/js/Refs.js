@@ -18,8 +18,13 @@ const addToWatchedBtn = document.getElementById('watched');
 const addToQueuedBtn = document.getElementById('queued');
 const listWatchedFilms = document.querySelector('.film-cards-list-watched-js');
 const listQueuedFilms = document.querySelector('.film-cards-list-queue-js');
-const cardFilm = document.querySelector('.card__film[data-action]')
+const cardFilm = document.querySelector('.card__film[data-action]');
 const spinner = document.querySelector('.square');
+const modalContainer = document.querySelector('#modalContainer');
+const modalButtonClose = document.querySelector('.modal-button-close-js');
+const modalWindowContent = document.querySelector('.modal-window-content');
+const modalContainerEl = document.querySelector('#modalContainer');
+
 export default {
   listElement,
   logoEl,
@@ -43,4 +48,8 @@ export default {
   listQueuedFilms,
   cardFilm,
   spinner,
+  modalContainer,
+  modalButtonClose,
+  modalWindowContent,
+  modalContainerEl
 };

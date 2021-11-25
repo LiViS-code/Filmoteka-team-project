@@ -14,56 +14,18 @@
   
 
   <!-- разметка модального окна -->
-  <div class="modal-container" id="modalContainer">
+  <div class="modal-container visually-hidden" id="modalContainer">
     <!-- само модальное окно -->
     <div class="modal-window">
 
-    <!-- разметка кнопки закрытия окна -->
-      <div class="modal-button-close">
-        <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
-      </div>
+      <button  class="modal-button-close modal-button-close-js" data-action="close-lightbox"></button>
 
       <!-- разметка вместмого в окне -->
       <div class="modal-window-content">
-        <!-- див для картинки фильма -->
-        <div class="modal-film-prewiew" >
-          <img src="" id="filmPrewiew" class="filmPrewiew" />
-        </div>
-        <!-- див для основной информации -->
-        <div class="modal-film-info">
-          <!-- див для названия фильма -->
-          <div class="name-container">
-            <h3 class="film-name" id="filmName"></h3>
-          </div>
-          <!-- див для данных  -->
-          <div class="film-mainInfo-container">
-            <div class="film-keys" id="filmKeys">
-              <ul>
-                <li>Vote/Votes</li>
-                <li>Popularity</li>
-                <li>Original Title</li>
-                <li>Genre</li>
-              </ul>
-            </div>
-            <div class="film-values" id="filmValues">
-              <ul>
-                <li id="filmVotes"></li>
-                <li id="filmPopularity"></li>
-                <li id="filmOrigin"></li>
-                <li id="filmGenre"></li>
-              </ul>
-            </div>
-          </div>
-          <!-- див для сюжета фильма -->
-          <div class="film-plot">
-            <p id="filmPlot"></p>
-          </div>
+        
 
-        </div>
+
       </div>
-      <!-- кнопки добавления -->
-      <button class="watched" id="watched">ADD TO WATCHED</button>
-      <button class="queued" id="queued">ADD TO QUEUED</button>
     </div>
   </div>
 </main>
