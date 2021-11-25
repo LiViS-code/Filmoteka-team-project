@@ -35,6 +35,6 @@ function fetchFilmInfo(filmId) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            refs.modalWindowContent.insertAdjacentHTML('beforeend', filmInfoTpl(data));
+            refs.modalWindowContent.innerHTML = filmInfoTpl(data);
         });
 }

@@ -28,8 +28,9 @@ localStorage.setItem('searched', '');
 
 // изменение фона хедера
 import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
-
+import { toggleModal } from './js/modal/toggleModal';
 import { onCardClick } from './js/modal/onCardClick';
+
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
@@ -40,8 +41,14 @@ refs.searchField.addEventListener('click', resetSearchField);
 
 // для модального окна
 refs.listElement.addEventListener('click', onCardClick);
-
+refs.modalContainerEl.addEventListener('click', onOverlayClick);
 //refs.modalButtonClose.addEventListener('click', toggleModal);
+
+function onOverlayClick(event) {
+  if (event.target === event.currentTarget) {
+    toggleModal();
+  }
+}
 
 
 

@@ -23,6 +23,7 @@ const spinner = document.querySelector('.square');
 const modalContainer = document.querySelector('#modalContainer');
 const modalButtonClose = document.querySelector('.modal-button-close-js');
 const modalWindowContent = document.querySelector('.modal-window-content');
+const modalContainerEl = document.querySelector('#modalContainer');
 
 
 export default {
@@ -50,5 +51,6 @@ export default {
   spinner,
   modalContainer,
   modalButtonClose,
-  modalWindowContent
+  modalWindowContent,
+  modalContainerEl
 };
