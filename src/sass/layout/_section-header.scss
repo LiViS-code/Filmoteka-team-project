@@ -32,12 +32,10 @@
   background-repeat: no-repeat;
   background-position: 50%;
   @media screen and (min-width: $tablet-size) {
-    padding: 40px 75px 60px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/watched-header_tablet.jpg');
   }
   @media screen and (min-width: $desktop-size) {
-    padding: 46px 71px 60px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/watched-header_desktop.jpg');
   }
