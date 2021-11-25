@@ -30,12 +30,12 @@ function addFilmsIdToLocalStorage(keyName) {
   addFilmId(634649/* id фильма */)
   addFilmId(634649/* id фильма */)
   addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
+  addFilmId(634655/* id фильма */)
+  addFilmId(634656/* id фильма */)
+  addFilmId(634657/* id фильма */)
+  addFilmId(634658/* id фильма */)
+  addFilmId(634659/* id фильма */)
+  addFilmId(634660/* id фильма */)
   localStorage.setItem(keyName, JSON.stringify(filmsId))
 }
 
