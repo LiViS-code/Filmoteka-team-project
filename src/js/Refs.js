@@ -25,7 +25,6 @@ const modalButtonClose = document.querySelector('.modal-button-close-js');
 const modalWindowContent = document.querySelector('.modal-window-content');
 const modalContainerEl = document.querySelector('#modalContainer');
 
-
 export default {
   listElement,
   logoEl,

@@ -8,6 +8,7 @@ import { addPagination } from './pagination';
 const newApiService = new NewApiService();
 
 const numFirstPage = 1;
+ 
 
 render(numFirstPage);
 
@@ -36,6 +37,7 @@ export function onLogoClick(e) {
   e.preventDefault();
   search.spinner.show();
   newPlaceholder();
+  resetSearchField();
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   refs.warningField.textContent = '';
@@ -46,21 +48,24 @@ export function onLogoClick(e) {
 
 export function render(numPage) {
   newApiService.pageNum = numPage;
+  search.spinner.show();
+   scrollWin();
   addGenresToMovieObj()
     .then(renderFilmsCard)
+    .then(data => {
+     removeVoteByCard()
+    })
     .catch(err => {
       console.log('error in function render', err);
     });
+   search.spinner.close();
 }
 
 function renderFilmsCard(articles) {
-  search.spinner.show();
-  scrollWin();
-  search.spinner.close();
   refs.listElement.innerHTML = filmsCardTpl(articles);
 }
 
-export function fetchPopularFilmsByPage(page) {
+export function fetchPopularFilmsByPage(page) { 
   newApiService.pageNum = page;
   return addGenresToMovieObj();
 }
@@ -89,3 +94,10 @@ function newPlaceholder() {
   let el= document.getElementById("search-field");
   el.placeholder= "Popular";
 };
+export function resetSearchField() {
+  refs.searchField.value = '';
+};
+export function removeVoteByCard() {
+  const voteEl = document.getElementById('card__vote_average');
+  voteEl.classList.add('visually-hidden');
+}

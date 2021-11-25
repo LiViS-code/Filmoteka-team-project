@@ -37,7 +37,7 @@ refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
 refs.logoEl.addEventListener('click', onLogoClick);
 refs.btnHome.addEventListener('click', onLogoClick);
 refs.searchForm.addEventListener('submit', FilmSearchByWord);
-refs.searchField.addEventListener('click', resetSearchField);
+
 
 // для модального окна
 refs.listElement.addEventListener('click', onCardClick);
