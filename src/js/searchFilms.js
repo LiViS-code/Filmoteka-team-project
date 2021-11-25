@@ -53,12 +53,12 @@ export function FilmSearchByWord(e) {
     return;
   }
   // refreshPaginationPages(filmApiService.query);
-
+  
   render(filmApiService.query);
 
   search.spinner.close();
 
-  refs.searchField.value = '';
+  refs.searchField.textContent = filmApiService.query;
   refs.warningField.textContent = '';
 }
 
@@ -79,6 +79,3 @@ function renderFilmsCard(articles) {
   search.spinner.close();
 }
 
-export function resetSearchField() {
-  refs.searchField.value = '';
-}
