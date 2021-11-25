@@ -39,7 +39,7 @@ export function onLogoClick(e) {
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
   refs.warningField.textContent = '';
-  render();
+  render(1);
   search.spinner.close();
   refs.paginationContainer.classList.remove('visually-hidden');
 }
