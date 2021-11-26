@@ -2,7 +2,7 @@
 import refs from './Refs';
 import ApiService from './apiService';
 import filmsCardTpl from '../templates/filmCard.hbs';
-import { addPagination } from './pagination';
+import pagination from './pagination';
 import '../sass/main.scss';
 
 function getIdFromLocalStorage(keyName) {
