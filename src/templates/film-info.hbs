@@ -3,21 +3,24 @@
 </div>
 <div class="film-info" data-action='{{id}}'>
     <h2 class="film-title">{{title}}</h2>
-    <div class="film-descr-container">
-        <ul class="film-description">
-            <li class="film-descr-itm">Vote/Votes:</li>
-            <li class="film-descr-itm">Popularity: <span class="film-descr-itm-txt-pop"></span></li>
-            <li class="film-descr-itm">Original Title: <span class="film-descr-itm-txt-orig_ttl"></span></li>
-            <li class="film-descr-itm">Genre:</li>
-        </ul>
-        <ul class="film-description-txt">
-            <li class="film-descr-itm-txt"><span class="vote-ave">{{vote_average}}</span>/<span class="vote-count">{{vote_count}}</span></li>
-            <li class="film-descr-itm-txt">{{popularity}}</li>
-            <li class="film-descr-itm-txt">{{original_title}}</li>
-            <li class="film-descr-itm-txt">{{#each genres}} {{name}} {{/each}}</li>
-        </ul>
-    </div>
-
+    <table class="film-descr-table">
+        <tr>
+            <td class="film-descr-itm">Vote/Votes:</td>
+            <td class="film-descr-itm-txt"><span class="vote-ave">{{vote_average}}</span>&nbsp;/&nbsp;<span class="vote-count">{{vote_count}}</span></td>
+        </tr>
+        <tr>
+            <td class="film-descr-itm">Popularity: <span class="film-descr-itm-txt-pop"></span></td>
+            <td class="film-descr-itm-txt">{{popularity}}</td>
+        </tr>
+        <tr>
+            <td class="film-descr-itm">Original Title: <span class="film-descr-itm-txt-orig_ttl"></span></td>
+            <td class="film-descr-itm-txt">{{original_title}}</td>
+        </tr>
+        <tr>
+            <td class="film-descr-itm">Genre:</td>
+            <td class="film-descr-itm-txt">{{#each genres}} {{name}} {{/each}}</td>
+        </tr>     
+    </table>
     <h3 class="about-title">About</h3>
     <p class="about-description">{{overview}}</p>
     <div class="button-add-container">
