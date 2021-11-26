@@ -26,6 +26,7 @@ const modalWindowContent = document.querySelector('.modal-window-content');
 const modalContainerEl = document.querySelector('#modalContainer');
 const modalFooterEl = document.querySelector('.js-team');
 const teamBtn = document.querySelector('.button-team');
+const body = document.querySelector('body');
 
 export default {
   listElement,
@@ -56,4 +57,5 @@ export default {
   modalContainerEl,
   modalFooterEl,
   teamBtn,
+  body,
 };
