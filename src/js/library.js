@@ -14,12 +14,16 @@ const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
 console.log(arrOfWatchedId);
 const filmApiService = new ApiService();
 
-function appendFilmsMarkup(film) {
+function appendWatchedFilmsMarkup(film) {
  /* for */
   refs.listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film)) 
 }
+function appendQueueFilmsMarkup(film) {
+ /* for */
+  refs.listQueuedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film)) 
+}
 
-function fetchFilmsById(arrId) {
+function fetchFilmsById(arrId, markup) {
   if (arrId === null) {
     return;
   } else {
@@ -27,14 +31,15 @@ function fetchFilmsById(arrId) {
     return filmApiService.fetchId(id).then(films => {
         let arrOfFilms = [];
         arrOfFilms.push(films);
-            appendFilmsMarkup(arrOfFilms)
+            markup(arrOfFilms)
       }
       )
     })
  }
 }
 
-fetchFilmsById(arrOfWatchedId)
+fetchFilmsById(arrOfWatchedId, appendWatchedFilmsMarkup) 
+fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup)
 /* fetchFilmsById(arrOfQueuedId) */
 // https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 /* console.log(refs.cardFilm.dataset.action) */
