@@ -1,19 +1,16 @@
 .film-poster {
   width: 240px;
+  border-radius: $border-radius;
+  @media screen and (max-width: $tablet-size - 1) {
+    margin-bottom: 35px;
+  }
   @media screen and (min-width: $tablet-size) {
     width: 264px;
+    margin-right: 32px;
   }
   @media screen and (min-width: $desktop-size) {
     width: 396px;
-  }
-}
-
-.film-info {
-  @media screen and (min-width: 1024px) {
-    margin-left: 30px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 32px;
+    margin-right: 25px;
   }
 }
 
@@ -22,58 +19,35 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
-  margin-top: 30px;
   margin-bottom: 20px;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop-size) {
     font-size: 30px;
-    line-height: 1.17;
-    margin-top: 0;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 0;
+    line-height: 1.172;
   }
 }
 
-.film-descr-container {
-  display: flex;
-  align-items: flex-start;
+.film-descr-table {
+  font-weight: 500;
+  margin-bottom: 20px;
 }
-.film-description {
-  list-style: none;
+.film-descr-table td {
+  width: 110px;
+  padding: 5px 5px 5px 0;
 }
 .film-descr-itm {
-  font-size: 12px;
-  line-height: 1.33;
   color: $text-details-color;
-  margin-bottom: 10px;
-}
-
-.film-description-txt {
-  margin-left: 39px;
-  list-style: none;
-  @media screen and (min-width: 1024px) {
-    margin-left: 80px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 39px;
-  }
 }
 
 .film-descr-itm-txt {
-  font-size: 12px;
-  line-height: 1.33;
+  line-height: 1.66;
   margin-bottom: 10px;
   & .vote-ave {
-    font-size: 12px;
-    display: inline-block;
     padding: 1px 10px;
     color: $reverse-color;
     background: $bg-accent-color;
     border-radius: 5px;
   }
   & .vote-count {
-    font-size: 12px;
-    display: inline-block;
     background: $bg-color-btn-pagination-hover;
     border-radius: 5px;
     padding: 1px 4px;
@@ -81,47 +55,26 @@
 }
 
 .about-title {
-  font-size: 12px;
-  line-height: 1.33;
   text-align: inherit;
   text-transform: uppercase;
-  margin-top: 20px;
-  @media screen and (min-width: 1024px) {
-  }
+  margin-bottom: 10px;
 }
 
 .about-description {
   display: inline-flex;
-  font-family: Roboto;
-  font-style: normal;
   font-weight: 500;
-  font-size: 12px;
   line-height: 1.67;
-  min-width: 240px;
-  max-height: 150px;
-  margin-top: 10px;
-  overflow-y: scroll;
-  justify-content: inherit;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-  @media screen and (min-width: $desktop-size) {
-    max-width: 600px;
-    max-height: 160px;
-  }
-  @media screen and (min-width: $tablet-size) and (max-width: $tablet-size - 1) {
-    width: 264px;
-  }
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .button-add-container {
   display: flex;
-  align-items: center;
-  margin-top: 20px;
 }
 
 .modal-button {
   width: 113px;
+  font-weight: 500;
   @media screen and (min-width: $tablet-size) {
     width: 125px;
   }
@@ -129,11 +82,20 @@
     width: 136px;
   }
   height: 44px;
-  color: $reverse-color;
-  background-color: $bg-accent-color;
-  border: none;
+  color: $color;
+  background-color: transparent;
+  border-color: $color;
   border-radius: $border-radius;
   text-transform: uppercase;
   margin-right: 15px;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: $bg-accent-color;
+    border: $bg-accent-color;
+    color: $reverse-color;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
 }
