@@ -36,5 +36,7 @@
   }
 }
 .modal-window-content {
-  display: flex;
+  @media screen and (min-width: $tablet-size) {
+    display: flex;
+  }
 }
