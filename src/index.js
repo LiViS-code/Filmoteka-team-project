@@ -10,15 +10,8 @@ import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import './js/apiService';
 import { onLogoClick } from './js/cardFetch';
 import { FilmSearchByWord } from './js/searchFilms';
-import { resetSearchField } from './js/searchFilms';
+// import { resetSearchField } from './js/searchFilms';
 import refs from './js/Refs';
-
-// файл шаблонизатор страницы
-// import listCards from './templates/listCards.hbs';
-
-// спиннер
-// import { Spinner } from 'spin.js';
-// import { log } from 'handlebars';
 
 // библиотека
 import './js/modal/addToLibrary';
@@ -29,7 +22,7 @@ localStorage.setItem('searched', '');
 
 // изменение фона хедера
 import { onMyLibraryClick } from './js/modal/onMyLibraryClick';
-import { toggleModal } from './js/modal/toggleModal';
+// import { toggleModal } from './js/modal/toggleModal';
 import { onCardClick } from './js/modal/onCardClick';
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);

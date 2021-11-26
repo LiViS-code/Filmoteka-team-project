@@ -33,9 +33,9 @@ function addGenresToMovieObj() {
 
 // рендер популярних фильмов по клику на лого
 export function onLogoClick(e) {
-  e.preventDefault();
+  // e.preventDefault();
   search.spinner.show();
-  newPlaceholder();
+  // newPlaceholder();
   resetSearchField();
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
