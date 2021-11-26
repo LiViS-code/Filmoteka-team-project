@@ -45,20 +45,17 @@ fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
 
 export function checkWatchedFilms() {
   if (arrOfWatchedId !== null || undefined || '') {
-    console.log('Что-то есть');
     console.log(arrOfWatchedId);
     return;
   }
-  console.log('Пусто');
+
   refs.paginationContainer.classList.add('visually-hidden');
 }
 export function ckechQueueFilms() {
   if (arrOfQueuedId !== null || undefined || '') {
-    console.log('Что-то есть');
     console.log(arrOfQueuedId);
     refs.paginationContainer.classList.remove('visually-hidden');
     return;
   }
-  console.log('Пусто');
   refs.paginationContainer.classList.add('visually-hidden');
 }

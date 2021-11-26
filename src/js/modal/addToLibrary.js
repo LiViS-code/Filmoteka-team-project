@@ -46,23 +46,27 @@ function addFilmsIdToLocalStorage(keyName, id) {
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
-
     localStorage.removeItem('newWatchedFilms');
     addFilmsIdToLocalStorage('newWatchedFilms', getIdFromCard(e));
 
-    const updatedWatchedId = getIdFromLocalStorage('newWatchedFilms');
-
-    fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
+    addNewFilmsToWatched();
   }
 
   if (e.target.classList.contains('add-t-q')) {
     addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
-
     localStorage.removeItem('newQueuedFilms');
     addFilmsIdToLocalStorage('newQueuedFilms', getIdFromCard(e));
 
-    const updatedQueuedId = getIdFromLocalStorage('newQueuedFilms');
-
-    fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
+    addNewFilmsToQueued();
   }
+}
+
+function addNewFilmsToWatched() {
+  const updatedWatchedId = getIdFromLocalStorage('newWatchedFilms');
+  fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
+}
+
+function addNewFilmsToQueued() {
+  const updatedQueuedId = getIdFromLocalStorage('newQueuedFilms');
+  fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
 }
