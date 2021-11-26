@@ -1,22 +1,11 @@
-.film-poster-wrapper {
-  width: 100%;
-  height: auto;
-  @media screen and (min-width: 1024px) {
-    width: 396px;
-    height: 478px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    width: 264px;
-    height: 374px;
-  }
-}
-
 .film-poster {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 240px;
+  @media screen and (min-width: $tablet-size) {
+    width: 264px;
+  }
+  @media screen and (min-width: $desktop-size) {
+    width: 396px;
+  }
 }
 
 .film-info {
@@ -33,7 +22,6 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
-  color: FF6B01;
   margin-top: 30px;
   margin-bottom: 20px;
   @media screen and (min-width: 1024px) {
@@ -50,16 +38,19 @@
   display: flex;
   align-items: flex-start;
 }
-
+.film-description {
+  list-style: none;
+}
 .film-descr-itm {
   font-size: 12px;
   line-height: 1.33;
-  color: #8c8c8c;
+  color: $text-details-color;
   margin-bottom: 10px;
 }
 
 .film-description-txt {
   margin-left: 39px;
+  list-style: none;
   @media screen and (min-width: 1024px) {
     margin-left: 80px;
   }
@@ -73,16 +64,19 @@
   line-height: 1.33;
   margin-bottom: 10px;
   & .vote-ave {
-    width: 40px;
-    height: 16px;
     font-size: 12px;
-    line-height: 1.15;
     display: inline-block;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background: #ff6b01;
+    padding: 1px 10px;
+    color: $reverse-color;
+    background: $bg-accent-color;
     border-radius: 5px;
+  }
+  & .vote-count {
+    font-size: 12px;
+    display: inline-block;
+    background: $bg-color-btn-pagination-hover;
+    border-radius: 5px;
+    padding: 1px 4px;
   }
 }
 
@@ -91,7 +85,6 @@
   line-height: 1.33;
   text-align: inherit;
   text-transform: uppercase;
-  color: FF6B01;
   margin-top: 20px;
   @media screen and (min-width: 1024px) {
   }
@@ -112,11 +105,11 @@
   &::-webkit-scrollbar {
     width: 0;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop-size) {
     max-width: 600px;
     max-height: 160px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: $tablet-size) and (max-width: $tablet-size - 1) {
     width: 264px;
   }
 }
@@ -125,4 +118,22 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+}
+
+.modal-button {
+  width: 113px;
+  @media screen and (min-width: $tablet-size) {
+    width: 125px;
+  }
+  @media screen and (min-width: $desktop-size) {
+    width: 136px;
+  }
+  height: 44px;
+  color: $reverse-color;
+  background-color: $bg-accent-color;
+  border: none;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  margin-right: 15px;
+  cursor: pointer;
 }
