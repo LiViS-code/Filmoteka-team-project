@@ -97,6 +97,7 @@ export function resetSearchField() {
   refs.searchField.value = '';
 }
 export function removeVoteByCard() {
-  const voteEl = document.getElementById('card__vote_average');
-  voteEl.classList.add('visually-hidden');
+  const voteEl = document.querySelectorAll('#card__vote_average');
+  for (let i = 0; i < voteEl.length; i++)
+  voteEl[i].classList.add('visually-hidden');
 }
