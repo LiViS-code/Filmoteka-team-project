@@ -32,7 +32,6 @@ function fetchFilmInfo(filmId) {
     return fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             refs.modalWindowContent.innerHTML = filmInfoTpl(data);
         });
 }
