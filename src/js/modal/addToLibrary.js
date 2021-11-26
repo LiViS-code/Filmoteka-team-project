@@ -1,12 +1,22 @@
 import refs from '../Refs';
-
 /* refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick) */
 /* refs.addToQueuedBtn.addEventListener('click', onAddToQueuedBtnClick) */
 // Кнопки выбраны не те, просто чтоб потестить, потом заменить
-refs.watchedBtn.addEventListener('click', onAddToWatchedBtnClick)
-refs.queueBtn.addEventListener('click', onAddToQueuedBtnClick)
+/* refs.watchedBtn.addEventListener('click', onAddToWatchedBtnClick)
+refs.queueBtn.addEventListener('click', onAddToQueuedBtnClick) */
 
+refs.body.addEventListener('click', onAddToLibraryBtnClick);
 /* Добавить инфу по фильму в объект */
+
+/* function getFilmId(event) {
+  let filmId = 0;
+  if (event.target.classList.contains('add-t-q')) {
+        filmId = event.target.parentElement.dataset.action;
+    
+  }
+  console.log(filmId)
+    return filmId;
+} */
 
 let filmsId = [];
 
@@ -19,30 +29,17 @@ function addFilmId(id) {
 
 function addFilmsIdToLocalStorage(keyName) {
   filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : []
-  addFilmId(512195/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634648/* id фильма */)
-  addFilmId(634646/* id фильма */)
-  addFilmId(634643/* id фильма */)
-  addFilmId(634642/* id фильма */)
-  addFilmId(634641/* id фильма */)
-  addFilmId(634640/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634649/* id фильма */)
-  addFilmId(634655/* id фильма */)
-  addFilmId(634656/* id фильма */)
-  addFilmId(634657/* id фильма */)
-  addFilmId(634658/* id фильма */)
-  addFilmId(634659/* id фильма */)
-  addFilmId(634660/* id фильма */)
+  addFilmId()
   localStorage.setItem(keyName, JSON.stringify(filmsId))
 }
 
-function onAddToWatchedBtnClick() {
-  addFilmsIdToLocalStorage('watchedFilms')
+function onAddToLibraryBtnClick(e) {
+  if (e.target.classList.contains('add-t-w')) {
+    addFilmsIdToLocalStorage('watchedFilms')
+  }
+  if (e.target.classList.contains('add-t-q')) {
+    console.log('que')
+    addFilmsIdToLocalStorage('queuedFilms')
+  }
 }
 
-function onAddToQueuedBtnClick() {
-  addFilmsIdToLocalStorage('queuedFilms')
-}
