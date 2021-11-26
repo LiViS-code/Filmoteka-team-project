@@ -2,7 +2,7 @@ import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './apiService';
 import * as cardFetch from './cardFetch';
 import refs from './Refs';
-import { addPagination } from './pagination';
+import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './cardFetch';
 
@@ -13,7 +13,7 @@ function addGenresToSearchObj() {
   return filmApiService
     .fetchSearchFilms()
     .then(data => {
-      addPagination(data.total_results, 20, filmApiService.page);
+      pagination(data.total_results, 20, filmApiService.page);
       return data;
     })
     .then(data => data.results)
@@ -53,7 +53,7 @@ export function FilmSearchByWord(e) {
     return;
   }
   // refreshPaginationPages(filmApiService.query);
-  
+
   render(filmApiService.query);
 
   search.spinner.close();
@@ -78,4 +78,3 @@ function renderFilmsCard(articles) {
   scrollWin();
   search.spinner.close();
 }
-

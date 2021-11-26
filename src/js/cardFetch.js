@@ -3,7 +3,7 @@ import NewApiService from './apiService';
 import refs from './Refs';
 import '../sass/main.scss';
 import search from './spinner';
-import { addPagination } from './pagination';
+import pagination from './pagination';
 
 const newApiService = new NewApiService();
 
@@ -16,7 +16,7 @@ function addGenresToMovieObj() {
   return newApiService
     .fetchPopularFilms()
     .then(data => {
-      addPagination(data.total_results, 20, newApiService.page);
+      pagination(data.total_results, 20, newApiService.page);
       return data;
     })
     .then(data => data.results)
