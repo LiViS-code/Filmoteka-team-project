@@ -19,7 +19,7 @@ import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
 import { onCardClick } from './modal/on-card-click';
-import toTopBtn from "./on-top-button";
+import toTopBtn from './on-top-button';
 
 const newApiService = new NewApiService();
 

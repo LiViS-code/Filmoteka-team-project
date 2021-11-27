@@ -1,7 +1,8 @@
 import Pagination from 'tui-pagination';
-import { paginationContainer } from './refs';
+import { paginationContainer, searchForm } from './refs';
 import { render } from './card-fetch';
 import { FilmSearchByWordPagination } from './search-films';
+import { filterWatchedId } from './library';
 
 export default addPagination;
 
@@ -20,7 +21,13 @@ function addPagination(totalItems, itemsPerPage, page) {
 
   pagination.on('beforeMove', event => {
     const searchedFilm = localStorage.getItem('searched');
-    if (searchedFilm === '') return render(event.page);
-    return FilmSearchByWordPagination(searchedFilm, event.page);
+    if (searchedFilm === '' && searchForm.classList.contains('visually-hidden'))
+      return render(event.page);
+    else if (searchedFilm !== '' && searchForm.classList.contains('visually-hidden')) {
+      FilmSearchByWordPagination(searchedFilm, event.page);
+      // console.log('не там2');
+    } else {
+      filterWatchedId(event.page);
+    }
   });
 }

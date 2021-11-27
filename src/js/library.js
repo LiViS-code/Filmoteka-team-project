@@ -14,10 +14,26 @@ let itemsInQueue = 0;
 const arrOfWatchedId = getIdFromLocalStorage('watchedFilms');
 const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
 
-if (arrOfQueuedId) itemsInWatched = arrOfWatchedId.length;
+if (arrOfWatchedId) itemsInWatched = arrOfWatchedId.length;
 if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
-// const itemsInWatched = arrOfWatchedId.length;
-// const itemsInQueue = arrOfQueuedId.length;
+
+export function filterWatchedId(page) {
+  let start = 0;
+  let end = 9;
+  const step = 9;
+
+  if (page > 2) {
+    const firstWatchedId = arrOfWatchedId.slice(start, end);
+    listWatchedFilms.innerHTML = '';
+    fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
+    return;
+  }
+  start += step * (page - 1);
+  end += step * (page - 1);
+  const nextWatchedId = arrOfWatchedId.slice(start, end);
+  listWatchedFilms.innerHTML = '';
+  fetchFilmsById(nextWatchedId, appendWatchedFilmsMarkup);
+}
 
 export function PaginationForWatched() {
   pagination(itemsInWatched, 9);
