@@ -1,4 +1,11 @@
 import refs from '../Refs';
+import {
+  fetchFilmsById,
+  appendQueueFilmsMarkup,
+  appendWatchedFilmsMarkup,
+  getIdFromLocalStorage,
+} from '../library';
+import filmsCardTpl from '../../templates/filmCard.hbs';
 /* refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick) */
 /* refs.addToQueuedBtn.addEventListener('click', onAddToQueuedBtnClick) */
 // Кнопки выбраны не те, просто чтоб потестить, потом заменить
@@ -21,32 +28,47 @@ function getIdFromCard(e) {
   }
 }
 
-
-
 let filmsId = [];
 
 function addFilmId(id) {
   if (filmsId.includes(id)) {
-    return
+    return;
   }
-  filmsId.push(id)
+  filmsId.push(id);
 }
 
 function addFilmsIdToLocalStorage(keyName, id) {
-  filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : []
-  addFilmId(id)
-  localStorage.setItem(keyName, JSON.stringify(filmsId))
+  filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : [];
+  addFilmId(id);
+  localStorage.setItem(keyName, JSON.stringify(filmsId));
 }
 
 function onAddToLibraryBtnClick(e) {
-
   if (e.target.classList.contains('add-t-w')) {
-    addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e))
+    addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
+
+    addFilmsIdToLocalStorage('newWatchedFilms', getIdFromCard(e));
+
+    addNewFilmsToWatched();
   }
+
   if (e.target.classList.contains('add-t-q')) {
-    addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e))
+    addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
+
+    addFilmsIdToLocalStorage('newQueuedFilms', getIdFromCard(e));
+
+    addNewFilmsToQueued();
   }
 }
 
+function addNewFilmsToWatched() {
+  const updatedWatchedId = getIdFromLocalStorage('newWatchedFilms');
+  fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
+  localStorage.removeItem('newWatchedFilms');
+}
 
-  
+function addNewFilmsToQueued() {
+  const updatedQueuedId = getIdFromLocalStorage('newQueuedFilms');
+  fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
+  localStorage.removeItem('newQueuedFilms');
+}

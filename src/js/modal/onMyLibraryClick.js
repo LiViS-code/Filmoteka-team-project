@@ -1,15 +1,15 @@
 import refs from '../Refs';
-import { checkWatchedFilms, ckechQueueFilms } from '../library';
+import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
   contentChange();
+  PaginationForWatched();
 }
 
 function bgImageChange(oldBg, newBg) {
   localStorage.setItem('searched', '');
   refs.searchForm.query.value = '';
   if (refs.headerEl.classList.contains(oldBg)) {
-    console.log('contains!');
     refs.headerEl.classList.remove(oldBg);
   }
   refs.headerEl.classList.add(newBg);

@@ -71,7 +71,6 @@ export function fetchPopularFilmsByPage(page) {
 
 function bgImageChangeMain(oldBg, newBg) {
   if (refs.headerEl.classList.contains(newBg)) {
-    console.log('contains!');
     refs.headerEl.classList.remove(newBg);
   }
   refs.headerEl.classList.add(oldBg);
@@ -98,6 +97,5 @@ export function resetSearchField() {
 }
 export function removeVoteByCard() {
   const voteEl = document.querySelectorAll('#card__vote_average');
-  for (let i = 0; i < voteEl.length; i++)
-  voteEl[i].classList.add('visually-hidden');
+  for (let i = 0; i < voteEl.length; i++) voteEl[i].classList.add('visually-hidden');
 }
