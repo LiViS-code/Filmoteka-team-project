@@ -1,7 +1,6 @@
 import refs from '../Refs';
-import { checkWatchedFilms, ckechQueueFilms } from '../library';
 import { onCardClick } from './onCardClick';
-//import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
+import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
 
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
