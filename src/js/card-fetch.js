@@ -19,6 +19,7 @@ import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
 import { onCardClick } from './modal/on-card-click';
+import toTopBtn from "./on-top-button";
 
 const newApiService = new NewApiService();
 
@@ -60,6 +61,7 @@ export function onLogoClick(e) {
   paginationContainer.classList.remove('visually-hidden');
   listQueuedFilms.removeEventListener('click', onCardClick);
   listWatchedFilms.removeEventListener('click', onCardClick);
+  toTopBtn();
 }
 
 export function render(numPage) {
@@ -75,6 +77,7 @@ export function render(numPage) {
       console.log('error in function render', err);
     });
   search.spinner.close();
+  toTopBtn();
 }
 
 function renderFilmsCard(articles) {
