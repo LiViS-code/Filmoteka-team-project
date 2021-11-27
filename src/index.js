@@ -10,7 +10,7 @@ import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import './js/api-service';
 import { onLogoClick } from './js/card-fetch';
 import { FilmSearchByWord } from './js/search-films';
-import refs from './js/refs';
+import { myLibraryBtn, logoEl, btnHome, searchForm, listElement } from './js/refs';
 
 // библиотека
 import './js/modal/add-to-library';
@@ -23,11 +23,11 @@ localStorage.setItem('searched', '');
 import { onMyLibraryClick } from './js/modal/on-my-library-click';
 import { onCardClick } from './js/modal/on-card-click';
 
-refs.myLibraryBtn.addEventListener('click', onMyLibraryClick);
+myLibraryBtn.addEventListener('click', onMyLibraryClick);
 
-refs.logoEl.addEventListener('click', onLogoClick);
-refs.btnHome.addEventListener('click', onLogoClick);
-refs.searchForm.addEventListener('submit', FilmSearchByWord);
+logoEl.addEventListener('click', onLogoClick);
+btnHome.addEventListener('click', onLogoClick);
+searchForm.addEventListener('submit', FilmSearchByWord);
 
 // для модального окна
-refs.listElement.addEventListener('click', onCardClick);
+listElement.addEventListener('click', onCardClick);

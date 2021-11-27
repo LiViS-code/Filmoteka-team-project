@@ -1,5 +1,5 @@
-import refs from '../refs';
+import { modalContainer } from '../refs';
 
 export function toggleModal() {
-  refs.modalContainer.classList.toggle('visually-hidden');
+  modalContainer.classList.toggle('visually-hidden');
 }

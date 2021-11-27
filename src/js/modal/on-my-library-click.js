@@ -1,6 +1,17 @@
-import refs from '../refs';
 import { onCardClick } from './on-card-click';
-import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
+import {
+  searchForm,
+  headerEl,
+  myLibraryBtn,
+  myHomeBtn,
+  searchBox,
+  mainSection,
+  libraryMainSection,
+  warningField,
+  buttonBox,
+  listWatchedFilms,
+} from '../refs';
+import { checkWatchedFilms, PaginationForWatched } from '../library';
 
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
@@ -10,22 +21,22 @@ export function onMyLibraryClick() {
 
 function bgImageChange(oldBg, newBg) {
   localStorage.setItem('searched', '');
-  refs.searchForm.query.value = '';
-  if (refs.headerEl.classList.contains(oldBg)) {
-    refs.headerEl.classList.remove(oldBg);
+  searchForm.query.value = '';
+  if (headerEl.classList.contains(oldBg)) {
+    headerEl.classList.remove(oldBg);
   }
-  refs.headerEl.classList.add(newBg);
+  headerEl.classList.add(newBg);
   contentChange();
 }
 
 function contentChange() {
-  refs.myLibraryBtn.classList.add('active');
-  refs.myHomeBtn.classList.remove('active');
-  refs.searchBox.classList.add('visually-hidden');
-  refs.mainSection.classList.add('visually-hidden');
-  refs.libraryMainSection.classList.remove('visually-hidden');
-  refs.warningField.classList.add('visually-hidden');
-  refs.buttonBox.classList.remove('visually-hidden');
+  myLibraryBtn.classList.add('active');
+  myHomeBtn.classList.remove('active');
+  searchBox.classList.add('visually-hidden');
+  mainSection.classList.add('visually-hidden');
+  libraryMainSection.classList.remove('visually-hidden');
+  warningField.classList.add('visually-hidden');
+  buttonBox.classList.remove('visually-hidden');
   checkWatchedFilms();
-  refs.listWatchedFilms.addEventListener('click', onCardClick);
+  listWatchedFilms.addEventListener('click', onCardClick);
 }

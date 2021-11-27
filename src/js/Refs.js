@@ -1,61 +1,29 @@
-const listElement = document.querySelector('.film-cards-list-js');
-const logoEl = document.querySelector('.logo-js');
-const btnHome = document.querySelector('.nav__btn-js');
-const searchForm = document.querySelector('#search-form');
-const warningField = document.querySelector('.warning-message');
-const searchField = document.querySelector('.search-field');
-const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"]');
-const myHomeBtn = document.querySelector('[data-action="home-page-rendering"]');
-const headerEl = document.querySelector('header');
-const searchBox = document.getElementById('search-box');
-const mainSection = document.querySelector('.main-container');
-const libraryMainSection = document.querySelector('.library-main');
-const queueBtn = document.getElementById('js-queue-btn');
-const watchedBtn = document.getElementById('js-watched-btn');
-const buttonBox = document.querySelector('.button-box');
-const paginationContainer = document.getElementById('tui-pagination-container');
-const addToWatchedBtn = document.getElementById('watched');
-const addToQueuedBtn = document.getElementById('queued');
-const listWatchedFilms = document.querySelector('.film-cards-list-watched-js');
-const listQueuedFilms = document.querySelector('.film-cards-list-queue-js');
-const cardFilm = document.querySelector('.card__film[data-action]');
-const spinner = document.querySelector('.square');
-const modalContainer = document.querySelector('#modalContainer');
-const modalButtonClose = document.querySelector('.modal-button-close-js');
-const modalWindowContent = document.querySelector('.modal-window-content');
-const modalContainerEl = document.querySelector('#modalContainer');
-const modalFooterEl = document.querySelector('.js-team');
-const teamBtn = document.querySelector('.button-team');
-const body = document.querySelector('body');
-
-export default {
-  listElement,
-  logoEl,
-  btnHome,
-  searchForm,
-  warningField,
-  myLibraryBtn,
-  myHomeBtn,
-  headerEl,
-  searchBox,
-  mainSection,
-  libraryMainSection,
-  queueBtn,
-  watchedBtn,
-  buttonBox,
-  paginationContainer,
-  searchField,
-  addToWatchedBtn,
-  addToQueuedBtn,
-  listWatchedFilms,
-  listQueuedFilms,
-  cardFilm,
-  spinner,
-  modalContainer,
-  modalButtonClose,
-  modalWindowContent,
-  modalContainerEl,
-  modalFooterEl,
-  teamBtn,
-  body,
-};
+export const listElement = document.querySelector('.film-cards-list-js');
+export const logoEl = document.querySelector('.logo-js');
+export const btnHome = document.querySelector('.nav__btn-js');
+export const searchForm = document.querySelector('#search-form');
+export const warningField = document.querySelector('.warning-message');
+export const searchField = document.querySelector('.search-field');
+export const myLibraryBtn = document.querySelector('[data-action="my-library-rendering"]');
+export const myHomeBtn = document.querySelector('[data-action="home-page-rendering"]');
+export const headerEl = document.querySelector('header');
+export const searchBox = document.getElementById('search-box');
+export const mainSection = document.querySelector('.main-container');
+export const libraryMainSection = document.querySelector('.library-main');
+export const queueBtn = document.getElementById('js-queue-btn');
+export const watchedBtn = document.getElementById('js-watched-btn');
+export const buttonBox = document.querySelector('.button-box');
+export const paginationContainer = document.getElementById('tui-pagination-container');
+export const addToWatchedBtn = document.getElementById('watched');
+export const addToQueuedBtn = document.getElementById('queued');
+export const listWatchedFilms = document.querySelector('.film-cards-list-watched-js');
+export const listQueuedFilms = document.querySelector('.film-cards-list-queue-js');
+export const cardFilm = document.querySelector('.card__film[data-action]');
+export const spinner = document.querySelector('.square');
+export const modalContainer = document.querySelector('#modalContainer');
+export const modalButtonClose = document.querySelector('.modal-button-close-js');
+export const modalWindowContent = document.querySelector('.modal-window-content');
+export const modalContainerEl = document.querySelector('#modalContainer');
+export const modalFooterEl = document.querySelector('.js-team');
+export const teamBtn = document.querySelector('.button-team');
+export const bodyDoc = document.querySelector('body');

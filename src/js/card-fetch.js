@@ -1,6 +1,20 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import NewApiService from './api-service';
-import refs from './refs';
+import {
+  warningField,
+  paginationContainer,
+  listQueuedFilms,
+  listWatchedFilms,
+  listElement,
+  headerEl,
+  myLibraryBtn,
+  myHomeBtn,
+  searchBox,
+  mainSection,
+  libraryMainSection,
+  buttonBox,
+  searchField,
+} from './refs';
 import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
@@ -40,12 +54,12 @@ export function onLogoClick(e) {
   resetSearchField();
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
-  refs.warningField.textContent = '';
+  warningField.textContent = '';
   render(1);
   search.spinner.close();
-  refs.paginationContainer.classList.remove('visually-hidden');
-  refs.listQueuedFilms.removeEventListener('click', onCardClick);
-  refs.listWatchedFilms.removeEventListener('click', onCardClick);
+  paginationContainer.classList.remove('visually-hidden');
+  listQueuedFilms.removeEventListener('click', onCardClick);
+  listWatchedFilms.removeEventListener('click', onCardClick);
 }
 
 export function render(numPage) {
@@ -64,7 +78,7 @@ export function render(numPage) {
 }
 
 function renderFilmsCard(articles) {
-  refs.listElement.innerHTML = filmsCardTpl(articles);
+  listElement.innerHTML = filmsCardTpl(articles);
 }
 
 export function fetchPopularFilmsByPage(page) {
@@ -73,19 +87,19 @@ export function fetchPopularFilmsByPage(page) {
 }
 
 function bgImageChangeMain(oldBg, newBg) {
-  if (refs.headerEl.classList.contains(newBg)) {
-    refs.headerEl.classList.remove(newBg);
+  if (headerEl.classList.contains(newBg)) {
+    headerEl.classList.remove(newBg);
   }
-  refs.headerEl.classList.add(oldBg);
-  refs.myLibraryBtn.classList.remove('active');
-  refs.myHomeBtn.classList.add('active');
-  refs.searchBox.classList.remove('visually-hidden');
-  refs.mainSection.classList.remove('visually-hidden');
-  refs.libraryMainSection.classList.add('visually-hidden');
-  refs.warningField.classList.remove('visually-hidden');
-  refs.buttonBox.classList.add('visually-hidden');
-  refs.listQueuedFilms.removeEventListener('click', onCardClick);
-  refs.listWatchedFilms.removeEventListener('click', onCardClick);
+  headerEl.classList.add(oldBg);
+  myLibraryBtn.classList.remove('active');
+  myHomeBtn.classList.add('active');
+  searchBox.classList.remove('visually-hidden');
+  mainSection.classList.remove('visually-hidden');
+  libraryMainSection.classList.add('visually-hidden');
+  warningField.classList.remove('visually-hidden');
+  buttonBox.classList.add('visually-hidden');
+  listQueuedFilms.removeEventListener('click', onCardClick);
+  listWatchedFilms.removeEventListener('click', onCardClick);
 }
 export function scrollWin() {
   window.scrollTo({
@@ -98,7 +112,7 @@ export function scrollWin() {
 //   el.placeholder= "Popular";
 // };
 export function resetSearchField() {
-  refs.searchField.value = '';
+  searchField.value = '';
 }
 export function removeVoteByCard() {
   const voteEl = document.querySelectorAll('#card__vote_average');

@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import refs from './refs';
+import { paginationContainer } from './refs';
 import { render } from './card-fetch';
 import { FilmSearchByWordPagination } from './search-films';
 
@@ -14,7 +14,7 @@ function addPagination(totalItems, itemsPerPage, page) {
     usageStatistics: false,
   };
 
-  const pagination = new Pagination(refs.paginationContainer, optionPagination);
+  const pagination = new Pagination(paginationContainer, optionPagination);
 
   pagination.movePageTo(page);
 

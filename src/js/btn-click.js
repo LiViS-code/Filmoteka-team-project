@@ -1,14 +1,14 @@
-import refs from './refs';
+import { watchedBtn, queueBtn, listWatchedFilms, listQueuedFilms } from './refs';
 import { checkWatchedFilms, ckechQueueFilms } from './library';
 import { onCardClick } from './modal/on-card-click';
 
-refs.queueBtn.addEventListener('click', btnClick('remove', 'add', ckechQueueFilms));
-refs.watchedBtn.addEventListener('click', btnClick('add', 'remove', checkWatchedFilms));
+queueBtn.addEventListener('click', btnClick('remove', 'add', ckechQueueFilms));
+watchedBtn.addEventListener('click', btnClick('add', 'remove', checkWatchedFilms));
 
 function btnClick(action1, action2, func) {
-  refs.watchedBtn.classList[action1]('btn-current');
-  refs.queueBtn.classList[action2]('btn-current');
-  refs.listWatchedFilms.classList[action2]('visually-hidden');
-  refs.listQueuedFilms.classList[action1]('visually-hidden');
+  watchedBtn.classList[action1]('btn-current');
+  queueBtn.classList[action2]('btn-current');
+  listWatchedFilms.classList[action2]('visually-hidden');
+  listQueuedFilms.classList[action1]('visually-hidden');
   func();
 }

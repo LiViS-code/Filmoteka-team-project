@@ -1,4 +1,4 @@
-import refs from './refs';
+import { listWatchedFilms, listQueuedFilms, paginationContainer } from './refs';
 import ApiService from './api-service';
 import filmsCardTpl from '../templates/filmCard.hbs';
 import pagination from './pagination';
@@ -33,11 +33,11 @@ const filmApiService = new ApiService();
 
 export function appendWatchedFilmsMarkup(film) {
   /* for */
-  refs.listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
+  listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
 }
 export function appendQueueFilmsMarkup(film) {
   /* for */
-  refs.listQueuedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
+  listQueuedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
 }
 
 export function fetchFilmsById(arrId, markup) {
@@ -59,19 +59,19 @@ fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
 
 /* fetchFilmsById(arrOfQueuedId) */
 // https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-/* console.log(refs.cardFilm.dataset.action) */
+/* console.log(cardFilm.dataset.action) */
 
 export function checkWatchedFilms() {
   if (arrOfWatchedId !== null || undefined || '') {
     return;
   }
 
-  refs.paginationContainer.classList.add('visually-hidden');
+  paginationContainer.classList.add('visually-hidden');
 }
 export function ckechQueueFilms() {
   if (arrOfQueuedId !== null || undefined || '') {
-    refs.paginationContainer.classList.remove('visually-hidden');
+    paginationContainer.classList.remove('visually-hidden');
     return;
   }
-  refs.paginationContainer.classList.add('visually-hidden');
+  paginationContainer.classList.add('visually-hidden');
 }

@@ -1,7 +1,6 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './api-service';
-// import * as cardFetch from './card-fetch';
-import refs from './refs';
+import { warningField, searchField, listElement } from './refs';
 import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
@@ -49,7 +48,7 @@ export function FilmSearchByWord(e) {
   if (filmApiService.query === '') {
     search.spinner.close();
 
-    refs.warningField.textContent = `Please write something!!!`;
+    warningField.textContent = `Please write something!!!`;
     return;
   }
   // refreshPaginationPages(filmApiService.query);
@@ -58,8 +57,8 @@ export function FilmSearchByWord(e) {
 
   search.spinner.close();
 
-  refs.searchField.textContent = filmApiService.query;
-  refs.warningField.textContent = '';
+  searchField.textContent = filmApiService.query;
+  warningField.textContent = '';
 }
 
 function render(searchQuery) {
@@ -74,7 +73,7 @@ function render(searchQuery) {
 
 function renderFilmsCard(articles) {
   search.spinner.show();
-  refs.listElement.innerHTML = filmsCardTpl(articles);
+  listElement.innerHTML = filmsCardTpl(articles);
   scrollWin();
   search.spinner.close();
 }

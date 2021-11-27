@@ -1,18 +1,18 @@
-import refs from '../refs';
+import { bodyDoc } from '../refs';
 import {
   fetchFilmsById,
-  appendQueueFilmsMarkup,
-  appendWatchedFilmsMarkup,
   getIdFromLocalStorage,
+  appendWatchedFilmsMarkup,
+  appendQueueFilmsMarkup,
 } from '../library';
-import filmsCardTpl from '../../templates/filmCard.hbs';
+// import filmsCardTpl from '../../templates/filmCard.hbs';
 /* refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick) */
 /* refs.addToQueuedBtn.addEventListener('click', onAddToQueuedBtnClick) */
 // Кнопки выбраны не те, просто чтоб потестить, потом заменить
 /* refs.watchedBtn.addEventListener('click', onAddToWatchedBtnClick)
 refs.queueBtn.addEventListener('click', onAddToQueuedBtnClick) */
 
-refs.body.addEventListener('click', onAddToLibraryBtnClick);
+bodyDoc.addEventListener('click', onAddToLibraryBtnClick);
 
 /* Ловит айди */
 

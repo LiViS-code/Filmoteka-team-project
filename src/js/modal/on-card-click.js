@@ -1,4 +1,4 @@
-import refs from '../refs';
+import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
 
@@ -8,7 +8,7 @@ export function onCardClick(event) {
   //   console.log(`это идентиф фильма ${getFilmId(event)}`);
   fetchFilmInfo(getFilmId(event));
 
-  refs.modalContainerEl.addEventListener('click', onOverlayClick);
+  modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
 }
 
@@ -32,18 +32,18 @@ function fetchFilmInfo(filmId) {
   return fetch(url)
     .then(response => response.json())
     .then(data => {
-      refs.modalWindowContent.innerHTML = filmInfoTpl(data);
+      modalWindowContent.innerHTML = filmInfoTpl(data);
     });
 }
 
 function onOverlayClick(event) {
   if (
-    event.target === refs.modalButtonClose ||
-    event.target === refs.modalContainerEl ||
+    event.target === modalButtonClose ||
+    event.target === modalContainerEl ||
     event.code === 'Escape'
   ) {
     toggleModal();
-    refs.modalContainerEl.removeEventListener('click', onOverlayClick);
+    modalContainerEl.removeEventListener('click', onOverlayClick);
     document.removeEventListener('keydown', onOverlayClick);
   }
 }
