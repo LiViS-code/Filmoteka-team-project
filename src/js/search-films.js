@@ -4,6 +4,7 @@ import { warningField, searchField, listElement } from './refs';
 import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
+import toTopBtn from "./on-top-button";
 
 const filmApiService = new ApiService();
 
@@ -54,6 +55,8 @@ export function FilmSearchByWord(e) {
   // refreshPaginationPages(filmApiService.query);
 
   render(filmApiService.query);
+  toTopBtn();
+
 
   search.spinner.close();
 

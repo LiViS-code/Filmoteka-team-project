@@ -2,6 +2,7 @@
 import './js/btn-click';
 import './js/team-modal';
 import './team.json';
+import './js/on-top-button';
 // файл стилей
 import './sass/main.scss';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
