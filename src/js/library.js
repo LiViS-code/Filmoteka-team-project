@@ -23,7 +23,6 @@ export function PaginationForQueue() {
   return;
 }
 
-console.log(arrOfWatchedId);
 const filmApiService = new ApiService();
 
 export function appendWatchedFilmsMarkup(film) {
@@ -58,7 +57,6 @@ fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
 
 export function checkWatchedFilms() {
   if (arrOfWatchedId !== null || undefined || '') {
-    console.log(arrOfWatchedId);
     return;
   }
 
@@ -66,7 +64,6 @@ export function checkWatchedFilms() {
 }
 export function ckechQueueFilms() {
   if (arrOfQueuedId !== null || undefined || '') {
-    console.log(arrOfQueuedId);
     refs.paginationContainer.classList.remove('visually-hidden');
     return;
   }
