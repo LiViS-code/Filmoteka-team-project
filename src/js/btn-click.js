@@ -1,25 +1,13 @@
 import { watchedBtn, queueBtn, listWatchedFilms, listQueuedFilms } from './refs';
 import { checkWatchedFilms, ckechQueueFilms } from './library';
 
-queueBtn.addEventListener('click', btnClick);
-watchedBtn.addEventListener('click', btnClick);
+queueBtn.addEventListener('click', () => btnClick('remove', 'add', ckechQueueFilms));
+watchedBtn.addEventListener('click', () => btnClick('add', 'remove', checkWatchedFilms));
 
-function btnClick(e) {
-  const numBtn = e.target === queueBtn ? 1 : 2;
-  switch (numBtn) {
-    case 1:
-      watchedBtn.classList.remove('btn-current');
-      queueBtn.classList.add('btn-current');
-      listWatchedFilms.classList.add('visually-hidden');
-      listQueuedFilms.classList.remove('visually-hidden');
-      checkWatchedFilms();
-      break;
-    case 2:
-      watchedBtn.classList.add('btn-current');
-      queueBtn.classList.remove('btn-current');
-      listWatchedFilms.classList.remove('visually-hidden');
-      listQueuedFilms.classList.add('visually-hidden');
-      ckechQueueFilms();
-      break;
-  }
+function btnClick(action1, action2, func) {
+  watchedBtn.classList[action1]('btn-current');
+  queueBtn.classList[action2]('btn-current');
+  listWatchedFilms.classList[action2]('visually-hidden');
+  listQueuedFilms.classList[action1]('visually-hidden');
+  func();
 }
