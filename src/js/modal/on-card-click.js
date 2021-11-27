@@ -1,9 +1,9 @@
-import { listElement, modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
+import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
 
 export function onCardClick(event) {
-  if (event.target === listElement) return;
+  if (event.target.tagName === 'UL') return;
   toggleModal();
   fetchFilmInfo(getFilmId(event));
   modalContainerEl.addEventListener('click', onOverlayClick);
