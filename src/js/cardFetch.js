@@ -4,6 +4,7 @@ import refs from './Refs';
 import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
+import { onCardClick } from './modal/onCardClick';
 
 const newApiService = new NewApiService();
 
@@ -43,6 +44,8 @@ export function onLogoClick(e) {
   render(1);
   search.spinner.close();
   refs.paginationContainer.classList.remove('visually-hidden');
+  refs.listQueuedFilms.removeEventListener('click', onCardClick);
+  refs.listWatchedFilms.removeEventListener('click', onCardClick);
 }
 
 export function render(numPage) {
@@ -82,6 +85,8 @@ function bgImageChangeMain(oldBg, newBg) {
   refs.libraryMainSection.classList.add('visually-hidden');
   refs.warningField.classList.remove('visually-hidden');
   refs.buttonBox.classList.add('visually-hidden');
+  refs.listQueuedFilms.removeEventListener('click', onCardClick);
+  refs.listWatchedFilms.removeEventListener('click', onCardClick);
 }
 export function scrollWin() {
   window.scrollTo({
@@ -98,6 +103,5 @@ export function resetSearchField() {
 }
 export function removeVoteByCard() {
   const voteEl = document.querySelectorAll('#card__vote_average');
-  for (let i = 0; i < voteEl.length; i++)
-  voteEl[i].classList.add('visually-hidden');
+  for (let i = 0; i < voteEl.length; i++) voteEl[i].classList.add('visually-hidden');
 }
