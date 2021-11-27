@@ -1,5 +1,6 @@
 import refs from './Refs';
 import { checkWatchedFilms, ckechQueueFilms } from './library';
+import { onCardClick } from './modal/onCardClick';
 
 refs.queueBtn.addEventListener('click', btnClick('remove', 'add', ckechQueueFilms));
 refs.watchedBtn.addEventListener('click', btnClick('add', 'remove', checkWatchedFilms));

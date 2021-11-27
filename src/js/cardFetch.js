@@ -4,6 +4,7 @@ import refs from './Refs';
 import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
+import { onCardClick } from './modal/onCardClick';
 
 const newApiService = new NewApiService();
 
@@ -43,6 +44,8 @@ export function onLogoClick(e) {
   render(1);
   search.spinner.close();
   refs.paginationContainer.classList.remove('visually-hidden');
+  refs.listQueuedFilms.removeEventListener('click', onCardClick);
+  refs.listWatchedFilms.removeEventListener('click', onCardClick);
 }
 
 export function render(numPage) {
@@ -81,6 +84,8 @@ function bgImageChangeMain(oldBg, newBg) {
   refs.libraryMainSection.classList.add('visually-hidden');
   refs.warningField.classList.remove('visually-hidden');
   refs.buttonBox.classList.add('visually-hidden');
+  refs.listQueuedFilms.removeEventListener('click', onCardClick);
+  refs.listWatchedFilms.removeEventListener('click', onCardClick);
 }
 export function scrollWin() {
   window.scrollTo({

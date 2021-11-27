@@ -1,5 +1,8 @@
 import refs from '../Refs';
-import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
+import { checkWatchedFilms, ckechQueueFilms } from '../library';
+import { onCardClick } from './onCardClick';
+//import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
+
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
   contentChange();
@@ -25,4 +28,5 @@ function contentChange() {
   refs.warningField.classList.add('visually-hidden');
   refs.buttonBox.classList.remove('visually-hidden');
   checkWatchedFilms();
+  refs.listWatchedFilms.addEventListener('click', onCardClick);
 }
