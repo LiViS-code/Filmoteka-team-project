@@ -14,10 +14,8 @@ let itemsInQueue = 0;
 const arrOfWatchedId = getIdFromLocalStorage('watchedFilms');
 const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
 
-if (arrOfQueuedId) itemsInWatched = arrOfWatchedId.length;
+if (arrOfWatchedId) itemsInWatched = arrOfWatchedId.length;
 if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
-// const itemsInWatched = arrOfWatchedId.length;
-// const itemsInQueue = arrOfQueuedId.length;
 
 export function PaginationForWatched() {
   pagination(itemsInWatched, 9);
