@@ -74,7 +74,6 @@ export function fetchPopularFilmsByPage(page) {
 
 function bgImageChangeMain(oldBg, newBg) {
   if (refs.headerEl.classList.contains(newBg)) {
-    console.log('contains!');
     refs.headerEl.classList.remove(newBg);
   }
   refs.headerEl.classList.add(oldBg);
