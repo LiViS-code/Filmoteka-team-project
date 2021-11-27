@@ -1,10 +1,10 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
-import NewApiService from './apiService';
-import refs from './Refs';
+import NewApiService from './api-service';
+import refs from './refs';
 import '../sass/main.scss';
 import search from './spinner';
 import pagination from './pagination';
-import { onCardClick } from './modal/onCardClick';
+import { onCardClick } from './modal/on-card-click';
 
 const newApiService = new NewApiService();
 

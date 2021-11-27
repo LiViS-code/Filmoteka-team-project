@@ -1,8 +1,6 @@
 import teamTpl from '../templates/team-modal.hbs';
 import teamList from '../team.json';
-import refs from './Refs';
-
-
+import refs from './refs';
 
 function renderModalTeam() {
   const markup = teamTpl(teamList);

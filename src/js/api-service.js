@@ -1,7 +1,3 @@
-// API key: b7df999202e1c3618d01db23ce0076f0
-// example API request: https://api.themoviedb.org/3/movie/550?api_key=b7df999202e1c3618d01db23ce0076f0
-//
-
 const BASE_URL = `https://api.themoviedb.org/3`;
 const KEY = `b7df999202e1c3618d01db23ce0076f0`;
 export default class NewApiService {

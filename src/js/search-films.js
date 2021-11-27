@@ -1,10 +1,10 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
-import ApiService from './apiService';
-import * as cardFetch from './cardFetch';
-import refs from './Refs';
+import ApiService from './api-service';
+// import * as cardFetch from './card-fetch';
+import refs from './refs';
 import pagination from './pagination';
 import search from './spinner';
-import { scrollWin } from './cardFetch';
+import { scrollWin } from './card-fetch';
 
 const filmApiService = new ApiService();
 

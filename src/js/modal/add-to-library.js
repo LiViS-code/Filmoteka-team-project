@@ -1,4 +1,4 @@
-import refs from '../Refs';
+import refs from '../refs';
 import {
   fetchFilmsById,
   appendQueueFilmsMarkup,

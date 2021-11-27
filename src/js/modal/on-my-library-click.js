@@ -1,5 +1,5 @@
-import refs from '../Refs';
-import { onCardClick } from './onCardClick';
+import refs from '../refs';
+import { onCardClick } from './on-card-click';
 import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
 
 export function onMyLibraryClick() {

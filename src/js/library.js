@@ -1,5 +1,5 @@
-import refs from './Refs';
-import ApiService from './apiService';
+import refs from './refs';
+import ApiService from './api-service';
 import filmsCardTpl from '../templates/filmCard.hbs';
 import pagination from './pagination';
 import '../sass/main.scss';

@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
-import refs from './Refs';
-import { render } from './cardFetch';
-import { FilmSearchByWordPagination } from './searchFilms';
+import refs from './refs';
+import { render } from './card-fetch';
+import { FilmSearchByWordPagination } from './search-films';
 
 export default addPagination;
 
