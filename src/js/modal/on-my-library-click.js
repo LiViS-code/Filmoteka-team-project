@@ -11,12 +11,13 @@ import {
   buttonBox,
   listWatchedFilms,
 } from '../refs';
-import { checkWatchedFilms, PaginationForWatched } from '../library';
+import { checkWatchedFilms, PaginationForWatched, filterWatchedId } from '../library';
 
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
   contentChange();
   PaginationForWatched();
+  filterWatchedId(1);
 }
 
 function bgImageChange(oldBg, newBg) {
