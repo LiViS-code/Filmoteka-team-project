@@ -46,7 +46,7 @@ function addFilmsIdToLocalStorage(keyName, id) {
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
-    localStorage.removeItem('newWatchedFilms');
+
     addFilmsIdToLocalStorage('newWatchedFilms', getIdFromCard(e));
 
     addNewFilmsToWatched();
@@ -54,7 +54,7 @@ function onAddToLibraryBtnClick(e) {
 
   if (e.target.classList.contains('add-t-q')) {
     addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
-    localStorage.removeItem('newQueuedFilms');
+
     addFilmsIdToLocalStorage('newQueuedFilms', getIdFromCard(e));
 
     addNewFilmsToQueued();
@@ -64,9 +64,11 @@ function onAddToLibraryBtnClick(e) {
 function addNewFilmsToWatched() {
   const updatedWatchedId = getIdFromLocalStorage('newWatchedFilms');
   fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
+  localStorage.removeItem('newWatchedFilms');
 }
 
 function addNewFilmsToQueued() {
   const updatedQueuedId = getIdFromLocalStorage('newQueuedFilms');
   fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
+  localStorage.removeItem('newQueuedFilms');
 }

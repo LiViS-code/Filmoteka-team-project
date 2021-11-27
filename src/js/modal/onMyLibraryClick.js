@@ -1,8 +1,9 @@
 import refs from '../Refs';
-import { checkWatchedFilms, ckechQueueFilms } from '../library';
+import { checkWatchedFilms, ckechQueueFilms, PaginationForWatched } from '../library';
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
   contentChange();
+  PaginationForWatched();
 }
 
 function bgImageChange(oldBg, newBg) {

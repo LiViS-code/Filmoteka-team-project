@@ -1,5 +1,5 @@
 import refs from './Refs';
-import { checkWatchedFilms, ckechQueueFilms } from './library';
+import { checkWatchedFilms, ckechQueueFilms, PaginationForQueue } from './library';
 
 refs.queueBtn.addEventListener('click', onQueueBtnClick);
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
@@ -10,6 +10,7 @@ function onQueueBtnClick() {
   refs.listWatchedFilms.classList.add('visually-hidden');
   refs.listQueuedFilms.classList.remove('visually-hidden');
   ckechQueueFilms();
+  PaginationForQueue();
 }
 function onWatchedBtnClick() {
   refs.watchedBtn.classList.add('btn-current');

@@ -10,6 +10,19 @@ export function getIdFromLocalStorage(keyName) {
 }
 const arrOfWatchedId = getIdFromLocalStorage('watchedFilms');
 const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
+const itemsInWatched = arrOfWatchedId.length;
+const itemsInQueue = arrOfQueuedId.length;
+
+export function PaginationForWatched() {
+  pagination(itemsInWatched, 9);
+  return;
+}
+
+export function PaginationForQueue() {
+  pagination(itemsInQueue, 9);
+  return;
+}
+
 console.log(arrOfWatchedId);
 const filmApiService = new ApiService();
 
