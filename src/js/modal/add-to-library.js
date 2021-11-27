@@ -1,4 +1,4 @@
-import { bodyDoc } from '../refs';
+import { bodyDoc, listWatchedFilms, listQueuedFilms } from '../refs';
 import {
   fetchFilmsById,
   getIdFromLocalStorage,
@@ -47,28 +47,24 @@ function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
 
-    addFilmsIdToLocalStorage('newWatchedFilms', getIdFromCard(e));
-
     addNewFilmsToWatched();
   }
 
   if (e.target.classList.contains('add-t-q')) {
     addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
 
-    addFilmsIdToLocalStorage('newQueuedFilms', getIdFromCard(e));
-
     addNewFilmsToQueued();
   }
 }
 
 function addNewFilmsToWatched() {
-  const updatedWatchedId = getIdFromLocalStorage('newWatchedFilms');
+  const updatedWatchedId = getIdFromLocalStorage('watchedFilms');
+  listWatchedFilms.innerHTML = '';
   fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
-  localStorage.removeItem('newWatchedFilms');
 }
 
 function addNewFilmsToQueued() {
-  const updatedQueuedId = getIdFromLocalStorage('newQueuedFilms');
+  const updatedQueuedId = getIdFromLocalStorage('queuedFilms');
+  listQueuedFilms.innerHTML = '';
   fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
-  localStorage.removeItem('newQueuedFilms');
 }
