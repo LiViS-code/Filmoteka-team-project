@@ -8,10 +8,16 @@ export function getIdFromLocalStorage(keyName) {
   const filmsId = JSON.parse(localStorage.getItem(keyName));
   return filmsId;
 }
+let itemsInWatched = 0;
+let itemsInQueue = 0;
+
 const arrOfWatchedId = getIdFromLocalStorage('watchedFilms');
 const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
-const itemsInWatched = arrOfWatchedId.length;
-const itemsInQueue = arrOfQueuedId.length;
+
+if (arrOfQueuedId) itemsInWatched = arrOfWatchedId.length;
+if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
+// const itemsInWatched = arrOfWatchedId.length;
+// const itemsInQueue = arrOfQueuedId.length;
 
 export function PaginationForWatched() {
   pagination(itemsInWatched, 9);
