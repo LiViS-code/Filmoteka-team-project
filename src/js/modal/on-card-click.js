@@ -1,13 +1,11 @@
-import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
+import { listElement, modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
 
 export function onCardClick(event) {
+  if (event.target === listElement) return;
   toggleModal();
-  // event.preventDefault();
-  //   console.log(`это идентиф фильма ${getFilmId(event)}`);
   fetchFilmInfo(getFilmId(event));
-
   modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
 }
