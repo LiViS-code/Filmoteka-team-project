@@ -1,5 +1,5 @@
 // основной скрипт
-import './js/onBtnClick';
+import './js/btn-click';
 import './js/team-modal';
 import './team.json';
 // файл стилей
