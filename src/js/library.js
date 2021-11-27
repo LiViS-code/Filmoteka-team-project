@@ -21,22 +21,35 @@ export function filterWatchedId(page) {
   let start = 0;
   let end = 9;
   const step = 9;
+  let updateWatchedFilms = getIdFromLocalStorage('watchedFilms');
 
-  if (page > 2) {
-    const firstWatchedId = arrOfWatchedId.slice(start, end);
+  if (page < 2) {
+    const firstWatchedId = updateWatchedFilms.slice(start, end);
     listWatchedFilms.innerHTML = '';
+
     fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
     return;
   }
+
   start += step * (page - 1);
   end += step * (page - 1);
-  const nextWatchedId = arrOfWatchedId.slice(start, end);
+
+  const nextWatchedId = updateWatchedFilms.slice(start, end);
   listWatchedFilms.innerHTML = '';
+
   fetchFilmsById(nextWatchedId, appendWatchedFilmsMarkup);
 }
 
-export function PaginationForWatched() {
-  pagination(itemsInWatched, 9);
+export function checkPaginationForWatched(updatedLocaleStorageWatched) {
+  if (updatedLocaleStorageWatched === null || undefined || '') {
+    paginationContainer.classList.add('visually-hidden');
+    return;
+  } else if (updatedLocaleStorageWatched.length <= 9) {
+    console.log('меньше 9');
+    paginationContainer.classList.add('visually-hidden');
+    return;
+  }
+  pagination(updatedLocaleStorageWatched.length, 9);
   return;
 }
 
@@ -73,17 +86,6 @@ export function fetchFilmsById(arrId, markup) {
 fetchFilmsById(arrOfWatchedId, appendWatchedFilmsMarkup);
 fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
 
-/* fetchFilmsById(arrOfQueuedId) */
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-/* console.log(cardFilm.dataset.action) */
-
-export function checkWatchedFilms() {
-  if (arrOfWatchedId !== null || undefined || '') {
-    return;
-  }
-
-  paginationContainer.classList.add('visually-hidden');
-}
 export function ckechQueueFilms() {
   if (arrOfQueuedId !== null || undefined || '') {
     paginationContainer.classList.remove('visually-hidden');
