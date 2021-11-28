@@ -25,16 +25,17 @@ if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
 
 let step = 9;
 let end = 9;
-if (document.documentElement.clientWidth < 1023) {
-  step = 8;
-  end = 8;
-}
-if (document.documentElement.clientWidth < 767) {
-  step = 4;
-  end = 4;
-}
+let quantityForPagination = 9;
 
 export function filterId(page) {
+  if (document.documentElement.clientWidth < 1023) {
+    step = 8;
+    end = 8;
+  }
+  if (document.documentElement.clientWidth < 767) {
+    step = 4;
+    end = 4;
+  }
   let start = 0;
 
   let updateWatchedFilms = getIdFromLocalStorage('watchedFilms');
@@ -80,13 +81,20 @@ export function filterId(page) {
 }
 
 export function checkPaginationForLibrary(updatedLocaleStorage) {
+  if (document.documentElement.clientWidth < 1023) {
+    quantityForPagination = 8;
+  }
+  if (document.documentElement.clientWidth < 767) {
+    quantityForPagination = 4;
+  }
+
   if (watchedBtn.classList.contains('btn-current')) {
-    if (!updatedLocaleStorage || updatedLocaleStorage.length <= 9) {
+    if (!updatedLocaleStorage || updatedLocaleStorage.length <= quantityForPagination) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
     paginationContainer.classList.remove('visually-hidden');
-    pagination(updatedLocaleStorage.length, 9);
+    pagination(updatedLocaleStorage.length, quantityForPagination);
     if (document.documentElement.clientWidth < 1023) {
       pagination(updatedLocaleStorage.length, 8);
     }
@@ -97,13 +105,14 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
   }
 
   if (queueBtn.classList.contains('btn-current')) {
-    if (!updatedLocaleStorage || updatedLocaleStorage.length <= 9) {
+    if (!updatedLocaleStorage || updatedLocaleStorage.length <= quantityForPagination) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
     paginationContainer.classList.remove('visually-hidden');
-    pagination(updatedLocaleStorage.length, 9);
+    pagination(updatedLocaleStorage.length, quantityForPagination);
     if (document.documentElement.clientWidth < 1023) {
+      console.log('Q 1023 сработало');
       pagination(updatedLocaleStorage.length, 8);
     }
     if (document.documentElement.clientWidth < 767) {
