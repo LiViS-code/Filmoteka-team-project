@@ -76,11 +76,11 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
-
     paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, 9);
     return;
   }
+
   if (queueBtn.classList.contains('btn-current')) {
     if (!updatedLocaleStorage || updatedLocaleStorage.length <= 9) {
       paginationContainer.classList.add('visually-hidden');

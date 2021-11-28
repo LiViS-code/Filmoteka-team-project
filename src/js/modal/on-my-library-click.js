@@ -11,6 +11,8 @@ import {
   buttonBox,
   listWatchedFilms,
   listQueuedFilms,
+  queueBtn,
+  watchedBtn,
 } from '../refs';
 import { checkPaginationForLibrary, filterId, getIdFromLocalStorage } from '../library';
 
@@ -19,9 +21,18 @@ export function onMyLibraryClick() {
   contentChange();
 
   const updateLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
-  checkPaginationForLibrary(updateLocaleStorageWatched);
-  if (updateLocaleStorageWatched) {
-    filterId(1);
+  const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
+  if (watchedBtn.classList.contains('btn-current')) {
+    checkPaginationForLibrary(updateLocaleStorageWatched);
+    if (updateLocaleStorageWatched) {
+      filterId(1);
+    }
+  }
+  if (queueBtn.classList.contains('btn-current')) {
+    checkPaginationForLibrary(updateLocaleStorageQueued);
+    if (updateLocaleStorageQueued) {
+      filterId(1);
+    }
   }
 }
 
