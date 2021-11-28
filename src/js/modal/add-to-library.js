@@ -60,5 +60,5 @@ function addNewFilmsToWatched() {
 function addNewFilmsToQueued() {
   const updatedQueuedId = getIdFromLocalStorage('queuedFilms');
   listQueuedFilms.innerHTML = '';
-  fetchFilmsById(updatedQueuedId, appendWatchedFilmsMarkup);
+  fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
 }

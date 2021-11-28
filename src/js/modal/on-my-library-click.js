@@ -11,13 +11,18 @@ import {
   buttonBox,
   listWatchedFilms,
 } from '../refs';
-import { checkWatchedFilms, PaginationForWatched, filterWatchedId } from '../library';
+import { checkPaginationForWatched, filterWatchedId } from '../library';
+import { getIdFromLocalStorage } from '../library';
 
 export function onMyLibraryClick() {
   bgImageChange('home-header', 'library-header');
   contentChange();
-  PaginationForWatched();
-  filterWatchedId(1);
+
+  const updateLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
+  checkPaginationForWatched(updateLocaleStorageWatched);
+  if (updateLocaleStorageWatched !== null) {
+    filterWatchedId(1);
+  }
 }
 
 function bgImageChange(oldBg, newBg) {
@@ -38,6 +43,6 @@ function contentChange() {
   libraryMainSection.classList.remove('visually-hidden');
   warningField.classList.add('visually-hidden');
   buttonBox.classList.remove('visually-hidden');
-  checkWatchedFilms();
+
   listWatchedFilms.addEventListener('click', onCardClick);
 }
