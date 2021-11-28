@@ -1,12 +1,13 @@
 .modal-button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
   border: none;
   background-color: transparent;
   background-image: url('../../src/images/close.svg');
-  display: block;
   cursor: pointer;
-  margin-left: auto;
 }
 .modal-container {
   display: flex;
@@ -15,7 +16,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -25,18 +26,19 @@
 .modal-window {
   position: absolute;
   width: 280px;
-  height: auto;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, 0, 0);
   background: $reverse-color;
-  padding: 18px 18px 41px;
+  padding: 48px 18px 41px;
   @media screen and (min-width: $tablet-size) {
-    padding: 18px 18px 40px;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    padding: 42px 30px 40px;
     width: 618px;
   }
   @media screen and (min-width: $desktop-size) {
-    padding: 10px 10px 40px;
+    padding-top: 50px;
     width: 882px;
   }
 }
