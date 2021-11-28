@@ -16,12 +16,12 @@ function btnClick(action1, action2, func, func2) {
 
   let updatedLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
   let updatedLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
+
   if (watchedBtn.classList.contains('btn-current')) {
     func(updatedLocaleStorageWatched);
     func2(1);
     return;
   }
-
   func(updatedLocaleStorageQueued);
   func2(1);
 }

@@ -72,26 +72,21 @@ export function filterId(page) {
 
 export function checkPaginationForLibrary(updatedLocaleStorage) {
   if (watchedBtn.classList.contains('btn-current')) {
-    if (!updatedLocaleStorage) {
+    if (!updatedLocaleStorage || updatedLocaleStorage.length <= 9) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
-    if (updatedLocaleStorage.length <= 9) {
-      paginationContainer.classList.add('visually-hidden');
-      return;
-    }
+
+    paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, 9);
     return;
   }
   if (queueBtn.classList.contains('btn-current')) {
-    if (!updatedLocaleStorage) {
+    if (!updatedLocaleStorage || updatedLocaleStorage.length <= 9) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
-    if (updatedLocaleStorage.length <= 9) {
-      paginationContainer.classList.add('visually-hidden');
-      return;
-    }
+    paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, 9);
     return;
   }
