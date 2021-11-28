@@ -134,13 +134,13 @@
   background-size: contain;
 }
 .warning-message {
-  position: absolute;
-  top: 32px;
-  right: 50%;
-
+  text-align: left;
   font-size: 16px;
   line-height: 1.14;
   color: $error-text-color;
+  @media screen and (min-width: $tablet-size) {
+    text-align: center;
+  }
 }
 .button-box {
   display: flex;
