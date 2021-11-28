@@ -12,7 +12,7 @@ import {
   listWatchedFilms,
   listQueuedFilms,
 } from '../refs';
-import { checkPaginationForWatched, filterWatchedId } from '../library';
+import { checkPaginationForLibrary, filterWatchedId } from '../library';
 import { getIdFromLocalStorage } from '../library';
 
 export function onMyLibraryClick() {
@@ -20,8 +20,8 @@ export function onMyLibraryClick() {
   contentChange();
 
   const updateLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
-  checkPaginationForWatched(updateLocaleStorageWatched);
-  if (updateLocaleStorageWatched !== null) {
+  checkPaginationForLibrary(updateLocaleStorageWatched);
+  if (updateLocaleStorageWatched) {
     filterWatchedId(1);
   }
 }

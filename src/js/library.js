@@ -1,4 +1,10 @@
-import { listWatchedFilms, listQueuedFilms, paginationContainer } from './refs';
+import {
+  listWatchedFilms,
+  listQueuedFilms,
+  paginationContainer,
+  watchedBtn,
+  queueBtn,
+} from './refs';
 import ApiService from './api-service';
 import filmsCardTpl from '../templates/filmCard.hbs';
 import pagination from './pagination';
@@ -21,41 +27,76 @@ export function filterWatchedId(page) {
   let start = 0;
   let end = 9;
   const step = 9;
-  let updateWatchedFilms = getIdFromLocalStorage('watchedFilms');
 
-  if (page < 2) {
-    const firstWatchedId = updateWatchedFilms.slice(start, end);
+  let updateWatchedFilms = getIdFromLocalStorage('watchedFilms');
+  let updateQueuedFilms = getIdFromLocalStorage('queuedFilms');
+
+  if (watchedBtn.classList.contains('btn-current')) {
+    if (page < 2) {
+      const firstWatchedId = updateWatchedFilms.slice(start, end);
+      listWatchedFilms.innerHTML = '';
+
+      fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
+      return;
+    }
+
+    start += step * (page - 1);
+    end += step * (page - 1);
+
+    const nextWatchedId = updateWatchedFilms.slice(start, end);
     listWatchedFilms.innerHTML = '';
 
-    fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
-    return;
+    fetchFilmsById(nextWatchedId, appendWatchedFilmsMarkup);
   }
 
-  start += step * (page - 1);
-  end += step * (page - 1);
+  if (queueBtn.classList.contains('btn-current')) {
+    if (page < 2) {
+      const firstQueuedId = updateQueuedFilms.slice(start, end);
+      listQueuedFilms.innerHTML = '';
 
-  const nextWatchedId = updateWatchedFilms.slice(start, end);
-  listWatchedFilms.innerHTML = '';
+      fetchFilmsById(firstQueuedId, appendQueueFilmsMarkup);
+      return;
+    }
 
-  fetchFilmsById(nextWatchedId, appendWatchedFilmsMarkup);
+    start += step * (page - 1);
+    end += step * (page - 1);
+
+    const nextQueuedId = updateQueuedFilms.slice(start, end);
+    listQueuedFilms.innerHTML = '';
+
+    fetchFilmsById(nextQueuedId, appendQueueFilmsMarkup);
+  }
 }
 
-export function checkPaginationForWatched(updatedLocaleStorageWatched) {
-  if (!updatedLocaleStorageWatched) {
-    paginationContainer.classList.add('visually-hidden');
-    return;
-  } else if (updatedLocaleStorageWatched.length <= 9) {
-    console.log('меньше 9');
-    paginationContainer.classList.add('visually-hidden');
+export function checkPaginationForLibrary(updatedLocaleStorage) {
+  if (watchedBtn.classList.contains('btn-current')) {
+    console.log('check FOR WATCHED');
+    if (!updatedLocaleStorage) {
+      paginationContainer.classList.add('visually-hidden');
+      return;
+    }
+    if (updatedLocaleStorage.length <= 9) {
+      console.log('меньше 9');
+      paginationContainer.classList.add('visually-hidden');
+      return;
+    }
+    pagination(updatedLocaleStorage.length, 9);
     return;
   }
-  pagination(updatedLocaleStorageWatched.length, 9);
-  return;
-}
-
-export function PaginationForQueue() {
-  pagination(itemsInQueue, 9);
-  return;
+  if (queueBtn.classList.contains('btn-current')) {
+    console.log('check FOR Queued');
+    if (!updatedLocaleStorage) {
+      paginationContainer.classList.add('visually-hidden');
+      return;
+    }
+    if (updatedLocaleStorage.length <= 9) {
+      console.log('меньше 9');
+      paginationContainer.classList.add('visually-hidden');
+      return;
+    }
+    pagination(updatedLocaleStorage.length, 9);
+    return;
+  }
 }
 
 const filmApiService = new ApiService();
