@@ -147,9 +147,6 @@ export function fetchFilmsById(arrId, markup) {
   }
 }
 
-fetchFilmsById(arrOfWatchedId, appendWatchedFilmsMarkup);
-fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
-
 export function ckechQueueFilms() {
   if (arrOfQueuedId) {
     paginationContainer.classList.remove('visually-hidden');
