@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import { paginationContainer, myLibraryBtn, searchBox } from './refs';
 import { render } from './card-fetch';
 import { FilmSearchByWordPagination } from './search-films';
-import { filterWatchedId } from './library';
+import { filterId } from './library';
 
 export default addPagination;
 
@@ -26,7 +26,7 @@ function addPagination(totalItems, itemsPerPage, page) {
     } else if (!(searchedFilm === '') && !searchBox.classList.contains('visually-hidden')) {
       FilmSearchByWordPagination(searchedFilm, event.page);
     } else if (myLibraryBtn.classList.contains('active')) {
-      filterWatchedId(event.page);
+      filterId(event.page);
     }
   });
 }

@@ -23,7 +23,7 @@ const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
 if (arrOfWatchedId) itemsInWatched = arrOfWatchedId.length;
 if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
 
-export function filterWatchedId(page) {
+export function filterId(page) {
   let start = 0;
   let end = 9;
   const step = 9;
@@ -32,6 +32,7 @@ export function filterWatchedId(page) {
   let updateQueuedFilms = getIdFromLocalStorage('queuedFilms');
 
   if (watchedBtn.classList.contains('btn-current')) {
+    if (!getIdFromLocalStorage('watchedFilms')) return;
     if (page < 2) {
       const firstWatchedId = updateWatchedFilms.slice(start, end);
       listWatchedFilms.innerHTML = '';
@@ -50,6 +51,7 @@ export function filterWatchedId(page) {
   }
 
   if (queueBtn.classList.contains('btn-current')) {
+    if (!getIdFromLocalStorage('queuedFilms')) return;
     if (page < 2) {
       const firstQueuedId = updateQueuedFilms.slice(start, end);
       listQueuedFilms.innerHTML = '';
@@ -70,13 +72,11 @@ export function filterWatchedId(page) {
 
 export function checkPaginationForLibrary(updatedLocaleStorage) {
   if (watchedBtn.classList.contains('btn-current')) {
-    console.log('check FOR WATCHED');
     if (!updatedLocaleStorage) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
     if (updatedLocaleStorage.length <= 9) {
-      console.log('меньше 9');
       paginationContainer.classList.add('visually-hidden');
       return;
     }
@@ -84,13 +84,11 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
     return;
   }
   if (queueBtn.classList.contains('btn-current')) {
-    console.log('check FOR Queued');
     if (!updatedLocaleStorage) {
       paginationContainer.classList.add('visually-hidden');
       return;
     }
     if (updatedLocaleStorage.length <= 9) {
-      console.log('меньше 9');
       paginationContainer.classList.add('visually-hidden');
       return;
     }
