@@ -10,6 +10,7 @@ import {
   warningField,
   buttonBox,
   listWatchedFilms,
+  listQueuedFilms,
 } from '../refs';
 import { checkPaginationForWatched, filterWatchedId } from '../library';
 import { getIdFromLocalStorage } from '../library';
@@ -45,4 +46,5 @@ function contentChange() {
   buttonBox.classList.remove('visually-hidden');
 
   listWatchedFilms.addEventListener('click', onCardClick);
+  listQueuedFilms.addEventListener('click', onCardClick);
 }
