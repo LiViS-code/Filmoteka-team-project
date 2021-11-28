@@ -23,10 +23,19 @@ const arrOfQueuedId = getIdFromLocalStorage('queuedFilms');
 if (arrOfWatchedId) itemsInWatched = arrOfWatchedId.length;
 if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
 
+let step = 9;
+let end = 9;
+if (document.documentElement.clientWidth < 1023) {
+  step = 8;
+  end = 8;
+}
+if (document.documentElement.clientWidth < 767) {
+  step = 4;
+  end = 4;
+}
+
 export function filterId(page) {
   let start = 0;
-  let end = 9;
-  const step = 9;
 
   let updateWatchedFilms = getIdFromLocalStorage('watchedFilms');
   let updateQueuedFilms = getIdFromLocalStorage('queuedFilms');
@@ -78,6 +87,12 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
     }
     paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, 9);
+    if (document.documentElement.clientWidth < 1023) {
+      pagination(updatedLocaleStorage.length, 8);
+    }
+    if (document.documentElement.clientWidth < 767) {
+      pagination(updatedLocaleStorage.length, 4);
+    }
     return;
   }
 
@@ -88,6 +103,12 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
     }
     paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, 9);
+    if (document.documentElement.clientWidth < 1023) {
+      pagination(updatedLocaleStorage.length, 8);
+    }
+    if (document.documentElement.clientWidth < 767) {
+      pagination(updatedLocaleStorage.length, 4);
+    }
     return;
   }
 }
