@@ -52,7 +52,6 @@ export function FilmSearchByWord(e) {
     warningField.textContent = `Please write something!!!`;
     return;
   }
-  // refreshPaginationPages(filmApiService.query);
 
   render(filmApiService.query);
   toTopBtn();

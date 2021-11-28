@@ -3,13 +3,13 @@ const toTopBtn = () => {
   const scrollFunc = () => {
     let y = window.scrollY;
     if (y > 0) {
-       scrollToTopButton.className = "totop_btn show";
+      scrollToTopButton.className = 'totop_btn show';
     } else {
-       scrollToTopButton.className = "totop_btn hide";
+      scrollToTopButton.className = 'totop_btn hide';
     }
   };
 
-  window.addEventListener("scroll", scrollFunc);
+  window.addEventListener('scroll', scrollFunc);
 
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -22,7 +22,7 @@ const toTopBtn = () => {
   scrollToTopButton.onclick = function (e) {
     e.preventDefault();
     scrollToTop();
-  }
-}
+  };
+};
 
 export default toTopBtn;

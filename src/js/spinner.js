@@ -1,4 +1,3 @@
-   
 import * as basicLightbox from 'basiclightbox';
 
 const markup = `<div class="sk-chase">
