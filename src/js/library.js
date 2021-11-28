@@ -41,7 +41,7 @@ export function filterWatchedId(page) {
 }
 
 export function checkPaginationForWatched(updatedLocaleStorageWatched) {
-  if (updatedLocaleStorageWatched === null || undefined || '') {
+  if (!updatedLocaleStorageWatched) {
     paginationContainer.classList.add('visually-hidden');
     return;
   } else if (updatedLocaleStorageWatched.length <= 9) {
@@ -87,7 +87,7 @@ fetchFilmsById(arrOfWatchedId, appendWatchedFilmsMarkup);
 fetchFilmsById(arrOfQueuedId, appendQueueFilmsMarkup);
 
 export function ckechQueueFilms() {
-  if (arrOfQueuedId !== null || undefined || '') {
+  if (arrOfQueuedId) {
     paginationContainer.classList.remove('visually-hidden');
     return;
   }
