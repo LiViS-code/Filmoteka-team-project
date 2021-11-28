@@ -91,16 +91,12 @@
   margin-bottom: 5px;
 }
 .card__text {
-  position: relative;
-  width: 294px;
+  display: flex;
+  justify-content: space-between;
   color: $accent-color;
 }
 
 .card__vote_average {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,15 +111,6 @@
   background-color: $accent-color;
   border-radius: 5px;
 }
-/* .library-main {
-  padding: 20px;
-  @media screen and (min-width: $tablet-size) {
-    padding: 60px 75px;
-  }
-  @media screen and (min-width: $desktop-size) {
-    padding: 60px 71px;
-  }
-} */
 
 .main-container {
   margin-bottom: 40px;

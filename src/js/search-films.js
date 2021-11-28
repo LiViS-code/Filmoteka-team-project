@@ -40,8 +40,7 @@ function addGenresToSearchObj() {
       });
     })
     .catch(error => {
-      const errMsg = error.toUpperCase();
-      warningField.textContent = `${errMsg}`;
+      warningField.textContent = error;
       paginationContainer.classList.add('visually-hidden');
     });
 }
@@ -65,7 +64,7 @@ export function FilmSearchByWord(e) {
   if (filmApiService.query === '') {
     search.spinner.close();
 
-    warningField.textContent = 'PLEASE WRITE SOMETHING!';
+    warningField.textContent = 'Please write something!';
     return;
   }
 
