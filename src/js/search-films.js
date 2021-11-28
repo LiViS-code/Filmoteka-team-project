@@ -1,10 +1,10 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './api-service';
-import { warningField, searchField, listElement } from './refs';
+import { warningField, searchField, listElement, paginationContainer } from './refs';
 import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
-import toTopBtn from "./on-top-button";
+import toTopBtn from './on-top-button';
 
 const filmApiService = new ApiService();
 
@@ -13,8 +13,19 @@ function addGenresToSearchObj() {
   return filmApiService
     .fetchSearchFilms()
     .then(data => {
-      pagination(data.total_results, 20, filmApiService.page);
-      return data;
+      if (data.errors) {
+        const err = data.errors[0];
+        throw err;
+      }
+      if (data.total_results === 0) {
+        const err = 'Search result not successful. Enter the correct movie name and retry!';
+        throw err;
+      } else {
+        if (paginationContainer.classList.contains('visually-hidden'))
+          paginationContainer.classList.remove('visually-hidden');
+        pagination(data.total_results, 20, filmApiService.page);
+        return data;
+      }
     })
     .then(data => data.results)
     .then(data => {
@@ -27,6 +38,11 @@ function addGenresToSearchObj() {
             : 'n/a',
         }));
       });
+    })
+    .catch(error => {
+      const errMsg = error.toUpperCase();
+      warningField.textContent = `${errMsg}`;
+      paginationContainer.classList.add('visually-hidden');
     });
 }
 
@@ -49,13 +65,12 @@ export function FilmSearchByWord(e) {
   if (filmApiService.query === '') {
     search.spinner.close();
 
-    warningField.textContent = `Please write something!!!`;
+    warningField.textContent = 'PLEASE WRITE SOMETHING!';
     return;
   }
 
   render(filmApiService.query);
   toTopBtn();
-
 
   search.spinner.close();
 
