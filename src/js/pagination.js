@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import { paginationContainer, searchForm, myLibraryBtn, searchBox } from './refs';
+import { paginationContainer, myLibraryBtn, searchBox } from './refs';
 import { render } from './card-fetch';
 import { FilmSearchByWordPagination } from './search-films';
 import { filterWatchedId } from './library';

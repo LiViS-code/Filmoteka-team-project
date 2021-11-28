@@ -48,10 +48,8 @@ function addGenresToMovieObj() {
 }
 
 // рендер популярних фильмов по клику на лого
-export function onLogoClick(e) {
-  // e.preventDefault();
+export function onLogoClick() {
   search.spinner.show();
-  // newPlaceholder();
   resetSearchField();
   localStorage.setItem('searched', '');
   bgImageChangeMain('home-header', 'library-header');
@@ -104,19 +102,18 @@ function bgImageChangeMain(oldBg, newBg) {
   listQueuedFilms.removeEventListener('click', onCardClick);
   listWatchedFilms.removeEventListener('click', onCardClick);
 }
+
 export function scrollWin() {
   window.scrollTo({
     top: 0,
     belavior: 'smooth',
   });
 }
-// function newPlaceholder() {
-//   let el= document.getElementById("search-field");
-//   el.placeholder= "Popular";
-// };
+
 export function resetSearchField() {
   searchField.value = '';
 }
+
 export function removeVoteByCard() {
   const voteEl = document.querySelectorAll('#card__vote_average');
   for (let i = 0; i < voteEl.length; i++) voteEl[i].classList.add('visually-hidden');
