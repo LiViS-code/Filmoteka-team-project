@@ -18,7 +18,7 @@ function addGenresToSearchObj() {
         throw err;
       }
       if (data.total_results === 0) {
-        const err = 'Nothing found';
+        const err = 'Search result not successful. Enter the correct movie name and retry!';
         throw err;
       } else {
         if (paginationContainer.classList.contains('visually-hidden'))
