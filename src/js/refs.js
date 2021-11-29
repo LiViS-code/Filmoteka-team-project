@@ -25,5 +25,5 @@ export const modalButtonClose = document.querySelector('.modal-button-close-js')
 export const modalWindowContent = document.querySelector('.modal-window-content');
 export const modalContainerEl = document.querySelector('#modalContainer');
 export const modalFooterEl = document.querySelector('.js-team');
-export const teamBtn = document.querySelector('.button-team');
+export const teamBtn = document.querySelector('.js-team-modal');
 export const bodyDoc = document.querySelector('body');
