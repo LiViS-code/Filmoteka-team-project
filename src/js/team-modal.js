@@ -1,9 +1,11 @@
+import Photo1 from "../images/Photo1.jpeg";
+import Vasily from "../images/lvs.jpg"
 import teamTpl from '../templates/team-modal.hbs';
 import teamList from '../team.json';
 import { modalFooterEl, teamBtn } from './refs';
 
 function renderModalTeam() {
-  const markup = teamTpl(teamList);
+ const markup = teamTpl(teamList);
   modalFooterEl.insertAdjacentHTML('beforeend', markup);
 }
 

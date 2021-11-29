@@ -73,7 +73,7 @@
   position: relative;
   padding: 10px;
   border-radius: 10px;
-  background-color: #c8cac7;
+  background-color: rgb(211, 209, 209);
   max-width: 760px;
   top: 3%;
   transition: transform var(--animation-duration) var(--timing-function);
@@ -131,10 +131,16 @@
 .team-item__about {
   text-align: center;
   margin-bottom: 5px;
-  color: #000000;
+  color: black;
   font-weight: bold;
 }
 
 .team-item__name {
   display: block;
+}
+.team-role {
+  text-align: center;
+  margin-bottom: 5px;
+  color: $accent-color;
+  font-weight: bold;
 }

@@ -1,11 +1,14 @@
 // основной скрипт
 import './js/btn-click';
+import "./templates/team-modal.hbs"
 import './js/team-modal';
 import './team.json';
 import './js/on-top-button';
 // файл стилей
 import './sass/main.scss';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
+
+
 
 // скрипт взаимодействия с API
 import './js/api-service';
@@ -32,3 +35,8 @@ searchForm.addEventListener('submit', FilmSearchByWord);
 
 // для модального окна
 listElement.addEventListener('click', onCardClick);
+
+
+
+
+

@@ -2,50 +2,58 @@
   {
     "name": "Anastasia",
     "surname":"Korniichuk",
+    "role":"Developer",
     "photo": "https://dietdo.ru/wp-content/uploads/2017/03/Grecheskiy-salat-retsept-klassicheskiy-s-foto-poshagovo-min.jpg",
-    "github": "https://#"
+    "github": "https://github.com/ms-anastasia"
   },
   {
     "name":"Nadiia",
     "surname": "Myronenko",
+    "role":"Developer",
     "photo": "https://dietdo.ru/wp-content/uploads/2017/03/Grecheskiy-salat-retsept-klassicheskiy-s-foto-poshagovo-min.jpg",
-    "github":"https://#"
+    "github":"https://github.com/Nadiia-Myronenko"
   },
 
   {
     "name": "Rodion",
     "surname": "Prokopchenko",
+     "role":"Developer",
     "photo":"https://dietdo.ru/wp-content/uploads/2017/03/Grecheskiy-salat-retsept-klassicheskiy-s-foto-poshagovo-min.jpg",
-    "github":"https://#"
+    "github":"https://github.com/rodion-prokopchenko"
   },
   {
     "name": "Luka",
     "surname": "Luka777",
+     "role":"Developer",
     "photo":"https://s.mediasole.ru/cache/content/data/images/1393/1393226/original.jpg",
-    "github":"https://#"
+    "github":"https://github.com/Lukka777"
   },
   {
     "name": "Serhii",
     "surname": "Maltsev",
+     "role":"Developer",
     "photo": "https://s.mediasole.ru/cache/content/data/images/1393/1393226/original.jpg",
-    "github":"https://#"
+    "github":"https://github.com/smaltsev-v"
   },
   {
     "name": "Vadym",
     "surname": "Denysiuk",
+     "role":"Scrum Master",
     "photo":"https://s1.eda.ru/StaticContent/Photos/140812180013/140820212258/p_O.jpg",
-    "github":"https://#"
+    "github":"https://github.com/VadymDenysiuk"
   },
   {
     "name": "Vasily",
     "surname": "Lopatkin",
-    "photo": "//fastpic.at.ua/_nw/28/40170156.jpg",
+     "role":"Team Leader",
+    "photo": "./images/lvs.jpg",
     "github": "https://github.com/LiViS-code"
    },
   {
     "name": "Dmytro",
     "surname": "Pundyk",
-    "photo":"./images/team/photo1.jpg",
+     "role":"Developer",
+    "photo":"./images/Photo1.jpeg",
     "github": "https://github.com/DmytroPundyk"
   }
 ]
