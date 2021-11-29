@@ -45,7 +45,6 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
         idFromStorage.splice(index, 1)
       }
       localStorage.setItem(key, JSON.stringify(idFromStorage) )
-    
 }
 
 function onAddToLibraryBtnClick(e) {
@@ -53,8 +52,6 @@ function onAddToLibraryBtnClick(e) {
     addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
 
     addNewFilmsToWatched();
-
-    
     
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
@@ -63,7 +60,8 @@ function onAddToLibraryBtnClick(e) {
       
       return;
     }
-    e.target.textContent = 'remove from watched'
+    
+    e.target.textContent = 'remove from watched';
     
   }
 
@@ -83,12 +81,12 @@ function onAddToLibraryBtnClick(e) {
 
   }
 }
-let updatedWatchedId = getIdFromLocalStorage('watchedFilms')
+export let updatedWatchedId = getIdFromLocalStorage('watchedFilms');
 function addNewFilmsToWatched() {
   listWatchedFilms.innerHTML = '';
   fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
 }
-let updatedQueuedId = getIdFromLocalStorage('queuedFilms');
+export let updatedQueuedId = getIdFromLocalStorage('queuedFilms');
 function addNewFilmsToQueued() {
   listQueuedFilms.innerHTML = '';
   fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
