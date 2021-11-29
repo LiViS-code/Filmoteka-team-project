@@ -1,13 +1,12 @@
 import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
-import { getIdFromLocalStorage } from '../library';
+import { updateListId } from './add-to-library';
+
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
   toggleModal();
-  const newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
-  const newUpdatedQueuedId = getIdFromLocalStorage('queuedFilms');
-  fetchFilmInfo(getFilmId(event), newUpdatedWatchedId, newUpdatedQueuedId);
+  fetchFilmInfo(getFilmId(event), updateListId('watchedFilms'), updateListId('queuedFilms'));
   modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
 }

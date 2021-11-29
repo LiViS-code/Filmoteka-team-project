@@ -128,6 +128,7 @@ export function appendWatchedFilmsMarkup(film) {
   /* for */
   listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
 }
+
 export function appendQueueFilmsMarkup(film) {
   /* for */
   listQueuedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
