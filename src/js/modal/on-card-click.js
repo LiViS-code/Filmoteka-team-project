@@ -1,11 +1,13 @@
 import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
-import { updatedWatchedId, updatedQueuedId } from './add-to-library'
+import { getIdFromLocalStorage } from '../library';
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
   toggleModal();
-  fetchFilmInfo(getFilmId(event));
+  let newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
+  let newUpdatedQueuedId = getIdFromLocalStorage('queuedFilms');
+  fetchFilmInfo(getFilmId(event), newUpdatedWatchedId, newUpdatedQueuedId);
   modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
 }
@@ -23,7 +25,7 @@ function getFilmId(event) {
   return filmId;
 }
 
-function fetchFilmInfo(filmId) {
+function fetchFilmInfo(filmId, watchedId, queuedId) {
   const BASE_URL = `https://api.themoviedb.org/3`;
   const KEY = `b7df999202e1c3618d01db23ce0076f0`;
   const url = `${BASE_URL}/movie/${filmId}?api_key=${KEY}&language=en-US`;
@@ -33,12 +35,12 @@ function fetchFilmInfo(filmId) {
       modalWindowContent.innerHTML = filmInfoTpl(data);
       const addToWatchedBtn = document.querySelector('.add-t-w');
       const addToQueuedBtn = document.querySelector('.add-t-q');
-      if (updatedWatchedId.includes(filmId)) {
+      if (watchedId.includes(filmId)) {
         addToWatchedBtn.textContent = 'remove from watched'
-      }
-      if (updatedQueuedId.includes(filmId)) {
+      } 
+      if (queuedId.includes(filmId)) {
         addToQueuedBtn.textContent = 'remove from queue'
-      }
+      } 
     });
 }
 
@@ -53,8 +55,3 @@ function onOverlayClick(event) {
     document.removeEventListener('keydown', onOverlayClick);
   }
 }
-
-/* Ищет айдишники в localStorage */
-
-/* let arrOfWatched = getIdFromLocalStorage('watchedFilms') || [];
-let arrOfQueued = getIdFromLocalStorage('queuedFilms') || []; */

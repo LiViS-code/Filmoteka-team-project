@@ -49,38 +49,31 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
 
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
-    addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
-
-    
-    
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
-
       deleteFilmFromLibrary(e, updatedWatchedId ,'watchedFilms')
       addNewFilmsToWatched()
       return;
     }
-
-    addNewFilmsToWatched();
-    e.target.textContent = 'remove from watched';
-    
+    if (e.target.textContent === 'add to watched') {
+      addNewFilmsToWatched();
+      addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
+      e.target.textContent = 'remove from watched';
+    }
   }
 
   if (e.target.classList.contains('add-t-q')) {
-    addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
-
-    
-    
     if (e.target.textContent === 'remove from queue') {
       e.target.textContent = 'add to queue';
-
       deleteFilmFromLibrary(e, updatedQueuedId, 'queuedFilms');
       addNewFilmsToQueued();
       return;
     }
-    addNewFilmsToQueued();
-    e.target.textContent = 'remove from queue';
-
+    if (e.target.textContent === 'add to queue') {
+      addNewFilmsToQueued();
+      addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
+      e.target.textContent = 'remove from queue';
+    }
   }
 }
 export let updatedWatchedId = getIdFromLocalStorage('watchedFilms');
