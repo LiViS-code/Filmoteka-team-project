@@ -51,16 +51,17 @@ function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
 
-    addNewFilmsToWatched();
+    
     
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
 
       deleteFilmFromLibrary(e, updatedWatchedId ,'watchedFilms')
-      
+      addNewFilmsToWatched()
       return;
     }
-    
+
+    addNewFilmsToWatched();
     e.target.textContent = 'remove from watched';
     
   }
@@ -68,15 +69,16 @@ function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-q')) {
     addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
 
-    addNewFilmsToQueued();
+    
     
     if (e.target.textContent === 'remove from queue') {
       e.target.textContent = 'add to queue';
 
       deleteFilmFromLibrary(e, updatedQueuedId, 'queuedFilms');
-      
+      addNewFilmsToQueued();
       return;
     }
+    addNewFilmsToQueued();
     e.target.textContent = 'remove from queue';
 
   }
