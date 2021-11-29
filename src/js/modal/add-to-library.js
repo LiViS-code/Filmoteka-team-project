@@ -40,19 +40,23 @@ function addFilmsIdToLocalStorage(keyName, id) {
 /* Функция удаления фильма из библиотеки */
 
 function deleteFilmFromLibrary(event, idFromStorage, key) {
-  let index = idFromStorage.indexOf(event.target.parentNode.parentNode.dataset.action)
-      if (index !== -1) {
-        idFromStorage.splice(index, 1)
-      }
-      localStorage.setItem(key, JSON.stringify(idFromStorage) )
+  console.log('event', event);
+  console.log('idFromStorage', idFromStorage);
+  console.log('key', key);
+  let index = idFromStorage.indexOf(event.target.parentNode.parentNode.dataset.action);
+  if (index !== -1) {
+    idFromStorage.splice(index, 1);
+  }
+  localStorage.setItem(key, JSON.stringify(idFromStorage));
 }
 
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
-      deleteFilmFromLibrary(e, updatedWatchedId ,'watchedFilms')
-      addNewFilmsToWatched()
+      const newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
+      deleteFilmFromLibrary(e, newUpdatedWatchedId, 'watchedFilms');
+      addNewFilmsToWatched();
       return;
     }
     if (e.target.textContent === 'add to watched') {
@@ -65,7 +69,8 @@ function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-q')) {
     if (e.target.textContent === 'remove from queue') {
       e.target.textContent = 'add to queue';
-      deleteFilmFromLibrary(e, updatedQueuedId, 'queuedFilms');
+      const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
+      deleteFilmFromLibrary(e, updateLocaleStorageQueued, 'queuedFilms');
       addNewFilmsToQueued();
       return;
     }

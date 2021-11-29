@@ -5,8 +5,8 @@ import { getIdFromLocalStorage } from '../library';
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
   toggleModal();
-  let newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
-  let newUpdatedQueuedId = getIdFromLocalStorage('queuedFilms');
+  const newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
+  const newUpdatedQueuedId = getIdFromLocalStorage('queuedFilms');
   fetchFilmInfo(getFilmId(event), newUpdatedWatchedId, newUpdatedQueuedId);
   modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
@@ -36,11 +36,11 @@ function fetchFilmInfo(filmId, watchedId, queuedId) {
       const addToWatchedBtn = document.querySelector('.add-t-w');
       const addToQueuedBtn = document.querySelector('.add-t-q');
       if (watchedId.includes(filmId)) {
-        addToWatchedBtn.textContent = 'remove from watched'
-      } 
+        addToWatchedBtn.textContent = 'remove from watched';
+      }
       if (queuedId.includes(filmId)) {
-        addToQueuedBtn.textContent = 'remove from queue'
-      } 
+        addToQueuedBtn.textContent = 'remove from queue';
+      }
     });
 }
 
