@@ -1,6 +1,7 @@
 import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs';
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
+import { getIdFromLocalStorage } from '../library'
 
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
@@ -31,6 +32,14 @@ function fetchFilmInfo(filmId) {
     .then(response => response.json())
     .then(data => {
       modalWindowContent.innerHTML = filmInfoTpl(data);
+      const addToWatchedBtn = document.querySelector('.add-t-w');
+      const addToQueuedBtn = document.querySelector('.add-t-q');
+      if (arrOfWatched.includes(filmId)) {
+        addToWatchedBtn.textContent = 'Remove from watched'
+      }
+      if (arrOfQueued.includes(filmId)) {
+        addToQueuedBtn.textContent = 'Remove from queue'
+      }
     });
 }
 
@@ -45,3 +54,8 @@ function onOverlayClick(event) {
     document.removeEventListener('keydown', onOverlayClick);
   }
 }
+
+/* Ищет айдишники в localStorage */
+
+let arrOfWatched = getIdFromLocalStorage('watchedFilms') || [];
+let arrOfQueued = getIdFromLocalStorage('queuedFilms') || [];
