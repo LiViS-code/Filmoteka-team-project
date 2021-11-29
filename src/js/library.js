@@ -11,7 +11,7 @@ import pagination from './pagination';
 import '../sass/main.scss';
 
 export function getIdFromLocalStorage(keyName) {
-  const filmsId = JSON.parse(localStorage.getItem(keyName));
+  const filmsId = JSON.parse(localStorage.getItem(keyName)) || [];
   return filmsId;
 }
 let itemsInWatched = 0;
