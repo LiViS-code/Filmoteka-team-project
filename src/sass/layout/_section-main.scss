@@ -8,9 +8,9 @@
 
 .film-cards-list {
   list-style: none;
+  margin-bottom: 40px;
 
   @media screen and (min-width: $tablet-size) {
-    justify-content: space-between;
     width: 618px;
     margin-bottom: 50px;
     display: flex;
@@ -33,12 +33,10 @@
   transform: scale(1);
   box-shadow: none;
   transition: transform $timing $timing-func, box-shadow $timing $timing-func;
+  margin: 0 auto;
 
-  @media screen and (max-width: 767px) {
-    margin: 0 auto;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 20px;
   }
 
   @media screen and (min-width: $tablet-size) {
