@@ -54,13 +54,15 @@ function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
-      const newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
-      deleteFilmFromLibrary(e, newUpdatedWatchedId, 'watchedFilms');
-      addNewFilmsToWatched();
+      // const newUpdatedWatchedId = getIdFromLocalStorage('watchedFilms');
+      deleteFilmFromLibrary(e, updateListId('watchedFilms'), 'watchedFilms');
+      // addNewFilmsToWatched();
+      addNewFilmsToList('watchedFilms');
       return;
     }
     if (e.target.textContent === 'add to watched') {
-      addNewFilmsToWatched();
+      // addNewFilmsToWatched();
+      addNewFilmsToList('watchedFilms');
       addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
       e.target.textContent = 'remove from watched';
     }
@@ -71,23 +73,44 @@ function onAddToLibraryBtnClick(e) {
       e.target.textContent = 'add to queue';
       const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
       deleteFilmFromLibrary(e, updateLocaleStorageQueued, 'queuedFilms');
-      addNewFilmsToQueued();
+      // addNewFilmsToQueued();
+      addNewFilmsToList('queuedFilms');
       return;
     }
     if (e.target.textContent === 'add to queue') {
-      addNewFilmsToQueued();
+      // addNewFilmsToQueued();
+      addNewFilmsToList('queuedFilms');
       addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
       e.target.textContent = 'remove from queue';
     }
   }
 }
-export let updatedWatchedId = getIdFromLocalStorage('watchedFilms');
-function addNewFilmsToWatched() {
-  listWatchedFilms.innerHTML = '';
-  fetchFilmsById(updatedWatchedId, appendWatchedFilmsMarkup);
+
+function addNewFilmsToList(nameList) {
+  switch (nameList) {
+    case 'watchedFilms':
+      listWatchedFilms.innerHTML = '';
+      fetchFilmsById(updateListId(nameList), appendWatchedFilmsMarkup);
+      break;
+    case 'queuedFilms':
+      listQueuedFilms.innerHTML = '';
+      fetchFilmsById(updateListId(nameList), appendQueueFilmsMarkup);
+      break;
+  }
 }
-export let updatedQueuedId = getIdFromLocalStorage('queuedFilms');
-function addNewFilmsToQueued() {
-  listQueuedFilms.innerHTML = '';
-  fetchFilmsById(updatedQueuedId, appendQueueFilmsMarkup);
+
+// function addNewFilmsToWatched() {
+//   listWatchedFilms.innerHTML = '';
+//   fetchFilmsById(updateListId('watchedFilms'), appendWatchedFilmsMarkup);
+// }
+
+// function addNewFilmsToQueued() {
+//   listQueuedFilms.innerHTML = '';
+//   fetchFilmsById(updateListId('queuedFilms'), appendQueueFilmsMarkup);
+// }
+
+// функция обновления содержимого из локального хранилища
+export function updateListId(nameList) {
+  const newListId = getIdFromLocalStorage(nameList);
+  return newListId;
 }
