@@ -6,8 +6,8 @@ import Vasily from '../images/team/Vasily.png';
 import Vadim from '../images/team/Vadim.png';
 import Anastasia from '../images/team/Anastasia.png';
 import Nadiia from '../images/team/Nadiia.jpg';
-import Rodion from '../images/team/photo1.jpg';
-import Luka from '../images/team/photo1.jpg';
+import Rodion from '../images/team/Rodion.jpg';
+import Luka from '../images/team/Luka.png';
 import Serhii from '../images/team/Serhii.png';
 import Dmytro from '../images/team/Dmytro.png';
 
@@ -58,7 +58,7 @@ const markup = `<div class="team"><div class="team-card">
     <img src="${Luka}" alt="Luka" width="160" height="180" class="team-image">
     </a>
     <p class="team-name">Luka</p>
-    <p class="team-name">Luka777</p>
+    <p class="team-name">Gavrysh</p>
     <p class="team-role">Developer</p>
    
 </div>
