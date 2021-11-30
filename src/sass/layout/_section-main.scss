@@ -35,9 +35,12 @@
   transition: transform $timing $timing-func, box-shadow $timing $timing-func;
   margin: 0 auto;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  @media screen and (min-width: $mobile-size) and (max-width: ($tablet-size - 1)) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
+  
 
   @media screen and (min-width: $tablet-size) {
     width: 294px;
