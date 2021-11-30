@@ -40,8 +40,10 @@ function addGenresToMovieObj() {
       return newApiService.fetchGenres().then(genresList => {
         return data.map(movie => ({
           ...movie,
-          release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+           release_date: movie.release_date ? movie.release_date.split('-')[0] : 'n/a',
+           genres: movie.genre_ids
+            ? movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat()
+            : 'n/a',
         }));
       });
     });
