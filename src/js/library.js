@@ -11,10 +11,6 @@ import pagination from './pagination';
 import '../sass/main.scss';
 import search from './spinner';
 
-export function getIdFromLocalStorage(keyName) {
-  const filmsId = JSON.parse(localStorage.getItem(keyName)) || [];
-  return filmsId;
-}
 let itemsInWatched = 0;
 let itemsInQueue = 0;
 
@@ -27,6 +23,11 @@ if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
 let step = 9;
 let end = 9;
 let quantityForPagination = 9;
+
+export function getIdFromLocalStorage(keyName) {
+  const filmsId = JSON.parse(localStorage.getItem(keyName)) || [];
+  return filmsId;
+}
 
 export function filterId(page) {
   if (document.documentElement.clientWidth < 1023) {
@@ -47,9 +48,9 @@ export function filterId(page) {
     if (page < 2) {
       const firstWatchedId = updateWatchedFilms.slice(start, end);
       listWatchedFilms.innerHTML = '';
-        search.spinner.show();
+      search.spinner.show();
       fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
-        search.spinner.close();
+      search.spinner.close();
       return;
     }
 
@@ -114,7 +115,6 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
     paginationContainer.classList.remove('visually-hidden');
     pagination(updatedLocaleStorage.length, quantityForPagination);
     if (document.documentElement.clientWidth < 1023) {
-      console.log('Q 1023 сработало');
       pagination(updatedLocaleStorage.length, 8);
     }
     if (document.documentElement.clientWidth < 767) {
@@ -127,12 +127,10 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
 const filmApiService = new ApiService();
 
 export function appendWatchedFilmsMarkup(film) {
-  /* for */
   listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
 }
 
 export function appendQueueFilmsMarkup(film) {
-  /* for */
   listQueuedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
 }
 
