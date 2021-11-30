@@ -2,11 +2,14 @@ import { modalContainerEl, modalWindowContent, modalButtonClose } from '../refs'
 import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
 import { updateListId } from './add-to-library';
+import search from '../spinner';
 
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
+  search.spinner.show();
   toggleModal();
   fetchFilmInfo(getFilmId(event), updateListId('watchedFilms'), updateListId('queuedFilms'));
+  search.spinner.close();
   modalContainerEl.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onOverlayClick);
 }

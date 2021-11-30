@@ -9,6 +9,7 @@ import ApiService from './api-service';
 import filmsCardTpl from '../templates/filmCard.hbs';
 import pagination from './pagination';
 import '../sass/main.scss';
+import search from './spinner';
 
 export function getIdFromLocalStorage(keyName) {
   const filmsId = JSON.parse(localStorage.getItem(keyName)) || [];
@@ -46,8 +47,9 @@ export function filterId(page) {
     if (page < 2) {
       const firstWatchedId = updateWatchedFilms.slice(start, end);
       listWatchedFilms.innerHTML = '';
-
+        search.spinner.show();
       fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
+        search.spinner.close();
       return;
     }
 
