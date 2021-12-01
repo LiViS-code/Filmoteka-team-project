@@ -1,11 +1,10 @@
 .basicLightbox {
-    overflow-y: scroll;
-    padding: 30px;
+  overflow-y: scroll;
+  padding: 30px;
 
-   &__placeholder {
-     height: 100%;
-}
-
+  &__placeholder {
+    height: 100%;
+  }
 }
 
 .team-list {
@@ -40,15 +39,16 @@
     flex-basis: calc((100% - 30px) / 2);
 
     &:nth-child(odd) {
-    margin-right: 30px;
-  }
+      margin-right: 30px;
+    }
 
     &:not(:nth-last-of-type(-n + 2)) {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
   }
 
   @media screen and (min-width: $desktop-size) {
+    width: 90px;
     flex-basis: calc((100% - 90px) / 4);
 
     &:not(:nth-child(4n)) {
@@ -56,7 +56,7 @@
     }
 
     &:not(:nth-last-of-type(-n + 4)) {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
   }
 }
@@ -65,7 +65,7 @@
   margin-bottom: 5px;
   width: 100%;
   height: 80%;
-  border-radius: 50%;
+  border-radius: $border-radius;
   transform: scale(1);
   transition: transform $timing $timing-func,
     scale $timing $timing-func;
