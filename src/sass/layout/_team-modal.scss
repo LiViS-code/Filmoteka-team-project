@@ -1,52 +1,59 @@
 .basicLightbox {
-  overflow: scroll;
+    overflow-y: scroll;
+    padding: 30px;
 }
 
-.team {
+.team-list {
+  // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-  margin: -20px;
-
-  @media screen and (max-width: ($tablet-size - 1)) {
-    margin-top: 70px;
+  margin: 0 auto;
+  border-radius: $border-radius;
+  background-color: $bg-color-details;
+  padding: 15px;
+  background-color: $bg-color;
   }
-
-  width: 240px;
-
-  background-color: #fff;
-  border-radius: 15px;
-
-  @media screen and (min-width: $tablet-size) {
-    width: 600px;
-
-    border-radius: 25px;
-  }
-
-  @media screen and (min-width: $desktop-size) {
-    margin: -30px;
-    width: 750px;
-  }
-}
 
 .team-card {
-  position: relative;
-  width: 180px;
   display: flex;
   flex-direction: column;
+  padding: 15px;
   align-items: center;
-  margin: 20px;
+  border-radius: $border-radius;
+  background-color: $bg-color-footer;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
 
-  width: calc((100% - 80px) / 2);
+  @media screen and (min-width: $mobile-size) and (max-width: ($tablet-size - 1)) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
 
-  @media screen and (min-width: $tablet-size) {
-    width: calc((100% - 160px) / 4);
+  @media screen and (min-width: $tablet-size) and (max-width: ($desktop-size - 1)){
+    flex-basis: calc((100% - 30px) / 2);
+
+    &:nth-child(odd) {
+    margin-right: 30px;
+  }
+
+    &:not(:nth-last-of-type(-n + 2)) {
+        margin-bottom: 30px;
+    }
   }
 
   @media screen and (min-width: $desktop-size) {
-    margin: 30px;
+    flex-basis: calc((100% - 90px) / 4);
 
-    width: calc((100% - 240px) / 4);
+    &:not(:nth-child(4n)) {
+      margin-right: 30px;
+    }
+
+    &:not(:nth-last-of-type(-n + 4)) {
+        margin-bottom: 30px;
+    }
   }
 }
 
@@ -54,11 +61,13 @@
   margin-bottom: 5px;
   width: 100%;
   height: 90%;
-  border-radius: 30%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform $timing $timing-func,
+    scale $timing $timing-func;
 }
 .team-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.55);
 }
 
@@ -66,7 +75,7 @@
   text-align: center;
   font-size: 15px;
   margin-bottom: 5px;
-  color: #000000;
+  color: $color;
   font-weight: bold;
 }
 
