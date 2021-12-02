@@ -3,6 +3,7 @@ import filmInfoTpl from '../../templates/film-info.hbs';
 import { toggleModal } from './toggle-modal';
 import { updateListId } from './add-to-library';
 import search from '../spinner';
+import { filmApiService } from '../search-films';
 
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
@@ -28,22 +29,17 @@ function getFilmId(event) {
 }
 
 function fetchFilmInfo(filmId, watchedId, queuedId) {
-  const BASE_URL = `https://api.themoviedb.org/3`;
-  const KEY = `b7df999202e1c3618d01db23ce0076f0`;
-  const url = `${BASE_URL}/movie/${filmId}?api_key=${KEY}&language=en-US`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      modalWindowContent.innerHTML = filmInfoTpl(data);
-      const addToWatchedBtn = document.querySelector('.add-t-w');
-      const addToQueuedBtn = document.querySelector('.add-t-q');
-      if (watchedId.includes(filmId)) {
-        addToWatchedBtn.textContent = 'remove from watched';
-      }
-      if (queuedId.includes(filmId)) {
-        addToQueuedBtn.textContent = 'remove from queue';
-      }
-    });
+  return filmApiService.fetchId(filmId).then(data => {
+    modalWindowContent.innerHTML = filmInfoTpl(data);
+    const addToWatchedBtn = document.querySelector('.add-t-w');
+    const addToQueuedBtn = document.querySelector('.add-t-q');
+    if (watchedId.includes(filmId)) {
+      addToWatchedBtn.textContent = 'remove from watched';
+    }
+    if (queuedId.includes(filmId)) {
+      addToQueuedBtn.textContent = 'remove from queue';
+    }
+  });
 }
 
 function onOverlayClick(event) {
