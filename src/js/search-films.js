@@ -6,10 +6,11 @@ import search from './spinner';
 import { scrollWin } from './card-fetch';
 import toTopBtn from './on-top-button';
 
-const filmApiService = new ApiService();
+export const filmApiService = new ApiService();
 
 //добавляем жанры на поиск
 function addGenresToSearchObj() {
+  filmApiService.languagePage = 'ru-Ru';
   return filmApiService
     .fetchSearchFilms()
     .then(data => {

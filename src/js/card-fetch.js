@@ -1,5 +1,5 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
-import NewApiService from './api-service';
+// import NewApiService from './api-service';
 import {
   warningField,
   paginationContainer,
@@ -20,8 +20,7 @@ import search from './spinner';
 import pagination from './pagination';
 import { onCardClick } from './modal/on-card-click';
 import toTopBtn from './on-top-button';
-
-const newApiService = new NewApiService();
+import { filmApiService } from './search-films';
 
 const numFirstPage = 1;
 
@@ -29,19 +28,20 @@ render(numFirstPage);
 
 //добавляем жанры на статику
 function addGenresToMovieObj() {
-  return newApiService
+  filmApiService.languagePage = 'ru-Ru';
+  return filmApiService
     .fetchPopularFilms()
     .then(data => {
-      pagination(data.total_results, 20, newApiService.page);
+      pagination(data.total_results, 20, filmApiService.page);
       return data;
     })
     .then(data => data.results)
     .then(data => {
-      return newApiService.fetchGenres().then(genresList => {
+      return filmApiService.fetchGenres().then(genresList => {
         return data.map(movie => ({
           ...movie,
-           release_date: movie.release_date ? movie.release_date.split('-')[0] : 'n/a',
-           genres: movie.genre_ids
+          release_date: movie.release_date ? movie.release_date.split('-')[0] : 'n/a',
+          genres: movie.genre_ids
             ? movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat()
             : 'n/a',
         }));
@@ -65,14 +65,12 @@ export function onLogoClick() {
 }
 
 export function render(numPage) {
-  newApiService.pageNum = numPage;
+  filmApiService.pageNum = numPage;
   search.spinner.show();
   scrollWin();
   addGenresToMovieObj()
     .then(renderFilmsCard)
-    .then(data => {
-      removeVoteByCard();
-    })
+    .then(removeVoteByCard())
     .catch(err => {
       console.log('error in function render', err);
     });
@@ -85,7 +83,7 @@ function renderFilmsCard(articles) {
 }
 
 export function fetchPopularFilmsByPage(page) {
-  newApiService.pageNum = page;
+  filmApiService.pageNum = page;
   return addGenresToMovieObj();
 }
 
