@@ -5,12 +5,13 @@ import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
 import toTopBtn from './on-top-button';
+import { languageQuery } from './language-interface';
 
 export const filmApiService = new ApiService();
 
 //добавляем жанры на поиск
 function addGenresToSearchObj() {
-  filmApiService.languagePage = 'ru-Ru';
+  filmApiService.languagePage = languageQuery;
   return filmApiService
     .fetchSearchFilms()
     .then(data => {

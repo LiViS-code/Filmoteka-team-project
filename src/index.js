@@ -16,6 +16,9 @@ import { myLibraryBtn, logoEl, btnHome, searchForm, listElement } from './js/ref
 import './js/modal/add-to-library';
 import './js/library';
 
+// языковой модуль
+// import { language } from './js/language-interface';
+
 // изменение фона по клику
 localStorage.setItem('searched', '');
 

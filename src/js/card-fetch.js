@@ -1,4 +1,6 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
+import { languageQuery } from './language-interface'; 
+
 // import NewApiService from './api-service';
 import {
   warningField,
@@ -28,7 +30,7 @@ render(numFirstPage);
 
 //добавляем жанры на статику
 function addGenresToMovieObj() {
-  filmApiService.languagePage = 'ru-Ru';
+  filmApiService.languagePage = languageQuery;
   return filmApiService
     .fetchPopularFilms()
     .then(data => {
