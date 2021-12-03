@@ -27,3 +27,5 @@ export const modalContainerEl = document.querySelector('#modalContainer');
 export const modalFooterEl = document.querySelector('.js-team');
 export const teamBtn = document.querySelector('.js-team-modal');
 export const bodyDoc = document.querySelector('body');
+export const mainDoc = document.querySelector('main');
+export const toggleLanguage = document.getElementById('tg-lang-js');

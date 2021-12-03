@@ -1,4 +1,4 @@
-import { bodyDoc, listWatchedFilms, listQueuedFilms } from '../refs';
+import { mainDoc, listWatchedFilms, listQueuedFilms } from '../refs';
 import {
   fetchFilmsById,
   getIdFromLocalStorage,
@@ -6,7 +6,7 @@ import {
   appendQueueFilmsMarkup,
 } from '../library';
 
-bodyDoc.addEventListener('click', onAddToLibraryBtnClick);
+mainDoc.addEventListener('click', onAddToLibraryBtnClick);
 
 /* Ловит айди */
 
@@ -48,6 +48,7 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
 }
 
 function onAddToLibraryBtnClick(e) {
+  console.log('onAddToLibraryBtnClick', e.target);
   if (e.target.classList.contains('add-t-w')) {
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';

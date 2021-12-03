@@ -1,7 +1,10 @@
 export let languageQuery = '';
 
-defineLanguage();
-saveSelectLanguage();
+const language = !localStorage.getItem('languageSetting')
+  ? defineLanguage()
+  : localStorage.getItem('languageSetting');
+
+saveSelectLanguage(language);
 
 // определить язык барузера
 export function defineLanguage() {
@@ -13,9 +16,13 @@ export function defineLanguage() {
 }
 
 // сохнаранить выбранный язык в локальном хранилище
-function saveSelectLanguage() {
-  if (!localStorage.getItem('languageSetting')) return setLanguageQuery(defineLanguage());
-  return setLanguageQuery(localStorage.getItem('languageSetting'));
+export function saveSelectLanguage(lang) {
+  if (!localStorage.getItem('languageSetting')) {
+    setLanguageQuery(lang);
+  } else {
+    setLanguageQuery(localStorage.getItem('languageSetting'));
+  }
+  return setLanguageInterface(lang);
 }
 
 // установить язык для запросов на backend
@@ -32,4 +39,27 @@ function setLanguageQuery(lang) {
   }
   localStorage.setItem('languageSetting', lang);
   return languageQuery;
+}
+
+export function setLanguageInterface(lang) {
+  let btnActive;
+
+  switch (lang) {
+    case 'ru':
+      console.log('интерфейс:', lang);
+      btnActive = document.querySelector('[data-btn-lng="ru"]');
+      btnActive.classList.add('toggle-language__btn--active');
+      break;
+    case 'ua':
+      console.log('интерфейс:', lang);
+      btnActive = document.querySelector('[data-btn-lng="ua"]');
+      btnActive.classList.add('toggle-language__btn--active');
+      break;
+    default:
+      console.log('интерфейс:', lang);
+      btnActive = document.querySelector('[data-btn-lng="en"]');
+      btnActive.classList.add('toggle-language__btn--active');
+      break;
+  }
+  localStorage.setItem('languageSetting', lang);
 }

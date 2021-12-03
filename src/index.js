@@ -10,14 +10,14 @@ import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import './js/api-service';
 import { onLogoClick } from './js/card-fetch';
 import { FilmSearchByWord } from './js/search-films';
-import { myLibraryBtn, logoEl, btnHome, searchForm, listElement } from './js/refs';
+import { myLibraryBtn, logoEl, btnHome, searchForm, listElement, toggleLanguage } from './js/refs';
 
 // библиотека
 import './js/modal/add-to-library';
 import './js/library';
 
 // языковой модуль
-// import { language } from './js/language-interface';
+import { onLanguageSelect } from './js/toggle-language';
 
 // изменение фона по клику
 localStorage.setItem('searched', '');
@@ -31,6 +31,7 @@ myLibraryBtn.addEventListener('click', onMyLibraryClick);
 logoEl.addEventListener('click', onLogoClick);
 btnHome.addEventListener('click', onLogoClick);
 searchForm.addEventListener('submit', FilmSearchByWord);
+toggleLanguage.addEventListener('click', onLanguageSelect);
 
 // для модального окна
 listElement.addEventListener('click', onCardClick);

@@ -1,0 +1,28 @@
+.toggle-language {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__container {
+    padding: 5px;
+    border-radius: $border-radius;
+    background-color: transparent;
+  }
+
+  &__btn {
+    border-radius: $border-radius;
+    color: $bg-color;
+    background-color: transparent;
+
+    // &:focus,
+    &:hover {
+      color: $accent-color;
+      background-color: $bg-color;
+    }
+
+    &--active {
+      color: $reverse-color;
+      background-color: $accent-color;
+    }
+  }
+}
