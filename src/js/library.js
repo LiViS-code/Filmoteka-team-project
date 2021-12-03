@@ -10,6 +10,7 @@ import filmsCardTpl from '../templates/filmCard.hbs';
 import pagination from './pagination';
 import '../sass/main.scss';
 import search from './spinner';
+import { languageQuery } from './language-interface';
 
 let itemsInWatched = 0;
 let itemsInQueue = 0;
@@ -138,6 +139,7 @@ export function fetchFilmsById(arrId, markup) {
   if (arrId === null) {
     return;
   } else {
+    filmApiService.language = languageQuery;
     arrId.forEach(id => {
       return filmApiService.fetchId(id).then(films => {
         let arrOfFilms = [];
