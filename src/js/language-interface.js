@@ -46,20 +46,14 @@ export function setLanguageInterface(lang) {
 
   switch (lang) {
     case 'ru':
-      console.log('интерфейс:', lang);
       btnActive = document.querySelector('[data-btn-lng="ru"]');
-      btnActive.classList.add('toggle-language__btn--active');
       break;
     case 'ua':
-      console.log('интерфейс:', lang);
       btnActive = document.querySelector('[data-btn-lng="ua"]');
-      btnActive.classList.add('toggle-language__btn--active');
       break;
     default:
-      console.log('интерфейс:', lang);
       btnActive = document.querySelector('[data-btn-lng="en"]');
-      btnActive.classList.add('toggle-language__btn--active');
-      break;
   }
+  btnActive.classList.add('toggle-language__btn--active');
   localStorage.setItem('languageSetting', lang);
 }
