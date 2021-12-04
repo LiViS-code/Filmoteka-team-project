@@ -28,6 +28,7 @@ function getFilmId(event) {
 }
 
 function fetchFilmInfo(filmId, watchedId, queuedId) {
+  modalWindowContent.innerHTML = '';
   return filmApiService.fetchId(filmId).then(data => {
     modalWindowContent.innerHTML = filmInfoTpl(data);
     const addToWatchedBtn = document.querySelector('.add-t-w');

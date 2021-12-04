@@ -47,9 +47,9 @@ export function filterId(page) {
   if (watchedBtn.classList.contains('btn-current')) {
     if (!getIdFromLocalStorage('watchedFilms')) return;
     if (page < 2) {
+      search.spinner.show();
       const firstWatchedId = updateWatchedFilms.slice(start, end);
       listWatchedFilms.innerHTML = '';
-      search.spinner.show();
       fetchFilmsById(firstWatchedId, appendWatchedFilmsMarkup);
       search.spinner.close();
       return;

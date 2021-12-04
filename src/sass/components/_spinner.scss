@@ -1,7 +1,10 @@
 .sk-chase {
-  width: 100px;
-  height: 100px;
-  position: relative;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   animation: sk-chase 2.5s infinite linear both;
 }
 

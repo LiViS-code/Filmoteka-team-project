@@ -53,26 +53,22 @@ export function FilmSearchByWordPagination(searchedFilm, selectPage) {
 }
 
 export function FilmSearchByWord(e) {
-  filmApiService.pageNum = 1;
   search.spinner.show();
+  filmApiService.pageNum = 1;
   e.preventDefault();
-
   filmApiService.query = e.currentTarget.elements.query.value;
   let currentFilmSearchByWord = e.currentTarget.elements.query.value;
   localStorage.setItem('searched', currentFilmSearchByWord);
 
   if (filmApiService.query === '') {
     search.spinner.close();
-
     warningField.textContent = 'Please write something!';
     return;
   }
 
   render(filmApiService.query);
-  toTopBtn();
-
   search.spinner.close();
-
+  toTopBtn();
   searchField.textContent = filmApiService.query;
   warningField.textContent = '';
 }

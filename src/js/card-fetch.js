@@ -55,10 +55,10 @@ export function onLogoClick() {
   bgImageChangeMain('home-header', 'library-header');
   warningField.textContent = '';
   render(1);
-  search.spinner.close();
   paginationContainer.classList.remove('visually-hidden');
   listQueuedFilms.removeEventListener('click', onCardClick);
   listWatchedFilms.removeEventListener('click', onCardClick);
+  search.spinner.close();
   toTopBtn();
 }
 
