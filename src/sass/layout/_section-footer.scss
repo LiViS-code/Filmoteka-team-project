@@ -10,6 +10,7 @@
     line-height: 1.188;
   }
 }
+
 .footer-list {
   list-style: none;
   margin: 0;
@@ -18,18 +19,22 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .footer-list-item {
   margin-bottom: 10px;
 }
+
 .footer-list-item:last-child {
   margin-bottom: 0;
 }
+
 .heart-ico {
   margin-right: 10px;
   margin-left: 10px;
   width: 14px;
   height: 12px;
 }
+
 .team-modal {
   text-decoration: underline;
   cursor: pointer;

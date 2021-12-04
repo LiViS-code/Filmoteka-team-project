@@ -23,40 +23,41 @@
     font-weight: 900;
   }
 }
+
 .modal-container {
-  display: flex;
-  justify-content: center;
-  align-items:center ;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   scroll-behavior: smooth;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 2;
   background: $overlay-color;
 }
+
 .modal-window {
   position: absolute;
-  width: 280px;
   top: 0;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
   background: $reverse-color;
   padding: 48px 18px 41px;
+
   @media screen and (min-width: $tablet-size) {
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
-    padding: 42px 30px 40px;
-    width: 618px;
+    padding: 30px;
   }
+
   @media screen and (min-width: $desktop-size) {
-    padding-top: 50px;
-    width: 882px;
+    padding-top: 34px;
+    padding-bottom: 34px;
   }
 }
+
 .modal-window-content {
+  width: auto;
   @media screen and (min-width: $tablet-size) {
     display: flex;
   }

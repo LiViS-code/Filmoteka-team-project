@@ -25,11 +25,13 @@
     visibility: hidden;
     opacity: 0;
   }
+
   svg {
     fill: $text-details-color;
     width: 100%;
     height: 100%;
   }
+  
   &:hover > svg {
     fill: $accent-color;
   }

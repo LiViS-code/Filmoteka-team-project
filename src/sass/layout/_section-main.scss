@@ -86,11 +86,13 @@
   font-size: 12px;
   line-height: 1.33;
 }
+
 .card__title {
   text-transform: uppercase;
   color: $color;
   margin-bottom: 5px;
 }
+
 .card__text {
   display: flex;
   justify-content: space-between;

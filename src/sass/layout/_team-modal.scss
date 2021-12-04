@@ -70,6 +70,7 @@
   transition: transform $timing $timing-func,
     scale $timing $timing-func;
 }
+
 .team-image:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.55);

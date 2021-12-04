@@ -3,20 +3,24 @@
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+
   @media screen and (min-width: $tablet-size) {
     padding-left: 75px;
     padding-right: 75px;
   }
+
   @media screen and (min-width: $desktop-size) {
     padding-left: 71px;
     padding-right: 71px;
   }
 }
+
 @media screen and (min-width: $mobile-size) {
   .container {
     width: 320px;
   }
 }
+
 @media screen and (min-width: $tablet-size) {
   .container {
     width: 768px;

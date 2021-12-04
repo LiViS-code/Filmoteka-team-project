@@ -10,7 +10,7 @@
   }
   @media screen and (min-width: $desktop-size) {
     width: 396px;
-    margin-right: 25px;
+    margin-right: 30px;
   }
 }
 
@@ -62,19 +62,22 @@
 
 .about-description {
   display: inline-flex;
+  width: 240px;
   font-weight: 500;
   line-height: 1.67;
   margin-top: 0;
   margin-bottom: 20px;
   height: 100px;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   @media screen and (min-width: $tablet-size) {
+    width: 264px;
     height: 150px;
     overflow-y: auto;
   }
 
   @media screen and (min-width: $desktop-size) {
+    width: 396px;
     height: 200px;
   }
 }

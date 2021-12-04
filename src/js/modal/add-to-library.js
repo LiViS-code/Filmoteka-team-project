@@ -8,8 +8,6 @@ import {
 
 mainDoc.addEventListener('click', onAddToLibraryBtnClick);
 
-/* Ловит айди */
-
 function getIdFromCard(e) {
   let filmId = 0;
   if (e.target.classList.contains('add-t-w')) {
@@ -36,8 +34,6 @@ function addFilmsIdToLocalStorage(keyName, id) {
   addFilmId(id);
   localStorage.setItem(keyName, JSON.stringify(filmsId));
 }
-
-/* Функция удаления фильма из библиотеки */
 
 function deleteFilmFromLibrary(event, idFromStorage, key) {
   let index = idFromStorage.indexOf(event.target.parentNode.parentNode.dataset.action);
