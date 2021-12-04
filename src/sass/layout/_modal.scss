@@ -44,6 +44,8 @@
 .film-descr-itm-txt {
   line-height: 1.66;
   margin-bottom: 10px;
+  overflow-y: auto;
+  height: 10px;
 
   & .vote-ave {
     padding: 1px 10px;
@@ -73,12 +75,10 @@
   margin-top: 0;
   margin-bottom: 20px;
   height: 100px;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @media screen and (min-width: $tablet-size) {
     width: 264px;
-    height: 150px;
-    overflow-y: auto;
   }
 
   @media screen and (min-width: $desktop-size) {
