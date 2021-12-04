@@ -68,7 +68,7 @@ export function render(numPage) {
   scrollWin();
   addGenresToMovieObj()
     .then(renderFilmsCard)
-    .then(removeVoteByCard())
+    .then(() => removeVoteByCard())
     .catch(err => {
       console.log('error in function render', err);
     });
