@@ -12,6 +12,8 @@ import './js/library';
 import { onLanguageSelect } from './js/toggle-language';
 import { onMyLibraryClick } from './js/modal/on-my-library-click';
 import { onCardClick } from './js/modal/on-card-click';
+import { defineLanguage } from './js/language-interface';
+import { changeLanguageInterface } from './js/toggle-language';
 
 localStorage.setItem('searched', '');
 
@@ -21,3 +23,4 @@ btnHome.addEventListener('click', onLogoClick);
 searchForm.addEventListener('submit', FilmSearchByWord);
 toggleLanguage.addEventListener('click', onLanguageSelect);
 listElement.addEventListener('click', onCardClick);
+changeLanguageInterface(defineLanguage());

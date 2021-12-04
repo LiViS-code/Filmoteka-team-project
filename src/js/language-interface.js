@@ -1,12 +1,12 @@
-export let languageQuery = '';
-
-const language = !localStorage.getItem('languageSetting')
-  ? defineLanguage()
-  : localStorage.getItem('languageSetting');
-
-saveSelectLanguage(language);
-
 export function defineLanguage() {
+  const language = !localStorage.getItem('languageSetting')
+    ? defineLanguageUser()
+    : localStorage.getItem('languageSetting');
+  saveSelectLanguage(language);
+  return language;
+}
+
+export function defineLanguageUser() {
   let language = window.navigator
     ? window.navigator.language || window.navigator.systemLanguage || window.navigator.userLanguage
     : 'en';
@@ -20,10 +20,11 @@ export function saveSelectLanguage(lang) {
   } else {
     setLanguageQuery(localStorage.getItem('languageSetting'));
   }
-  return setLanguageInterface(lang);
+  toggleActiveBtnLanguage(lang);
 }
 
-function setLanguageQuery(lang) {
+export function setLanguageQuery(lang) {
+  let languageQuery = '';
   switch (lang) {
     case 'ru':
       languageQuery = 'ru-RU';
@@ -34,11 +35,10 @@ function setLanguageQuery(lang) {
     default:
       languageQuery = 'en-US';
   }
-  localStorage.setItem('languageSetting', lang);
   return languageQuery;
 }
 
-export function setLanguageInterface(lang) {
+export function toggleActiveBtnLanguage(lang) {
   let btnActive;
 
   switch (lang) {
