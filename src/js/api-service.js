@@ -10,7 +10,6 @@ export default class NewApiService {
     this.language = 'en-US';
   }
 
-  //Запрос по популярным. Вывод количества найденных страниц!!!
   fetchPopularFilms() {
     const url = `${BASE_URL}/movie/popular?api_key=${KEY}&language=${this.language}&page=${this.page}`;
     return fetch(url)
@@ -18,7 +17,6 @@ export default class NewApiService {
       .then(data => data)
       .catch(err => console.log('ошибка:', err));
   }
-  //запрос по поиску
 
   fetchSearchFilms() {
     const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=${this.language}&page=${this.page}&query=${this.searchQuery}`;

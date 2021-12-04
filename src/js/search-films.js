@@ -9,7 +9,6 @@ import { languageQuery } from './language-interface';
 
 export const filmApiService = new ApiService();
 
-//добавляем жанры на поиск
 function addGenresToSearchObj() {
   filmApiService.languagePage = languageQuery;
   return filmApiService
@@ -47,7 +46,6 @@ function addGenresToSearchObj() {
     });
 }
 
-//Поиска и рендер фильмов по названию(слову)
 export function FilmSearchByWordPagination(searchedFilm, selectPage) {
   filmApiService.pageNum = selectPage;
   filmApiService.query = searchedFilm;

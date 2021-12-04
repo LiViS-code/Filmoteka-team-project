@@ -6,7 +6,6 @@ const language = !localStorage.getItem('languageSetting')
 
 saveSelectLanguage(language);
 
-// определить язык барузера
 export function defineLanguage() {
   let language = window.navigator
     ? window.navigator.language || window.navigator.systemLanguage || window.navigator.userLanguage
@@ -15,7 +14,6 @@ export function defineLanguage() {
   return language;
 }
 
-// сохнаранить выбранный язык в локальном хранилище
 export function saveSelectLanguage(lang) {
   if (!localStorage.getItem('languageSetting')) {
     setLanguageQuery(lang);
@@ -25,7 +23,6 @@ export function saveSelectLanguage(lang) {
   return setLanguageInterface(lang);
 }
 
-// установить язык для запросов на backend
 function setLanguageQuery(lang) {
   switch (lang) {
     case 'ru':

@@ -92,7 +92,6 @@ function addNewFilmsToList(nameList) {
   }
 }
 
-// функция обновления содержимого из локального хранилища
 export function updateListId(nameList) {
   const newListId = getIdFromLocalStorage(nameList);
   return newListId;

@@ -15,7 +15,6 @@ export function onCardClick(event) {
   document.addEventListener('keydown', onOverlayClick);
 }
 
-//Функция получения идентификатора фильма, на карточку которого кликнули
 function getFilmId(event) {
   let filmId = 0;
   if (event.target.classList.contains('card__film')) {

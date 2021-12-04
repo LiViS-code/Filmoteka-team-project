@@ -66,6 +66,17 @@
   line-height: 1.67;
   margin-top: 0;
   margin-bottom: 20px;
+  height: 100px;
+  overflow-y: auto;
+
+  @media screen and (min-width: $tablet-size) {
+    height: 150px;
+    overflow-y: auto;
+  }
+
+  @media screen and (min-width: $desktop-size) {
+    height: 200px;
+  }
 }
 
 .button-add-container {

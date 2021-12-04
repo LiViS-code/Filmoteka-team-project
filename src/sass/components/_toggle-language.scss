@@ -14,7 +14,7 @@
     color: $bg-color;
     background-color: transparent;
 
-    // &:focus,
+    &:focus,
     &:hover {
       color: $accent-color;
       background-color: $bg-color;

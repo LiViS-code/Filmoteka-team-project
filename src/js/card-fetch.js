@@ -1,7 +1,5 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
-import { languageQuery } from './language-interface'; 
-
-// import NewApiService from './api-service';
+import { languageQuery } from './language-interface';
 import {
   warningField,
   paginationContainer,
@@ -28,7 +26,6 @@ const numFirstPage = 1;
 
 render(numFirstPage);
 
-//добавляем жанры на статику
 function addGenresToMovieObj() {
   filmApiService.languagePage = languageQuery;
   return filmApiService
@@ -51,7 +48,6 @@ function addGenresToMovieObj() {
     });
 }
 
-// рендер популярних фильмов по клику на лого
 export function onLogoClick() {
   search.spinner.show();
   resetSearchField();
