@@ -2,7 +2,7 @@ import { saveSelectLanguage } from './language-interface';
 import { onLogoClick } from './card-fetch';
 import { searchField } from './refs';
 
-const dataForTranslation = {
+export const dataForTranslation = {
   ru: 0,
   ua: 1,
   en: 2,
@@ -12,6 +12,16 @@ const dataForTranslation = {
   watched: ['Смотрели', 'Дивились', 'Watched'],
   queue: ['Очередь', 'Черга', 'Queue'],
   search: ['Поиск фильмов...', 'Пошук фільмів...', 'Search Movies...'],
+  errorSearchMovie: [
+    'Результат поиска не удался. Введите правильное название фильма и повторите попытку!',
+    'Результат пошуку не вдалий. Введіть правильну назву фільму та повторіть спробу!',
+    'Search result not successful. Enter the correct movie name and retry!',
+  ],
+  errorEmptySerch: [
+    'Напишите, пожалуйста, что-нибудь!',
+    'Будь ласка, напишіть щось!',
+    'Please write something!',
+  ],
 };
 
 export function onLanguageSelect(e) {

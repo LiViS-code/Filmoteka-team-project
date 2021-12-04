@@ -6,12 +6,12 @@ import search from './spinner';
 import { scrollWin } from './card-fetch';
 import toTopBtn from './on-top-button';
 import { setLanguageQuery } from './language-interface';
+import { dataForTranslation } from './toggle-language';
 
 export const filmApiService = new ApiService();
 
 function addGenresToSearchObj() {
   filmApiService.language = setLanguageQuery(localStorage.getItem('languageSetting'));
-  console.log('язык запроса', filmApiService.languagePage);
   return filmApiService
     .fetchSearchFilms()
     .then(data => {
@@ -41,8 +41,11 @@ function addGenresToSearchObj() {
         }));
       });
     })
-    .catch(error => {
-      warningField.textContent = error;
+    .catch(() => {
+      warningField.textContent =
+        dataForTranslation.errorSearchMovie[
+          dataForTranslation[localStorage.getItem('languageSetting')]
+        ];
       paginationContainer.classList.add('visually-hidden');
     });
 }
@@ -63,7 +66,11 @@ export function FilmSearchByWord(e) {
 
   if (filmApiService.query === '') {
     search.spinner.close();
-    warningField.textContent = 'Please write something!';
+    warningField.textContent =
+      dataForTranslation.errorEmptySerch[
+        dataForTranslation[localStorage.getItem('languageSetting')]
+      ];
+    paginationContainer.classList.add('visually-hidden');
     return;
   }
 
