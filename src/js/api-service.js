@@ -15,7 +15,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => data)
-      .catch(err => console.log('ошибка:', err));
+      .catch(err => console.log('error:', err));
   }
 
   fetchSearchFilms() {
@@ -23,7 +23,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => data)
-      .catch(err => console.log('ошибка:', err));
+      .catch(err => console.log('error:', err));
   }
 
   fetchGenres() {
@@ -31,7 +31,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => data.genres)
-      .catch(err => console.log('ошибка:', err));
+      .catch(err => console.log('error:', err));
   }
 
   fetchId(id) {
@@ -39,7 +39,7 @@ export default class NewApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => data)
-      .catch(err => console.log('ошибка:', err));
+      .catch(err => console.log('error:', err));
   }
 
   get query() {

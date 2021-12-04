@@ -5,12 +5,13 @@ import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
 import toTopBtn from './on-top-button';
-import { languageQuery } from './language-interface';
+import { setLanguageQuery } from './language-interface';
 
 export const filmApiService = new ApiService();
 
 function addGenresToSearchObj() {
-  filmApiService.languagePage = languageQuery;
+  filmApiService.language = setLanguageQuery(localStorage.getItem('languageSetting'));
+  console.log('язык запроса', filmApiService.languagePage);
   return filmApiService
     .fetchSearchFilms()
     .then(data => {
