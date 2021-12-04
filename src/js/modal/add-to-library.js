@@ -44,7 +44,6 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
 }
 
 function onAddToLibraryBtnClick(e) {
-  console.log('onAddToLibraryBtnClick', e.target);
   if (e.target.classList.contains('add-t-w')) {
     if (e.target.textContent === 'remove from watched') {
       e.target.textContent = 'add to watched';
