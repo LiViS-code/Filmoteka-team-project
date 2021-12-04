@@ -6,6 +6,8 @@ import {
   appendQueueFilmsMarkup,
 } from '../library';
 
+let filmsId = [];
+
 mainDoc.addEventListener('click', onAddToLibraryBtnClick);
 
 function getIdFromCard(e) {
@@ -20,13 +22,9 @@ function getIdFromCard(e) {
   }
 }
 
-let filmsId = [];
-
 function addFilmId(id) {
-  if (filmsId.includes(id)) {
-    return;
-  }
-  filmsId.push(id);
+  if (!filmsId.includes(id)) filmsId.push(id);
+  return;
 }
 
 function addFilmsIdToLocalStorage(keyName, id) {
