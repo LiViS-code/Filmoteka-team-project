@@ -27,10 +27,10 @@ function addFilmId(id) {
   return;
 }
 
-function addFilmsIdToLocalStorage(keyName, id) {
-  filmsId = localStorage.getItem(keyName) ? JSON.parse(localStorage.getItem(keyName)) : [];
+function addFilmsIdToLocalStorage(key, id) {
+  filmsId = localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
   addFilmId(id);
-  localStorage.setItem(keyName, JSON.stringify(filmsId));
+  localStorage.setItem(key, JSON.stringify(filmsId));
 }
 
 function deleteFilmFromLibrary(event, idFromStorage, key) {
