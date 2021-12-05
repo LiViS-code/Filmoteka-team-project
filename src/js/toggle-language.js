@@ -13,15 +13,18 @@ export const dataForTranslation = {
   queue: ['Очередь', 'Черга', 'Queue'],
   search: ['Поиск фильмов...', 'Пошук фільмів...', 'Search Movies...'],
   errorSearchMovie: [
-    'Результат поиска не удался. Введите правильное название фильма и повторите попытку!',
-    'Результат пошуку не вдалий. Введіть правильну назву фільму та повторіть спробу!',
+    'Не найдено. Введите правильное название фильма и повторите попытку!',
+    'Не знайдено. Введіть правильну назву фільму та повторіть спробу!',
     'Search result not successful. Enter the correct movie name and retry!',
   ],
-  errorEmptySerch: [
-    'Напишите, пожалуйста, что-нибудь!',
-    'Будь ласка, напишіть щось!',
-    'Please write something!',
-  ],
+  errorEmptySerch: ['Надо написать что-нибудь!', 'Треба написати щось!', 'Please write something!'],
+  mVote: ['Голосов:', 'Голосів:', 'Vote/Votes:'],
+  mPopularity: ['Популяроность:', 'Популярність:', 'Popularity:'],
+  mTitle: ['Оригинальное название:', 'Оригінальна назва:', 'Original Title:'],
+  mGenre: ['Жанр:', 'Жанр:', 'Genre:'],
+  mAbout: ['О фильме', 'Про фільм', 'About'],
+  mWatched: ['добавить к просмотренным', 'додати до переглянутого', 'add to watched'],
+  mQueue: ['добавить в очередь', 'додати до черги', 'add to queue'],
 };
 
 export function onLanguageSelect(e) {
