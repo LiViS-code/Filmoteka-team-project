@@ -9,11 +9,9 @@ import { FilmSearchByWord } from './js/search-films';
 import { myLibraryBtn, logoEl, btnHome, searchForm, listElement, toggleLanguage } from './js/refs';
 import './js/modal/add-to-library';
 import './js/library';
-import { onLanguageSelect } from './js/toggle-language';
 import { onMyLibraryClick } from './js/modal/on-my-library-click';
 import { onCardClick } from './js/modal/on-card-click';
-import { defineLanguage } from './js/language-interface';
-import { changeLanguageInterface } from './js/toggle-language';
+import * as languageModule from './js/translate/language-module';
 
 localStorage.setItem('searched', '');
 
@@ -21,6 +19,6 @@ myLibraryBtn.addEventListener('click', onMyLibraryClick);
 logoEl.addEventListener('click', onLogoClick);
 btnHome.addEventListener('click', onLogoClick);
 searchForm.addEventListener('submit', FilmSearchByWord);
-toggleLanguage.addEventListener('click', onLanguageSelect);
+toggleLanguage.addEventListener('click', languageModule.onLanguageSelect);
 listElement.addEventListener('click', onCardClick);
-changeLanguageInterface(defineLanguage());
+languageModule.setLanguageInterface();

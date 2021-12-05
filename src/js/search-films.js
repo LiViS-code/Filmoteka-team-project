@@ -5,13 +5,12 @@ import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
 import toTopBtn from './on-top-button';
-import { setLanguageQuery } from './language-interface';
-import { dataForTranslation } from './toggle-language';
+import { vocabulary } from './translate/vocabulary';
 
 export const filmApiService = new ApiService();
 
 function addGenresToSearchObj() {
-  filmApiService.language = setLanguageQuery(localStorage.getItem('languageSetting'));
+  filmApiService.language = localStorage.getItem('languageQuery');
   return filmApiService
     .fetchSearchFilms()
     .then(data => {
@@ -43,9 +42,7 @@ function addGenresToSearchObj() {
     })
     .catch(() => {
       warningField.textContent =
-        dataForTranslation.errorSearchMovie[
-          dataForTranslation[localStorage.getItem('languageSetting')]
-        ];
+        vocabulary.errorSearchMovie[vocabulary[localStorage.getItem('languageSetting')]];
       paginationContainer.classList.add('visually-hidden');
     });
 }
@@ -67,9 +64,7 @@ export function FilmSearchByWord(e) {
   if (filmApiService.query === '') {
     search.spinner.close();
     warningField.textContent =
-      dataForTranslation.errorEmptySerch[
-        dataForTranslation[localStorage.getItem('languageSetting')]
-      ];
+      vocabulary.errorEmptySerch[vocabulary[localStorage.getItem('languageSetting')]];
     paginationContainer.classList.add('visually-hidden');
     return;
   }

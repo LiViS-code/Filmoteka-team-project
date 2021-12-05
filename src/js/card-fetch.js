@@ -20,14 +20,13 @@ import pagination from './pagination';
 import { onCardClick } from './modal/on-card-click';
 import toTopBtn from './on-top-button';
 import { filmApiService } from './search-films';
-import { setLanguageQuery } from './language-interface';
 
 const numFirstPage = 1;
 
 render(numFirstPage);
 
 function addGenresToMovieObj() {
-  filmApiService.language = setLanguageQuery(localStorage.getItem('languageSetting'));
+  filmApiService.language = localStorage.getItem('languageQuery');
   return filmApiService
     .fetchPopularFilms()
     .then(data => {
