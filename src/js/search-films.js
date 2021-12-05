@@ -1,6 +1,6 @@
 import filmsCardTpl from '../templates/filmCard.hbs';
 import ApiService from './api-service';
-import { warningField, searchField, listElement, paginationContainer } from './refs';
+import { warningField, searchField, listElement, paginationContainer, searchBox } from './refs';
 import pagination from './pagination';
 import search from './spinner';
 import { scrollWin } from './card-fetch';
@@ -22,8 +22,9 @@ function addGenresToSearchObj() {
         const err = 'Search result not successful. Enter the correct movie name and retry!';
         throw err;
       } else {
-        if (paginationContainer.classList.contains('visually-hidden'))
+        if (paginationContainer.classList.contains('visually-hidden')) {
           paginationContainer.classList.remove('visually-hidden');
+        }
         pagination(data.total_results, 20, filmApiService.page);
         return data;
       }
@@ -54,9 +55,10 @@ export function FilmSearchByWordPagination(searchedFilm, selectPage) {
 }
 
 export function FilmSearchByWord(e) {
+  e.preventDefault();
+  if (searchBox.classList.contains('visually-hidden')) return;
   search.spinner.show();
   filmApiService.pageNum = 1;
-  e.preventDefault();
   filmApiService.query = e.currentTarget.elements.query.value;
   let currentFilmSearchByWord = e.currentTarget.elements.query.value;
   localStorage.setItem('searched', currentFilmSearchByWord);

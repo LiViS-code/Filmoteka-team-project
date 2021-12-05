@@ -23,6 +23,8 @@ if (arrOfQueuedId) itemsInQueue = arrOfQueuedId.length;
 let step = 9;
 let end = 9;
 let quantityForPagination = 9;
+const minWidthLaptop = 768;
+const minWidthDesktop = 1024;
 
 export function getIdFromLocalStorage(keyName) {
   const filmsId = JSON.parse(localStorage.getItem(keyName)) || [];
@@ -30,11 +32,11 @@ export function getIdFromLocalStorage(keyName) {
 }
 
 export function filterId(page) {
-  if (document.documentElement.clientWidth < 1023) {
+  if (document.documentElement.clientWidth < minWidthDesktop) {
     step = 8;
     end = 8;
   }
-  if (document.documentElement.clientWidth < 767) {
+  if (document.documentElement.clientWidth < minWidthLaptop) {
     step = 4;
     end = 4;
   }
@@ -84,10 +86,10 @@ export function filterId(page) {
 }
 
 export function checkPaginationForLibrary(updatedLocaleStorage) {
-  if (document.documentElement.clientWidth < 1023) {
+  if (document.documentElement.clientWidth < minWidthDesktop) {
     quantityForPagination = 8;
   }
-  if (document.documentElement.clientWidth < 767) {
+  if (document.documentElement.clientWidth < minWidthLaptop) {
     quantityForPagination = 4;
   }
 
@@ -97,11 +99,11 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
       return;
     }
     paginationContainer.classList.remove('visually-hidden');
-    pagination(updatedLocaleStorage.length, quantityForPagination);
-    if (document.documentElement.clientWidth < 1023) {
+    pagination(updatedLocaleStorage.length, quantityForPagination, 1);
+    if (document.documentElement.clientWidth < minWidthDesktop) {
       pagination(updatedLocaleStorage.length, 8);
     }
-    if (document.documentElement.clientWidth < 767) {
+    if (document.documentElement.clientWidth < minWidthLaptop) {
       pagination(updatedLocaleStorage.length, 4);
     }
     return;
@@ -113,18 +115,18 @@ export function checkPaginationForLibrary(updatedLocaleStorage) {
       return;
     }
     paginationContainer.classList.remove('visually-hidden');
-    pagination(updatedLocaleStorage.length, quantityForPagination);
-    if (document.documentElement.clientWidth < 1023) {
+    pagination(updatedLocaleStorage.length, quantityForPagination, 1);
+    if (document.documentElement.clientWidth < minWidthDesktop) {
       pagination(updatedLocaleStorage.length, 8);
     }
-    if (document.documentElement.clientWidth < 767) {
+    if (document.documentElement.clientWidth < minWidthLaptop) {
       pagination(updatedLocaleStorage.length, 4);
     }
     return;
   }
 }
 
-const filmApiService = new ApiService();
+const filmApiServiceLibrary = new ApiService();
 
 export function appendWatchedFilmsMarkup(film) {
   listWatchedFilms.insertAdjacentHTML('beforeend', filmsCardTpl(film));
@@ -138,9 +140,9 @@ export function fetchFilmsById(arrId, markup) {
   if (arrId === null) {
     return;
   } else {
-    filmApiService.language = localStorage.getItem('languageQuery');
+    filmApiServiceLibrary.language = localStorage.getItem('languageQuery');
     arrId.forEach(id => {
-      return filmApiService.fetchId(id).then(films => {
+      return filmApiServiceLibrary.fetchId(id).then(films => {
         let arrOfFilms = [];
         arrOfFilms.push(films);
         markup(arrOfFilms);

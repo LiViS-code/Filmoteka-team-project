@@ -17,11 +17,12 @@ import {
 import { checkPaginationForLibrary, filterId, getIdFromLocalStorage } from '../library';
 
 export function onMyLibraryClick() {
+  const updateLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
+  const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
+
   bgImageChange('home-header', 'library-header');
   contentChange();
 
-  const updateLocaleStorageWatched = getIdFromLocalStorage('watchedFilms');
-  const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
   if (watchedBtn.classList.contains('btn-current')) {
     checkPaginationForLibrary(updateLocaleStorageWatched);
     if (updateLocaleStorageWatched) {
