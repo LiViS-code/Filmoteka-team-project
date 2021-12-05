@@ -5,26 +5,26 @@
     <h2 class="film-title">{{title}}</h2>
     <table class="film-descr-table">
         <tr>
-            <td class="film-descr-itm">Vote/Votes:</td>
+            <td class="film-descr-itm" data-mkey="mVote">Vote/Votes:</td>
             <td class="film-descr-itm-txt"><span class="vote-ave">{{vote_average}}</span>&nbsp;/&nbsp;<span class="vote-count">{{vote_count}}</span></td>
         </tr>
         <tr>
-            <td class="film-descr-itm">Popularity: <span class="film-descr-itm-txt-pop"></span></td>
+            <td class="film-descr-itm" data-mkey="mPopularity">Popularity: <span class="film-descr-itm-txt-pop"></span></td>
             <td class="film-descr-itm-txt">{{popularity}}</td>
         </tr>
         <tr>
-            <td class="film-descr-itm">Original Title: <span class="film-descr-itm-txt-orig_ttl"></span></td>
+            <td class="film-descr-itm" data-mkey="mTitle">Original Title: <span class="film-descr-itm-txt-orig_ttl"></span></td>
             <td class="film-descr-itm-txt">{{original_title}}</td>
         </tr>
         <tr>
-            <td class="film-descr-itm">Genre:</td>
+            <td class="film-descr-itm" data-mkey="mGenre">Genre:</td>
             <td class="film-descr-itm-txt">{{#each genres}} {{name}} {{/each}}</td>
         </tr>     
     </table>
-    <h3 class="about-title">About</h3>
+    <h3 class="about-title" data-mkey="mAbout">About</h3>
     <p class="about-description">{{overview}}</p>
     <div class="button-add-container">
-        <button class="modal-button add-t-w">add to watched</button>
-        <button class="modal-button add-t-q">add to queue</button>
+        <button class="modal-button add-t-w" data-mkey="mWatched">add to watched</button>
+        <button class="modal-button add-t-q" data-mkey="mQueue">add to queue</button>
     </div>
 </div>
