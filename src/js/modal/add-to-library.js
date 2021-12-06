@@ -5,6 +5,8 @@ import {
   appendWatchedFilmsMarkup,
   appendQueueFilmsMarkup,
 } from '../library';
+import { vocabulary } from '../translate/vocabulary';
+import { defineLanguage } from '../translate/language-module';
 
 let filmsId = [];
 
@@ -43,31 +45,35 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
 
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
-    if (e.target.textContent === 'remove from watched') {
-      e.target.textContent = 'add to watched';
+    if (e.target.dataset.mkey === 'mWatchedRemove') {
+      e.target.dataset.mkey = 'mWatched';
+      e.target.textContent = vocabulary.mWatched[vocabulary[defineLanguage()]];
       deleteFilmFromLibrary(e, updateListId('watchedFilms'), 'watchedFilms');
       addNewFilmsToList('watchedFilms');
       return;
     }
-    if (e.target.textContent === 'add to watched') {
+    if (e.target.dataset.mkey === 'mWatched') {
       addNewFilmsToList('watchedFilms');
       addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
-      e.target.textContent = 'remove from watched';
+      e.target.dataset.mkey = 'mWatchedRemove';
+      e.target.textContent = vocabulary.mWatchedRemove[vocabulary[defineLanguage()]];
     }
   }
 
   if (e.target.classList.contains('add-t-q')) {
-    if (e.target.textContent === 'remove from queue') {
-      e.target.textContent = 'add to queue';
+    if (e.target.dataset.mkey === 'mQueueRemove') {
+      e.target.dataset.mkey = 'mQueue';
+      e.target.textContent = vocabulary.mQueue[vocabulary[defineLanguage()]];
       const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
       deleteFilmFromLibrary(e, updateLocaleStorageQueued, 'queuedFilms');
       addNewFilmsToList('queuedFilms');
       return;
     }
-    if (e.target.textContent === 'add to queue') {
+    if (e.target.dataset.mkey === 'mQueue') {
       addNewFilmsToList('queuedFilms');
       addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
-      e.target.textContent = 'remove from queue';
+      e.target.dataset.mkey = 'mQueueRemove';
+      e.target.textContent = vocabulary.mQueueRemove[vocabulary[defineLanguage()]];
     }
   }
 }

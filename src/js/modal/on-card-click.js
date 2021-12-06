@@ -4,6 +4,8 @@ import { toggleModal } from './toggle-modal';
 import { updateListId } from './add-to-library';
 import search from '../spinner';
 import { filmApiService } from '../search-films';
+import { defineLanguage, changeLanguageInterfaceModal } from '../translate/language-module';
+import { vocabulary } from '../translate/vocabulary';
 
 export function onCardClick(event) {
   if (event.target.tagName === 'UL') return;
@@ -33,11 +35,12 @@ function fetchFilmInfo(filmId, watchedId, queuedId) {
     modalWindowContent.innerHTML = filmInfoTpl(data);
     const addToWatchedBtn = document.querySelector('.add-t-w');
     const addToQueuedBtn = document.querySelector('.add-t-q');
+    changeLanguageInterfaceModal(defineLanguage());
     if (watchedId.includes(filmId)) {
-      addToWatchedBtn.textContent = 'remove from watched';
+      addToWatchedBtn.textContent = vocabulary.mWatchedRemove[vocabulary[defineLanguage()]];
     }
     if (queuedId.includes(filmId)) {
-      addToQueuedBtn.textContent = 'remove from queue';
+      addToQueuedBtn.textContent = vocabulary.mQueueRemove[vocabulary[defineLanguage()]];
     }
   });
 }

@@ -94,3 +94,12 @@ export function changeLanguageInterface(lang) {
   searchField.placeholder = vocabulary.search[langNumber];
   onLogoClick();
 }
+
+export function changeLanguageInterfaceModal(lang) {
+  const arrTranslateData = document.querySelectorAll('[data-mkey]');
+  const langNumber = vocabulary[lang];
+  arrTranslateData.forEach(el => {
+    const key = el.getAttribute('data-mkey');
+    el.textContent = vocabulary[key][langNumber];
+  });
+}
