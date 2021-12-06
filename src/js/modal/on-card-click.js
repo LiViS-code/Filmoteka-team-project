@@ -38,9 +38,11 @@ function fetchFilmInfo(filmId, watchedId, queuedId) {
     changeLanguageInterfaceModal(defineLanguage());
     if (watchedId.includes(filmId)) {
       addToWatchedBtn.textContent = vocabulary.mWatchedRemove[vocabulary[defineLanguage()]];
+      addToWatchedBtn.dataset.mkey = 'mWatchedRemove';
     }
     if (queuedId.includes(filmId)) {
       addToQueuedBtn.textContent = vocabulary.mQueueRemove[vocabulary[defineLanguage()]];
+      addToQueuedBtn.dataset.mkey = 'mQueueRemove';
     }
   });
 }

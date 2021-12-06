@@ -45,37 +45,38 @@ function deleteFilmFromLibrary(event, idFromStorage, key) {
 
 function onAddToLibraryBtnClick(e) {
   if (e.target.classList.contains('add-t-w')) {
+    console.log('написано на кнопке', e.target.textContent);
+    console.log('фактический ключ', e.target.dataset.mkey);
     if (e.target.dataset.mkey === 'mWatchedRemove') {
-      e.target.dataset.mkey = 'mWatched';
-      e.target.textContent = vocabulary.mWatched[vocabulary[defineLanguage()]];
-      deleteFilmFromLibrary(e, updateListId('watchedFilms'), 'watchedFilms');
-      addNewFilmsToList('watchedFilms');
-      return;
+      return removeFromList('mWatched', 'watchedFilms', e);
     }
     if (e.target.dataset.mkey === 'mWatched') {
-      addNewFilmsToList('watchedFilms');
-      addFilmsIdToLocalStorage('watchedFilms', getIdFromCard(e));
-      e.target.dataset.mkey = 'mWatchedRemove';
-      e.target.textContent = vocabulary.mWatchedRemove[vocabulary[defineLanguage()]];
+      return addToList('mWatchedRemove', 'watchedFilms', e);
     }
   }
 
   if (e.target.classList.contains('add-t-q')) {
     if (e.target.dataset.mkey === 'mQueueRemove') {
-      e.target.dataset.mkey = 'mQueue';
-      e.target.textContent = vocabulary.mQueue[vocabulary[defineLanguage()]];
-      const updateLocaleStorageQueued = getIdFromLocalStorage('queuedFilms');
-      deleteFilmFromLibrary(e, updateLocaleStorageQueued, 'queuedFilms');
-      addNewFilmsToList('queuedFilms');
-      return;
+      return removeFromList('mQueue', 'queuedFilms', e);
     }
     if (e.target.dataset.mkey === 'mQueue') {
-      addNewFilmsToList('queuedFilms');
-      addFilmsIdToLocalStorage('queuedFilms', getIdFromCard(e));
-      e.target.dataset.mkey = 'mQueueRemove';
-      e.target.textContent = vocabulary.mQueueRemove[vocabulary[defineLanguage()]];
+      return addToList('mQueueRemove', 'queuedFilms', e);
     }
   }
+}
+
+function removeFromList(key, nameList, event) {
+  event.target.dataset.mkey = key;
+  event.target.textContent = vocabulary[key][vocabulary[defineLanguage()]];
+  deleteFilmFromLibrary(event, getIdFromLocalStorage(nameList), nameList);
+  addNewFilmsToList(nameList);
+}
+
+function addToList(key, nameList, event) {
+  addNewFilmsToList(nameList);
+  addFilmsIdToLocalStorage(nameList, getIdFromCard(event));
+  event.target.dataset.mkey = key;
+  event.target.textContent = vocabulary[key][vocabulary[defineLanguage()]];
 }
 
 function addNewFilmsToList(nameList) {
