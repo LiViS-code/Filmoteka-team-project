@@ -92,15 +92,15 @@
 }
 
 .modal-button {
-  width: 113px;
+  width: 125px;
   font-weight: 500;
 
   @media screen and (min-width: $tablet-size) {
-    width: 125px;
+    width: 135px;
   }
 
   @media screen and (min-width: $desktop-size) {
-    width: 136px;
+    width: 155px;
   }
 
   height: 44px;
@@ -109,17 +109,19 @@
   border-color: $color;
   border-radius: $border-radius;
   text-transform: uppercase;
-  margin-right: 15px;
+  text-align: center;
   cursor: pointer;
+  transition: background-color $timing $timing-func,
+    color $timing $timing-func;
 
   &:hover,
   &:focus {
     background-color: $bg-accent-color;
-    border: 1px solid $bg-accent-color;
+    border: 2px solid $bg-accent-color;
     color: $reverse-color;
   }
 
-  &:last-child {
-    margin-right: 0;
+  &:not(:last-child) {
+    margin-right: 15px;
   }
 }
